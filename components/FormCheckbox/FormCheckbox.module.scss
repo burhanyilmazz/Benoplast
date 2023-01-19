@@ -1,0 +1,66 @@
+@import "../../assets/styles/icons.scss";
+
+.checkbox {
+  position: relative;
+  display: -webkit-inline-box;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  width: 100%;
+  margin-top: 10px;
+
+  span {
+    position: relative;
+    display: inline-flex;
+    margin-right: 20px;
+    font-family: benoplast !important;
+    @extend .icon-check;
+
+    &:before {
+      position: absolute;
+      display: none;
+      font-size: 10px;
+      left: calc(50% - 5px);
+      top: calc(50% - 4px);
+      color: #fff;
+      z-index: 2;
+    }
+
+    &:after {
+      width: 34px;
+      height: 34px;
+      content: "";
+      position: relative;
+      border: 1px solid #a7a8a9;
+      background: #e8e8e8;
+      border-radius: 3px;
+      z-index: 1;
+      top: 5px;
+    }
+
+    & + div {
+      font-size: 14px;
+      line-height: 23px;
+      font-weight: 300;
+      width: calc(100% - 54px);
+      max-width: 500px;
+    }
+  }
+
+  input:checked {
+    ~ span {
+      &:after {
+        background: #4a4f54;
+        border-color: #4a4f54;
+      }
+      &:before {
+        display: block;
+      }
+    }
+  }
+
+  pre {
+    display: none;
+  }
+}

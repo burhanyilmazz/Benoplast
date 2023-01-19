@@ -1,0 +1,253 @@
+.page {
+  width: 27%;
+  height: 100%;
+  position: absolute;
+  padding: 160px 60px 40px;
+  transition: all 0.5s ease;
+  transform: translateX(300%);
+
+  @media screen and (max-width: 1366px) {
+    width: 33.333%;
+  }
+
+  h3 {
+    font-size: clamp(20px, 1.7vw, 26px);
+    line-height: clamp(25px, 2vw, 31px);
+    font-weight: 400;
+    margin-bottom: 30px;
+  }
+
+  nav {
+    font-size: clamp(14px, 1.2vw, 18px);
+    font-weight: 400;
+    height: 100%;
+    overflow-y: auto;
+    line-height: 22px;
+
+    ul {
+      gap: clamp(10px, 1.6vw, 30px);
+      display: flex;
+      flex-direction: column;
+    }
+
+    a,
+    span {
+      display: flex;
+      color: #000;
+
+      &:hover {
+        color: #d60812;
+      }
+    }
+
+    li {
+      cursor: pointer;
+      position: relative;
+      padding-left: 30px;
+
+      &:has(ul) {
+        &:before {
+          width: 30px;
+          content: "+";
+          display: inline-flex;
+          position: absolute;
+          font-weight: normal;
+          margin-top: 0;
+          left: 0;
+        }
+      }
+
+      ul {
+        font-weight: 300;
+        padding: 20px 0;
+        display: none;
+
+        li {
+          padding-left: 0;
+
+          a {
+            color: #4a4f54;
+            opacity: 0.8;
+            display: flex;
+
+            &:hover {
+              opacity: 1;
+              color: #4a4f54;
+            }
+          }
+        }
+      }
+
+      &:hover {
+        &:before,
+        span {
+          color: #d60812;
+        }
+      }
+    }
+  }
+
+  &-1 {
+    background: #e8e8e8;
+    right: 0;
+    z-index: 3;
+    transition-delay: 0.4s;
+
+    nav {
+      height: calc(100% - 110px);
+      ul {
+        font-size: clamp(20px, 1.6vw, 26px);
+        gap: clamp(30px, 3vw, 60px);
+
+        ul {
+          font-size: clamp(14px, 1.2vw, 18px);
+          gap: clamp(10px, 1.6vw, 30px);
+        }
+      }
+    }
+  }
+
+  &-2 {
+    background: #f1f1f1;
+    right: 27%;
+    z-index: 2;
+    transition-delay: 0.2s;
+
+    @media screen and (max-width: 1366px) {
+      right: 33.333%;
+    }
+  }
+  &-3 {
+    background: #f6f6f6;
+    right: 54%;
+    z-index: 1;
+    transition-delay: 0s;
+
+    @media screen and (max-width: 1366px) {
+      right: 66.666%;
+    }
+  }
+}
+
+.nav {
+  &--open {
+    span {
+      color: #d60812 !important;
+    }
+    &:before {
+      content: "-" !important;
+      color: #d60812 !important;
+    }
+    > ul {
+      display: flex !important;
+    }
+  }
+}
+
+.language {
+  display: flex;
+  gap: 20px;
+  font-size: 12px;
+  font-weight: 400;
+  margin-left: 30px;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e0e0e0;
+    border-radius: 10px;
+    width: clamp(30px, 5vw, 42px);
+    height: clamp(30px, 5vw, 42px);
+    color: #000;
+
+    &:hover {
+      background: rgba($color: #a7a8a9, $alpha: 0.4);
+    }
+  }
+
+  &--active {
+    background: rgba($color: #a7a8a9, $alpha: 0.4) !important;
+  }
+}
+
+.social-media {
+  position: absolute;
+  left: 90px;
+  bottom: 40px;
+  a {
+    color: #4a4f54 !important;
+  }
+  i {
+    &:before {
+      font-size: 20px;
+    }
+  }
+
+  li {
+    &:last-child {
+      i {
+        &:before {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+.search {
+  position: absolute;
+  top: 0;
+  right: 170px;
+  z-index: 9;
+  width: calc(27% - 170px);
+  transition: all 0.3s ease;
+  transform: translateX(500%);
+  transition-delay: 0.2s;
+
+  @media screen and (max-width: 1366px) {
+    width: calc(33.333% - 110px);
+    right: 110px;
+  }
+
+  &--focus {
+    width: calc((27% * 3) - 170px);
+    @media screen and (max-width: 1366px) {
+      width: calc((33.333% * 3) - 110px);
+    }
+  }
+}
+
+.sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: -1;
+  width: 100%;
+  transition: all 0.5s ease;
+  transition-delay: 0.4s;
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+
+  &--open {
+    background: rgba($color: #231f20, $alpha: 0.4);
+    z-index: 998;
+    transition-delay: 0s;
+    .page {
+      transform: translateX(0);
+
+      &-1 {
+        transition-delay: 0s;
+      }
+      &-3 {
+        transition-delay: 0.4s;
+      }
+    }
+
+    .search {
+      transform: translateX(0);
+    }
+  }
+}

@@ -1,0 +1,162 @@
+.back {
+  width: calc(100% - 220px);
+  min-width: 140px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: -90px;
+  z-index: 97;
+  left: 0;
+  padding: 0 30px;
+
+  i {
+    transform: rotate(180deg);
+  }
+
+  span {
+    font-weight: 300;
+    font-size: 12px;
+    margin-left: 10px;
+  }
+}
+
+.page {
+  width: 100%;
+  height: calc(100% - 90px);
+  bottom: 0;
+  position: absolute;
+  padding: 50px 30px;
+  transition: all 0.5s ease;
+  transform: translateX(300%);
+  right: 0;
+
+  h3 {
+    font-size: 26px;
+    line-height: 31px;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }
+
+  nav {
+    font-size: 18px;
+    font-weight: 400;
+    height: 100%;
+    overflow-y: auto;
+    line-height: 22px;
+    ul {
+      gap: 30px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a,
+    span {
+      display: flex;
+      color: #000;
+    }
+
+    li {
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &-1 {
+    background: #e8e8e8;
+    right: 0;
+    z-index: 1;
+
+    nav {
+      height: calc(100% - 170px);
+      ul {
+        font-size: 26px;
+        gap: 40px;
+      }
+    }
+  }
+
+  &-2 {
+    background: #f1f1f1;
+    z-index: 2;
+    width: calc(100% - 20px);
+
+    .back {
+      background: #f1f1f1;
+    }
+  }
+  &-3 {
+    background: #f6f6f6;
+    z-index: 3;
+    width: calc(100% - 20px);
+    .back {
+      background: #f6f6f6;
+    }
+  }
+}
+
+.sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: -1;
+  width: 100%;
+  transition: all 0.5s ease;
+  display: none;
+  @media screen and (max-width: 1024px) {
+    display: flex;
+  }
+
+  &--open {
+    z-index: 98;
+    transition-delay: 0s;
+
+    .active {
+      transform: translateX(0);
+    }
+  }
+}
+
+.language {
+  display: flex;
+  gap: 20px;
+  font-size: 18px;
+  font-weight: 400;
+  border-top: 1px solid #d7d8d6;
+  padding-top: 30px;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e0e0e0;
+    border-radius: 10px;
+    width: 60px;
+    height: 60px;
+    color: #000;
+
+    &:hover {
+      background: #a7a8a9;
+    }
+  }
+
+  &--active {
+    background: rgba($color: #a7a8a9, $alpha: 0.4) !important;
+  }
+}
+
+.policy {
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 30px;
+
+  a {
+    color: #000;
+    line-height: 40px;
+    display: block;
+  }
+}

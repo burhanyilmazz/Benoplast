@@ -1,0 +1,99 @@
+.newsletter {
+  background: #e8e8e8;
+  position: relative;
+  padding: 50px 170px;
+  //padding-left: clamp(36px, 6vw, 170px);
+
+  @media screen and (max-width: 1366px) {
+    padding-right: 100px;
+    padding-left: 100px;
+  }
+
+  @media screen and (max-width: 1280px) {
+    padding-right: 36px;
+    padding-left: 36px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    height: 400px;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 200px);
+
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+  }
+}
+
+.title {
+  margin-bottom: 30px;
+  font-size: clamp(24px, 1.9vw, 30px);
+  line-height: 32px;
+  font-weight: 200;
+  span {
+    font-weight: 500;
+    display: block;
+  }
+}
+
+.form-input {
+  position: relative;
+}
+
+.input {
+  label {
+    transform: translate(40px, 30px) scale(1);
+  }
+  input {
+    padding-left: 40px;
+
+    &[data-dirty="true"],
+    &[data-dirty-important="true"],
+    &:focus {
+      & ~ label {
+        transform: translate(40px, 20px) scale(0.75);
+      }
+    }
+  }
+}
+
+.icon {
+  position: absolute;
+  color: #1f242b;
+  bottom: 13px;
+  &:before {
+    font-size: 30px;
+  }
+}
+
+.image {
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+
+  @media screen and (max-width: 1024px) {
+    bottom: auto;
+    top: 30px;
+  }
+
+  img {
+    @media screen and (max-width: 1440px) {
+      width: 80%;
+      height: auto;
+    }
+
+    @media screen and (max-width: 1024px) {
+      width: 108px;
+    }
+  }
+}
+
+.button {
+  margin-top: 80px;
+}

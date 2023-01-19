@@ -1,0 +1,88 @@
+.library {
+  background: #e8e8e8;
+  position: relative;
+  padding: 50px 170px 50px 50px;
+
+  @media screen and (max-width: 1366px) {
+    padding-right: 100px;
+  }
+
+  @media screen and (max-width: 1280px) {
+    padding: 36px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    background: #4A4F54;
+  }
+}
+
+.container {
+  width: calc(100% - 200px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media screen and (max-width: 1024px) {
+    color: #fff;
+    justify-content: flex-start;
+    width: calc(100% - 100px);
+
+    a {
+      > div {
+        color: #fff;
+      }
+    }
+  }
+
+  span {
+    font-size: clamp(24px, 1.9vw, 30px);
+    line-height: 32px;
+    font-weight: 500;
+  }
+
+  p {
+    font-weight: 200;
+    font-size: clamp(14px, 2vw, 18px);
+    line-height: 24px;
+
+    @media screen and (max-width: 1024px) {
+      font-weight: 300;
+      margin-top: 20px;
+    }
+  }
+}
+
+.image {
+  position: absolute;
+  right: 50px;
+  transform: translateY(-50%);
+  top: 200px;
+  display: flex;
+  justify-content: flex-end;
+
+  @media screen and (max-width: 1024px) {
+    top: 30px;
+    right: 0;
+    transform: translateY(0);
+  }
+
+  img {
+    @media screen and (max-width: 1440px) {
+      width: 80%;
+      height: auto;
+    }
+
+    @media screen and (max-width: 1024px) {
+      width: 102px
+    }
+  }
+}
+
+.button {
+  width: 170px;
+
+  @media screen and (max-width: 1024px) {
+    margin-top: 80px;
+  }
+}

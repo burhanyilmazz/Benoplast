@@ -1,0 +1,30 @@
+.search {
+  position: fixed;
+  top: 90px;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  width: 100%;
+  transition: all 0.5s ease;
+  display: none;
+
+  @media screen and (max-width: 1024px) {
+    display: block;
+  }
+
+  &--open {
+    z-index: 9;
+    background: rgba(31, 36, 43, 0.3);
+
+    .wrap {
+      transform: translateY(0);
+    }
+  }
+}
+
+.wrap {
+  background: #f9f9fa;
+  padding: 40px 0;
+  transform: translateY(-100%);
+  transition: all 0.5s ease;
+}

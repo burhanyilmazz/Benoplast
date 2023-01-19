@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "benoplast";
+  src: url('./../fonts/benoplast.svg#benoplast') format('svg'),
+    url("./../fonts/benoplast.ttf?a52a52af0d15b1839146211348941d21") format("truetype");
+  font-display: swap;
+  font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');

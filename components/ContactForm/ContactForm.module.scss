@@ -1,0 +1,62 @@
+.contact-form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    font-weight: 400;
+    margin-bottom: 17px;
+    font-size: clamp(20px, 3vw, 32px);
+    line-height: clamp(28px, 4vw, 39px);
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 300;
+    margin-bottom: 84px;
+
+    @media screen and (max-width: 1024px) {
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &--hr {
+    p {
+      width: 60%;
+
+      @media screen and (max-width: 1024px) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.permission {
+  padding: 80px;
+  background: #fff;
+  border-radius: 20px;
+  max-width: 800px;
+
+  &__content {
+    overflow-y: auto;
+    max-height: 40vh;
+    width: 100%;
+    padding-right: 30px;
+    font-size: clamp(14px, 1.2vw, 18px) !important;
+    line-height: clamp(22px, 2vw, 26px) !important;
+    font-weight: 300 !important;
+    font-family: "Roboto", sans-serif !important;
+    text-align: left !important;
+  }
+
+  h3 {
+    font-weight: 300;
+    font-size: clamp(19px, 1.6vw, 24px);
+    line-height: clamp(22px, 1.6vw, 29px);
+    margin-top: 22px;
+    margin-bottom: 12px;
+  }
+}

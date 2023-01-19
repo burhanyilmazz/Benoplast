@@ -1,0 +1,93 @@
+.hamburger {
+  width: 169px;
+  height: 100px;
+  position: fixed;
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  z-index: 999;
+  right: 0;
+  top: 0;
+  background: #fff;
+  cursor: pointer;
+
+  @media screen and (max-width: 1366px) {
+    width: 110px;
+    height: 90px;
+    border-left: 1px solid rgba($color: #35373C, $alpha: 0.05);
+  }
+
+  span {
+    display: block;
+    position: absolute;
+    height: 1px;
+    width: 50px;
+    background: #666;
+    opacity: 1;
+    left: 50%;
+    margin-left: -25px;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+
+    &:nth-child(1) {
+      top: 40px;
+    }
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      top: 46px;
+      width: 70px;
+      margin-left: -35px;
+    }
+
+    &:nth-child(4) {
+      top: 52px;
+    }
+  }
+
+  div {
+    color: #D9D8D6;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 33px;
+    position: absolute;
+    bottom: 19px;
+    width: 100%;
+    text-align: center;
+  }
+
+  &:hover {
+    background: #000;
+
+    span {
+      background: #fff;
+    }
+  }
+
+  &--open {
+    background: #000;
+    span {
+      background: #fff !important;
+      height: 2px;
+      &:nth-child(1) {
+        top: 40px;
+        width: 0%;
+      }
+      &:nth-child(2) {
+        transform: rotate(45deg);
+        width: 50px;
+        margin-left: -25px;
+      }
+      &:nth-child(3) {
+        transform: rotate(-45deg);
+        width: 50px;
+        margin-left: -25px;
+      }
+      &:nth-child(4) {
+        top: 40px;
+        width: 0%;
+        
+      }
+    }
+  }
+}

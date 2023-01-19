@@ -1,0 +1,75 @@
+.download {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  color: #fff !important;
+  opacity: 0;
+  transition: all 0.5s ease;
+
+  i {
+    color: #fff !important;
+    &:before {
+      font-size: 44px !important;
+      margin-left: 0 !important;
+    }
+  }
+}
+.card {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid #e8e8e8;
+  background: #fff;
+  width: 100%;
+  height: 260px;
+  position: relative;
+  transition: all 0.5s ease;
+
+  span {
+    color: #4a4f54;
+    font-weight: 200;
+    font-size: 14px;
+    transition: all 0.5s ease;
+  }
+
+  h4 {
+    font-weight: 400;
+    font-size: 20px;
+    color: #000;
+    line-height: 24px;
+    transition: all 0.5s ease;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  i {
+    color: #d60812;
+    transition: all 0.5s ease;
+    &:before {
+      font-size: 60px;
+      margin-left: -10px;
+    }
+  }
+
+  &:hover {
+    background: #d60812;
+
+    span,
+    h4,
+    i {
+      color: #fff !important;
+    }
+
+    .download {
+      opacity: 1;
+    }
+  }
+}
