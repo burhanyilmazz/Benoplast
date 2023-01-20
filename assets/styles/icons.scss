@@ -10,138 +10,178 @@ vertical-align: top;
 }
 
 
-  %icon-arrow {
+  %icon-arrow-down {
   content: "\f101";
+  }
+
+  .icon-arrow-down:before {
+  content: "\f101";
+  }
+
+  %icon-arrow {
+  content: "\f102";
   }
 
   .icon-arrow:before {
-  content: "\f101";
+  content: "\f102";
+  }
+
+  %icon-basket {
+  content: "\f103";
+  }
+
+  .icon-basket:before {
+  content: "\f103";
   }
 
   %icon-check {
-  content: "\f102";
+  content: "\f104";
   }
 
   .icon-check:before {
-  content: "\f102";
+  content: "\f104";
   }
 
   %icon-close {
-  content: "\f103";
+  content: "\f105";
   }
 
   .icon-close:before {
-  content: "\f103";
+  content: "\f105";
   }
 
   %icon-download {
-  content: "\f104";
+  content: "\f106";
   }
 
   .icon-download:before {
-  content: "\f104";
+  content: "\f106";
   }
 
   %icon-email-1 {
-  content: "\f105";
+  content: "\f107";
   }
 
   .icon-email-1:before {
-  content: "\f105";
+  content: "\f107";
   }
 
   %icon-email {
-  content: "\f106";
+  content: "\f108";
   }
 
   .icon-email:before {
-  content: "\f106";
+  content: "\f108";
   }
 
   %icon-facebook {
-  content: "\f107";
+  content: "\f109";
   }
 
   .icon-facebook:before {
-  content: "\f107";
+  content: "\f109";
   }
 
   %icon-instagram {
-  content: "\f108";
+  content: "\f10a";
   }
 
   .icon-instagram:before {
-  content: "\f108";
+  content: "\f10a";
   }
 
   %icon-linkedin {
-  content: "\f109";
+  content: "\f10b";
   }
 
   .icon-linkedin:before {
-  content: "\f109";
+  content: "\f10b";
   }
 
   %icon-location {
-  content: "\f10a";
+  content: "\f10c";
   }
 
   .icon-location:before {
-  content: "\f10a";
+  content: "\f10c";
+  }
+
+  %icon-minus {
+  content: "\f10d";
+  }
+
+  .icon-minus:before {
+  content: "\f10d";
   }
 
   %icon-pdf {
-  content: "\f10b";
+  content: "\f10e";
   }
 
   .icon-pdf:before {
-  content: "\f10b";
+  content: "\f10e";
   }
 
   %icon-phone {
-  content: "\f10c";
+  content: "\f10f";
   }
 
   .icon-phone:before {
-  content: "\f10c";
+  content: "\f10f";
+  }
+
+  %icon-plus {
+  content: "\f110";
+  }
+
+  .icon-plus:before {
+  content: "\f110";
   }
 
   %icon-search {
-  content: "\f10d";
+  content: "\f111";
   }
 
   .icon-search:before {
-  content: "\f10d";
+  content: "\f111";
+  }
+
+  %icon-trash {
+  content: "\f112";
+  }
+
+  .icon-trash:before {
+  content: "\f112";
   }
 
   %icon-twitter {
-  content: "\f10e";
+  content: "\f113";
   }
 
   .icon-twitter:before {
-  content: "\f10e";
+  content: "\f113";
   }
 
   %icon-upload {
-  content: "\f10f";
+  content: "\f114";
   }
 
   .icon-upload:before {
-  content: "\f10f";
+  content: "\f114";
   }
 
   %icon-youtube {
-  content: "\f110";
+  content: "\f115";
   }
 
   .icon-youtube:before {
-  content: "\f110";
+  content: "\f115";
   }
 
   %icon-zoom {
-  content: "\f111";
+  content: "\f116";
   }
 
   .icon-zoom:before {
-  content: "\f111";
+  content: "\f116";
   }

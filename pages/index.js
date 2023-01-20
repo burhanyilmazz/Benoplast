@@ -11,30 +11,59 @@ export default function Home() {
   const sliders = [
     {
         "id": 3,
-        "title": "more is possible",
-        "first_image": "https://volde.ozanuzer.com/images/slider/16728325846b23d0.svg",
-        "second_image": "https://volde.ozanuzer.com/images/slider/1671959776517722.png",
-        "second_image_mobile": "https://volde.ozanuzer.com/images/slider/1671959776e9de51.png",
-        "third_image": "https://volde.ozanuzer.com/images/slider/1671959776b1667a.svg",
+        "title": "Sanayi",
+        "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since.",
+        "first_image": "/images/products/otomotiv.png",
+        "first_image_mobile": "https://volde.ozanuzer.com/images/slider/1671959776e9de51.png",
         "sort": 1
     },
     {
         "id": 2,
-        "title": "more is possible",
-        "first_image": "https://volde.ozanuzer.com/images/slider/1672832597aa357d.svg",
-        "second_image": "https://volde.ozanuzer.com/images/slider/16719598339f7600.png",
-        "second_image_mobile": "https://volde.ozanuzer.com/images/slider/1671959833fb7515.png",
-        "third_image": "https://volde.ozanuzer.com/images/slider/167195983317b589.svg",
+        "title": "Otomotiv",
+        "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since.",
+        "first_image": "/images/products/otomotiv.png",
+        "first_image_mobile": "https://volde.ozanuzer.com/images/slider/1671959833fb7515.png",
         "sort": 2
     },
     {
         "id": 1,
-        "title": "more is possible",
-        "first_image": "https://volde.ozanuzer.com/images/slider/167283260803b56c.svg",
-        "second_image": "https://volde.ozanuzer.com/images/slider/1671959886f4adc5.png",
-        "second_image_mobile": "https://volde.ozanuzer.com/images/slider/16719598862d91be.png",
-        "third_image": "https://volde.ozanuzer.com/images/slider/16719598861278ef.svg",
+        "title": "Gıda",
+        "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since.",
+        "first_image": "/images/products/otomotiv.png",
+        "first_image_mobile": "https://volde.ozanuzer.com/images/slider/16719598862d91be.png",
         "sort": 3
+    },
+    {
+        "id": 4,
+        "title": "Tarım",
+        "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since.",
+        "first_image": "/images/products/otomotiv.png",
+        "first_image_mobile": "https://volde.ozanuzer.com/images/slider/16719598862d91be.png",
+        "sort": 4
+    },
+    {
+        "id": 5,
+        "title": "Zincir Marketler",
+        "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since.",
+        "first_image": "/images/products/otomotiv.png",
+        "first_image_mobile": "https://volde.ozanuzer.com/images/slider/16719598862d91be.png",
+        "sort": 5
+    },
+    {
+        "id": 6,
+        "title": "Lojistik",
+        "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since.",
+        "first_image": "/images/products/otomotiv.png",
+        "first_image_mobile": "https://volde.ozanuzer.com/images/slider/16719598862d91be.png",
+        "sort": 6
+    },
+    {
+        "id": 7,
+        "title": "Genel",
+        "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since.",
+        "first_image": "/images/products/otomotiv.png",
+        "first_image_mobile": "https://volde.ozanuzer.com/images/slider/16719598862d91be.png",
+        "sort": 7
     }
   ]
   

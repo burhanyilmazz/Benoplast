@@ -1,0 +1,24 @@
+.counter {
+  background: #ffffff;
+  border: 1px solid #e5e8ea;
+  border-radius: 8px;
+  height: 80px;
+  width: 112px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+
+  input {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    flex: 1 1 auto;
+    width: 33%;
+    text-align: center;
+  }
+
+  i {
+    cursor: pointer;
+  }
+}

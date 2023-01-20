@@ -1,4 +1,4 @@
-.search {
+.basket {
   position: fixed;
   top: 0;
   width: 100%;
@@ -6,35 +6,59 @@
   right: 0;
   z-index: -1;
   transition: all 0.5s ease;
-  
-  .wrap {
+
+  &__wrap {
     background: #fff;
     display: flex;
-    width: 31%;
+    width: 46%;
     flex-direction: column;
-    justify-content: center;
     height: 100%;
     box-sizing: border-box;
     transition: all 0.5s ease;
     transform: translateX(300%);
     transition: all 0.5s ease;
     transition-delay: 0.4s;
-    padding: 0 81px;
     position: absolute;
     right: 0;
 
     h2 {
-      font-size: 46px;
-      line-height: 53px;
+      font-size: 26px;
+      line-height: 30.47px;
       font-weight: 300;
-      margin-bottom: 144px;
+      margin-bottom: 19px;
     }
 
     p {
       font-size: 18px;
-      line-height: 28px;
-      margin-bottom: 30px;
+      line-height: 21.09px;
+      max-width: 376px;
     }
+  }
+
+  &__content {
+    padding: 70px 81px 30px 81px;
+    border-top: 1px solid #EFF1F2;
+
+    > div {
+      margin-bottom: 30px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    padding: 25px 81px;
+  }
+
+  &__foot {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 81px;
   }
 
   &--open {
@@ -42,7 +66,7 @@
     z-index: 999;
     transition-delay: 0s;
 
-    .wrap {
+    .basket__wrap {
       transform: translateX(0);
       transition-delay: 0s;
     }

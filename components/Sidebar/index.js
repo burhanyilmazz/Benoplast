@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import Link from 'next/link';
+import Image from 'next/image'
 import PropTypes from 'prop-types';
 import slug from 'slug'
 
-import { SocialMedia, Search } from '../';
+import { SocialMedia } from '../';
 
 import styles from './Sidebar.module.scss';
 
-export const Sidebar = (props) => { 
+export const Sidebar = (props) => {
   const { isShow, nav, outsideClick } = props;
 
   const [search, setSearch] = useState(false)
@@ -21,16 +22,16 @@ export const Sidebar = (props) => {
     list.map((item, i) => {
       if (i !== index) list[i].isOpen = false
     })
-    
+
     setList([...list])
   }
 
   const onClickSector = (index) => {
-    sectors[0].children[index].isOpen = !sectors[0].children[index].isOpen;
-    sectors[0].children.map((item, i) => {
-      if (i !== index) sectors[0].children[i].isOpen = false
+    sectors.isOpen = !sectors[index].isOpen;
+    sectors.map((item, i) => {
+      if (i !== index) sectors[i].isOpen = false
     })
-    
+
     setSectors([...sectors])
   }
 
@@ -39,7 +40,7 @@ export const Sidebar = (props) => {
     systems[0].children.map((item, i) => {
       if (i !== index) systems[0].children[i].isOpen = false
     })
-    
+
     setSystems([...systems])
   }
 
@@ -55,10 +56,7 @@ export const Sidebar = (props) => {
   const systemDetailUrl = '/sistem';
 
   return (
-    <aside className={classNames(styles['sidebar'], {[styles['sidebar--open']] : isShow })} onClick={(event) => handleOutsideClick(event)}>
-      <div className={classNames(styles['search'], {[styles['search--focus']]: search})}>
-        <Search sidebar onFocus={() => setSearch(true)} onBlur={() => setSearch(false)} id={'sidebar'} />
-      </div>
+    <aside className={classNames(styles['sidebar'], { [styles['sidebar--open']]: isShow })} onClick={(event) => handleOutsideClick(event)}>
       <div className={classNames(styles['page'], styles['page-1'])}>
         <nav>
           <ul>
@@ -69,9 +67,9 @@ export const Sidebar = (props) => {
                 if (item.children) {
                   return (
                     <li
-                      className={classNames({[styles['nav--active']] : item.isActive, [styles['nav--open']] : item.isOpen })} 
+                      className={classNames({ [styles['nav--active']]: item.isActive, [styles['nav--open']]: item.isOpen })}
                       onClick={() => onClickNav(index)}
-                      key = {index}
+                      key={index}
                     >
                       <span>{item.title}</span>
                       <ul>
@@ -88,33 +86,28 @@ export const Sidebar = (props) => {
                 }
               })
             }
-            <li><Link href='/kariyer'>Kariyer</Link></li>
-            <li><Link href='/blog'>Blog</Link></li>
+            <li><Link href='/blog'>Blog/Haberler</Link></li>
             <li><Link href='/iletisim'>İletişim</Link></li>
           </ul>
         </nav>
-
-        <div className={styles['language']}>
-          <Link href={'/'}>EN</Link>
-          <Link href={'/'} className={styles['language--active']}>TR</Link>
-        </div>
 
         <SocialMedia className={styles['social-media']} />
       </div>
       <div className={classNames(styles['page'], styles['page-2'])}>
         <nav>
-          <h3>Sektörler</h3>
+          <h3>Ürün grupları</h3>
           {sectors && <ul>
             {
-              sectors[0]?.children?.map((item, index) => {
+              sectors.map((item, index) => {
                 return (
                   <li
-                    className={classNames({[styles['nav--active']] : item.isActive, [styles['nav--open']] : item.isOpen })} 
+                    className={classNames({ [styles['nav--active']]: item.isActive, [styles['nav--open']]: item.isOpen })}
                     onClick={() => onClickSector(index)}
-                    key = {index}
+                    key={index}
                   >
                     <span>{item.title}</span>
-                    <ul>
+                    <Image src={item.src} width={164} height={110} alt={item.title} fetchpriority="high" />
+                    {/* <ul>
                       {
                         item?.children?.map((child, i) => {
                           return (
@@ -122,7 +115,7 @@ export const Sidebar = (props) => {
                           )
                         })
                       }
-                    </ul>
+                    </ul> */}
                   </li>
                 )
               })
@@ -130,7 +123,7 @@ export const Sidebar = (props) => {
           </ul>}
         </nav>
       </div>
-      <div className={classNames(styles['page'], styles['page-3'])}>
+      {/* <div className={classNames(styles['page'], styles['page-3'])}>
         <nav>
           <h3>Sistemler</h3>
           {systems && <ul>
@@ -158,17 +151,17 @@ export const Sidebar = (props) => {
             }
           </ul>}
         </nav>
-      </div>
+      </div> */}
     </aside>
   )
 }
 
 Sidebar.propTypes = {
-	isShow: PropTypes.bool,
+  isShow: PropTypes.bool,
   nav: PropTypes.array,
   outsideClick: PropTypes.func
 };
 
 Sidebar.defaultProps = {
-	isShow: false,
+  isShow: false,
 }

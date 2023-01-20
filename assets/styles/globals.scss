@@ -6,7 +6,7 @@ body {
   background: #fff;
   color: #000;
   font-family: "Roboto", sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   padding: 0;
   margin: 0;
   text-rendering: optimizeLegibility !important;
@@ -217,17 +217,20 @@ ul {
       }
 
       &-bullet {
-        background: transparent !important;
-        width: 195px !important;
-        height: 75px !important;
+        background: #F7F7F7 !important;
+        width: auto !important;
+        height: 60px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
         margin: 0 !important;
+        flex: 1 1 auto;
         border-radius: 0 !important;
+        opacity: 1 !important;
 
         &-active {
-          background: #d9d8d6 !important;
+          background: #D9222A !important;
+          color: #fff;
         }
       }
     }

@@ -7,25 +7,27 @@
     width: 100%;
     height: 70px;
     box-sizing: border-box;
-    border-bottom: 1px solid #D9D8D6;
-    padding: 30px 0 10px;
-    color: #33364D;
+    padding: 30px 30px 10px;
+    color: #7e8a95;
     font-size: 16px;
     font-weight: 400;
     line-height: 26px;
     box-sizing: border-box;
+    background: #ffffff;
+    border: 1px solid #e5e8ea;
+    border-radius: 10px;
     transition: all 0.5s ease;
 
     &[data-dirty="true"],
     &[data-dirty-important="true"],
     &:focus {
       & ~ label {
-        transform: translate(0px, 15px) scale(0.75);
+        transform: translate(30px, 15px) scale(0.75);
       }
     }
 
     &:hover {
-      border-color: #33364D;
+      border-color: #33364d;
     }
 
     &:-webkit-input-placeholder {
@@ -57,19 +59,18 @@
   }
 
   label {
-    font-size: 16px;
-    line-height: 26px;
-    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
     position: absolute;
     pointer-events: none;
     left: 0;
     top: 0;
-    transform: translate(0px, 30px) scale(1);
+    transform: translate(30px, 26px) scale(1);
     transform-origin: 0 0;
     transition-property: transform, font-size;
     will-change: transform, font-size;
     transition: 150ms cubic-bezier(0, 0, 0.2, 1);
-    color: #33364D;
+    color: #7e8a95;
   }
 
   pre {

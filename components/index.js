@@ -31,3 +31,6 @@ export * from './FileInput';
 export * from './CarouselSector';
 export * from './CardLibrary';
 export * from './Cookie';
+export * from './Basket';
+export * from './CardProduct';
+export * from './Counter';

@@ -9,6 +9,13 @@
   line-height: 19px;
   width: 100%;
   margin-top: 10px;
+  color: #000;
+
+  u,
+  b {
+    font-weight: 500;
+    text-decoration: underline;
+  }
 
   span {
     position: relative;
@@ -32,8 +39,8 @@
       height: 34px;
       content: "";
       position: relative;
-      border: 1px solid #a7a8a9;
-      background: #e8e8e8;
+      border: 1px solid #E5E8EA;
+      background: #fff;
       border-radius: 3px;
       z-index: 1;
       top: 5px;
@@ -51,8 +58,8 @@
   input:checked {
     ~ span {
       &:after {
-        background: #4a4f54;
-        border-color: #4a4f54;
+        background: #7e8a95;
+        border-color: #fff;
       }
       &:before {
         display: block;

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
 
-import { FormInput, FormTextarea, Button, FormCheckbox, FileInput, Modal, Icon } from "../"
+import { FormInput, FormTextarea, Button, FormCheckbox, FileInput, Modal, Icon, titles } from "../"
 import styles from './ContactForm.module.scss';
 
 export const ContactForm = (props) => {
@@ -42,7 +42,7 @@ export const ContactForm = (props) => {
       setSubmitting(true)
 
       if (hr) {
-       await fetch(`${API_URL}/hr_form`, {
+        await fetch(`${API_URL}/hr_form`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -87,13 +87,13 @@ export const ContactForm = (props) => {
         <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
       </Head>
       <div className={classNames(styles['contact-form'], { [styles["contact-form--hr"]]: hr }, className)}>
-        <h3>{title}</h3>
-        <p>{text}</p>
+        {titles ? <h3>{title}</h3> : null}
+        {/* <p>{text}</p> */}
         <form onSubmit={formik.handleSubmit} noValidate>
           <div className='form-group'>
             <div>
               <FormInput
-                field='Adınız'
+                field='Firma Ünvanı'
                 required
                 errorMessage={formik.errors.name}
                 {...formik.getFieldProps('name')}
@@ -102,7 +102,7 @@ export const ContactForm = (props) => {
             </div>
             <div>
               <FormInput
-                field='Soyadınız'
+                field='Adınız Soyadınız'
                 required
                 errorMessage={formik.errors.surname}
                 {...formik.getFieldProps('surname')}
@@ -114,17 +114,6 @@ export const ContactForm = (props) => {
           <div className='form-group'>
             <div>
               <FormInput
-                field='Telefon'
-                type="phone"
-                required
-                errorMessage={formik.errors.phone}
-                {...formik.getFieldProps('phone')}
-                className={classNames({ 'is-invalid': formik.touched.phone && formik.errors.phone })}
-              />
-            </div>
-
-            <div>
-              <FormInput
                 field='E-Posta'
                 type="email"
                 required
@@ -133,10 +122,21 @@ export const ContactForm = (props) => {
                 className={classNames({ 'is-invalid': formik.touched.email && formik.errors.email })}
               />
             </div>
+
+            <div>
+              <FormInput
+                field='Telefon'
+                type="phone"
+                required
+                errorMessage={formik.errors.phone}
+                {...formik.getFieldProps('phone')}
+                className={classNames({ 'is-invalid': formik.touched.phone && formik.errors.phone })}
+              />
+            </div>
           </div>
 
           {hr && <div className='form-group'>
-            <FileInput 
+            <FileInput
               field={'Lütfen CV’nizi yükleyiniz.'}
               name={'cv'}
               onChange={(event) => formik.setFieldValue('cv', event.currentTarget.files[0])}
@@ -154,22 +154,25 @@ export const ContactForm = (props) => {
           </div>
           <div className='form-group'>
             <FormCheckbox
-              label='VOLDE tarafından yukarıda belirtmiş olduğum bilgiler üzerinden benimle iletişim kurulmasını ve <u>izinli iletişim formu</u>‘nu onaylıyorum.'
+              label='<b>BENOPLAST</b> tarafından yukarıda belirtmiş olduğum bilgiler üzerinden benimle iletişim kurulmasını ve <u>izinli iletişim formu</u>‘nu onaylıyorum.'
               onChange={() => handleChangePermission()}
               checked={checkboxAllow}
               errorMessage={formik.errors.permission}
               name={'permission'}
               required
-              onClickText={() =>  setAgreementModal(true)}
-              className={classNames({'is-invalid': formik.touched.permission && formik.errors.permission})}
+              onClickText={() => setAgreementModal(true)}
+              className={classNames({ 'is-invalid': formik.touched.permission && formik.errors.permission })}
             />
           </div>
-          <div className={classNames('form-group-buttons', {'form-group-buttons--column': !hr})}>
+          <div className='form-group'>
             <div className={classNames('captcha', { 'is-invalid': formik.touched.recaptcha && formik.errors.recaptcha })}>
               <div id="captcha"></div>
               <pre>{formik.errors.recaptcha}</pre>
             </div>
-            <Button text={'Gönder'} button className={styles['button']} />
+          </div>
+          <div className={classNames('form-group-buttons')}>
+            <Button variant={'small'} className={styles['button']} />
+            <Button variant={'middle'} text={'Formu Gönder'} button className={styles['button']} />
           </div>
 
         </form>
@@ -182,21 +185,21 @@ export const ContactForm = (props) => {
           <div className='success-modal__text'>E-Bülten kaydınız gerçekleşti.</div>
           <div className='success-modal__desc'>E-Posta kaydınız veritabanımıza başarıyla tanımlanmıştır. Teşekkürler.</div>
         </div>
-      </Modal> }
+      </Modal>}
 
       {agreementModal && <Modal onClose={() => setAgreementModal(false)}>
         <div className={styles['permission']}>
           <div className={styles['permission__content']}>
             <p><b>www.benoplast.com</b> web sitesi aracılığıyla yeni bültenlerin tanıtımı başta olmak üzere,
-tarafıma ticari elektronik ileti gönderilmesi amacıyla <b>Düzlem Metal Sanayi ve Ticaret Ltd.
-Şti.</b> ile paylaşmış olduğum telefon ve e-posta aracılığıyla adresimin kullanılmasına ve işbu
-iletişim araçları ile şahsımla iletişime geçilmesine, bu kapsamda paylaşmış olduğum bilgilerin
-Düzlem Metal Sanayi ve Ticaret Ltd. Şti. tarafından saklanmasına, kullanılmasına ve ticari
-elektronik iletinin içeriğinin ve gönderiye ilişkin diğer kayıtların gerektiğinde Gümrük ve
-Ticaret Bakanlığı’na sunulmak üzere kayıt altına alınarak saklanmasına onay veriyorum.</p>
+              tarafıma ticari elektronik ileti gönderilmesi amacıyla <b>Düzlem Metal Sanayi ve Ticaret Ltd.
+                Şti.</b> ile paylaşmış olduğum telefon ve e-posta aracılığıyla adresimin kullanılmasına ve işbu
+              iletişim araçları ile şahsımla iletişime geçilmesine, bu kapsamda paylaşmış olduğum bilgilerin
+              Düzlem Metal Sanayi ve Ticaret Ltd. Şti. tarafından saklanmasına, kullanılmasına ve ticari
+              elektronik iletinin içeriğinin ve gönderiye ilişkin diğer kayıtların gerektiğinde Gümrük ve
+              Ticaret Bakanlığı’na sunulmak üzere kayıt altına alınarak saklanmasına onay veriyorum.</p>
           </div>
         </div>
-      </Modal> }
+      </Modal>}
     </>
   )
 }
@@ -205,5 +208,6 @@ ContactForm.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
   text: PropTypes.string,
-  hr: PropTypes.bool
+  hr: PropTypes.bool,
+  titles: PropTypes.bool
 };

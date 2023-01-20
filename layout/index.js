@@ -1,43 +1,64 @@
-import {useRouter} from 'next/router'
+import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react';
+import classNames from 'classnames';
 import Head from 'next/head'
+import Link from 'next/link';
 import { Header, Footer, Sidebar, MobileNav, Hamburger, SearchBar, Icon, Cookie } from '../components';
 
 import styles from './Layout.module.scss';
+import { Basket } from '../components/Basket';
 
-export const Layout = ({navlist, children}) => {
+export const Layout = ({ navlist, children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [showCookie, setShowCookie] = useState(true);
+  const [isfixed, setIsfixed] = useState(false);
+  const [isBasket, setIsBasket] = useState(false);
 
   const router = useRouter()
 
   useEffect(() => {
     document.querySelector('html').classList.remove('disable-scroll')
     setShowCookie(localStorage.getItem("cookie") != null ? localStorage.getItem("cookie") == 'false' ? false : true : true)
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        setIsfixed(true);
+      } else {
+        setIsfixed(false);
+      }
+    });
   }, [])
 
   const handleOnClickNav = (event) => {
-    event 
-      ? document.querySelector('html').classList.add('disable-scroll') 
+    event
+      ? document.querySelector('html').classList.add('disable-scroll')
       : document.querySelector('html').classList.remove('disable-scroll')
     setSidebarOpen(event)
     setSearchOpen(false)
   }
 
   const handleOnClickSearch = (event) => {
-    event 
-      ? document.querySelector('html').classList.add('disable-scroll') 
+    event
+      ? document.querySelector('html').classList.add('disable-scroll')
       : document.querySelector('html').classList.remove('disable-scroll')
     setSidebarOpen(false)
     setSearchOpen(event)
+  }
+
+  const handleOnClickBasket = (event) => {
+    event
+      ? document.querySelector('html').classList.add('disable-scroll')
+      : document.querySelector('html').classList.remove('disable-scroll')
+    setSidebarOpen(false)
+    setSearchOpen(false)
+    setIsBasket(event)
   }
 
   useEffect(() => {
     setSidebarOpen(false)
     setSearchOpen(false)
     document.querySelector('html').classList.remove('disable-scroll')
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.asPath])
 
 
@@ -45,7 +66,7 @@ export const Layout = ({navlist, children}) => {
     setShowCookie(false)
     localStorage.setItem("cookie", false);
   }
-  
+
   return (
     <>
       <Head>
@@ -54,20 +75,29 @@ export const Layout = ({navlist, children}) => {
         <meta name="description" content="Benoplast" />
         <meta name="facebook-domain-verification" content="sepri7zw1103gfagm59b6c3869khyz" />
       </Head>
-
-      <Header />
-      <Hamburger isOpen={sidebarOpen} onClick={(event) => handleOnClickNav(event)}/>
+      <div className={classNames(styles['header-wrap'], { [styles['header-wrap--fixed']]: isfixed })}>
+        <Header />
+        <div className={styles['search']} onClick={() => handleOnClickSearch(!searchOpen)}>
+          <Icon icon={'search'} />
+        </div>
+        <div className={styles['basket']} onClick={() => handleOnClickBasket(!isBasket)}>
+          <Icon icon={'basket'} />
+          <span>2</span>
+        </div>
+        <div className={styles['language']}>
+          <Link href={'/'} className={styles['language--active']}>EN</Link>
+        </div>
+        <Hamburger isOpen={sidebarOpen} onClick={(event) => handleOnClickNav(event)} />
+      </div>
       <Sidebar nav={navlist} isShow={sidebarOpen} outsideClick={(event) => handleOnClickNav(event)} />
       <MobileNav nav={navlist} isShow={sidebarOpen} />
-      <div className={styles['search']} onClick={() => handleOnClickSearch(!searchOpen)}>
-        <Icon icon={'search'} />
-      </div>
       <SearchBar isShow={searchOpen} outsideClick={(event) => handleOnClickSearch(event)} />
+      <Basket isShow={isBasket} outsideClick={(event) => handleOnClickBasket(event)} />
       <main>
         {children}
       </main>
       <Footer navlist={navlist} />
-      {showCookie && <Cookie onClick={() => handleOnClickCookie()} /> }
+      {showCookie && <Cookie onClick={() => handleOnClickCookie()} />}
     </>
   )
 }

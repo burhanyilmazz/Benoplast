@@ -2,6 +2,7 @@
 import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFade, Pagination, Autoplay } from 'swiper';
+import { Button } from '../../components';
 import Image from 'next/image'
 
 import "swiper/css";
@@ -12,7 +13,7 @@ import classNames from 'classnames';
 
 export const Carousel = (props) => {
   const { data, className } = props;
-  
+
   return (
     <div className={styles['carousel']}>
       <Swiper
@@ -22,7 +23,7 @@ export const Carousel = (props) => {
           delay: 5000,
           disableOnInteraction: false,
         }}
-        pagination={{ 
+        pagination={{
           clickable: true,
           renderBullet: (index, className) => {
             const slides = document.querySelectorAll('.carousel .swiper-slide');
@@ -32,24 +33,27 @@ export const Carousel = (props) => {
         }}
         className={classNames('carousel', className)}
       >
-        { data.map((item, index) => <SwiperSlide key={index} className={styles['carousel__slide']} data-thumb={item.title}>
+        {data.map((item, index) => <SwiperSlide key={index} className={styles['carousel__slide']} data-thumb={item.title}>
           <div className={styles['slide-content']}>
-            <div className={styles['slide-content__title']}>{item.title}</div>
-            <div className={styles['slide-content__text']}><Image src={item.first_image} width={995} height={345} alt={item.title} priority={index === 0 ? true : false} /></div>
+            <div className={styles['slide-content__wrap']}>
+              <div className={styles['slide-content__title']}>{item.title}</div>
+              <div className={styles['slide-content__text']}>{item.desc}</div>
+              <Button text="Detaylı Bilgi"/>
+            </div>
             <div className={styles['slide-content__hand']}>
               <picture>
-                <source media="(max-width: 1024px)" srcSet={item.second_image_mobile} />
-                <Image src={item.second_image} width={1920} height={751} alt={item.title} priority={index === 0 ? true : false} fetchpriority="high" />
+                <source media="(max-width: 1024px)" srcSet={item.first_image_mobile} />
+                <Image src={item.first_image} width={850} height={593} alt={item.title} priority={index === 0 ? true : false} fetchpriority="high" />
               </picture>
             </div>
           </div>
-        </SwiperSlide> )}
+        </SwiperSlide>)}
       </Swiper>
     </div>
   )
 }
 
 Carousel.propTypes = {
-	data: PropTypes.array,
+  data: PropTypes.array,
   className: PropTypes.string
 };
