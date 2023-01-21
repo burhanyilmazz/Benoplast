@@ -39,7 +39,6 @@ export const Footer = ({navlist}) => {
             }
             <div>
               <ul>
-                <li><Link href='/kariyer'>Kariyer</Link></li>
                 <li><Link href='/blog'>Blog</Link></li>
                 <li><Link href='/iletisim'>İletişim</Link></li>
               </ul>
@@ -52,7 +51,7 @@ export const Footer = ({navlist}) => {
             <Logo />
           </div>
           <div className={styles['copyright']}>
-            2023 &copy; VOLDE, Bu sitede kullanılan tüm görseller kendi imalatlarımız olup tüm hakları saklıdır.
+            2023 &copy; Benoplast, Bu sitede kullanılan tüm görseller kendi imalatlarımız olup tüm hakları saklıdır.
           </div>
           <div className={styles['policy']}>
             <ul>

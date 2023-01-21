@@ -10,178 +10,250 @@ vertical-align: top;
 }
 
 
-  %icon-arrow-down {
+  %icon-360degree {
   content: "\f101";
+  }
+
+  .icon-360degree:before {
+  content: "\f101";
+  }
+
+  %icon-agriculture {
+  content: "\f102";
+  }
+
+  .icon-agriculture:before {
+  content: "\f102";
+  }
+
+  %icon-arrow-down {
+  content: "\f103";
   }
 
   .icon-arrow-down:before {
-  content: "\f101";
+  content: "\f103";
   }
 
   %icon-arrow {
-  content: "\f102";
+  content: "\f104";
   }
 
   .icon-arrow:before {
-  content: "\f102";
+  content: "\f104";
   }
 
   %icon-basket {
-  content: "\f103";
+  content: "\f105";
   }
 
   .icon-basket:before {
-  content: "\f103";
+  content: "\f105";
   }
 
   %icon-check {
-  content: "\f104";
+  content: "\f106";
   }
 
   .icon-check:before {
-  content: "\f104";
+  content: "\f106";
   }
 
   %icon-close {
-  content: "\f105";
+  content: "\f107";
   }
 
   .icon-close:before {
-  content: "\f105";
+  content: "\f107";
   }
 
   %icon-download {
-  content: "\f106";
+  content: "\f108";
   }
 
   .icon-download:before {
-  content: "\f106";
-  }
-
-  %icon-email-1 {
-  content: "\f107";
-  }
-
-  .icon-email-1:before {
-  content: "\f107";
+  content: "\f108";
   }
 
   %icon-email {
-  content: "\f108";
+  content: "\f109";
   }
 
   .icon-email:before {
-  content: "\f108";
+  content: "\f109";
   }
 
   %icon-facebook {
-  content: "\f109";
+  content: "\f10a";
   }
 
   .icon-facebook:before {
-  content: "\f109";
+  content: "\f10a";
+  }
+
+  %icon-food {
+  content: "\f10b";
+  }
+
+  .icon-food:before {
+  content: "\f10b";
+  }
+
+  %icon-foodly {
+  content: "\f10c";
+  }
+
+  .icon-foodly:before {
+  content: "\f10c";
+  }
+
+  %icon-industry {
+  content: "\f10d";
+  }
+
+  .icon-industry:before {
+  content: "\f10d";
   }
 
   %icon-instagram {
-  content: "\f10a";
+  content: "\f10e";
   }
 
   .icon-instagram:before {
-  content: "\f10a";
+  content: "\f10e";
+  }
+
+  %icon-link {
+  content: "\f10f";
+  }
+
+  .icon-link:before {
+  content: "\f10f";
   }
 
   %icon-linkedin {
-  content: "\f10b";
+  content: "\f110";
   }
 
   .icon-linkedin:before {
-  content: "\f10b";
+  content: "\f110";
   }
 
   %icon-location {
-  content: "\f10c";
+  content: "\f111";
   }
 
   .icon-location:before {
-  content: "\f10c";
+  content: "\f111";
+  }
+
+  %icon-logistics {
+  content: "\f112";
+  }
+
+  .icon-logistics:before {
+  content: "\f112";
+  }
+
+  %icon-market {
+  content: "\f113";
+  }
+
+  .icon-market:before {
+  content: "\f113";
   }
 
   %icon-minus {
-  content: "\f10d";
+  content: "\f114";
   }
 
   .icon-minus:before {
-  content: "\f10d";
+  content: "\f114";
   }
 
   %icon-pdf {
-  content: "\f10e";
+  content: "\f115";
   }
 
   .icon-pdf:before {
-  content: "\f10e";
+  content: "\f115";
   }
 
   %icon-phone {
-  content: "\f10f";
+  content: "\f116";
   }
 
   .icon-phone:before {
-  content: "\f10f";
+  content: "\f116";
+  }
+
+  %icon-plus-circle {
+  content: "\f117";
+  }
+
+  .icon-plus-circle:before {
+  content: "\f117";
   }
 
   %icon-plus {
-  content: "\f110";
+  content: "\f118";
   }
 
   .icon-plus:before {
-  content: "\f110";
+  content: "\f118";
   }
 
   %icon-search {
-  content: "\f111";
+  content: "\f119";
   }
 
   .icon-search:before {
-  content: "\f111";
+  content: "\f119";
+  }
+
+  %icon-share {
+  content: "\f11a";
+  }
+
+  .icon-share:before {
+  content: "\f11a";
   }
 
   %icon-trash {
-  content: "\f112";
+  content: "\f11b";
   }
 
   .icon-trash:before {
-  content: "\f112";
+  content: "\f11b";
   }
 
   %icon-twitter {
-  content: "\f113";
+  content: "\f11c";
   }
 
   .icon-twitter:before {
-  content: "\f113";
+  content: "\f11c";
   }
 
   %icon-upload {
-  content: "\f114";
+  content: "\f11d";
   }
 
   .icon-upload:before {
-  content: "\f114";
+  content: "\f11d";
   }
 
   %icon-youtube {
-  content: "\f115";
+  content: "\f11e";
   }
 
   .icon-youtube:before {
-  content: "\f115";
+  content: "\f11e";
   }
 
   %icon-zoom {
-  content: "\f116";
+  content: "\f11f";
   }
 
   .icon-zoom:before {
-  content: "\f116";
+  content: "\f11f";
   }

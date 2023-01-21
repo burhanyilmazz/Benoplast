@@ -12,10 +12,8 @@ import styles from './Sidebar.module.scss';
 export const Sidebar = (props) => {
   const { isShow, nav, outsideClick } = props;
 
-  const [search, setSearch] = useState(false)
   const [list, setList] = useState(nav)
-  const [sectors, setSectors] = useState(nav?.filter(item => item.type === 'sectors'))
-  const [systems, setSystems] = useState(nav?.filter(item => item.type === 'systems'))
+  const [products] = useState(nav?.filter(item => item.type === 'products'))
 
   const onClickNav = (index) => {
     list[index].isOpen = !list[index].isOpen;
@@ -26,24 +24,6 @@ export const Sidebar = (props) => {
     setList([...list])
   }
 
-  const onClickSector = (index) => {
-    sectors.isOpen = !sectors[index].isOpen;
-    sectors.map((item, i) => {
-      if (i !== index) sectors[i].isOpen = false
-    })
-
-    setSectors([...sectors])
-  }
-
-  const onClickSystem = (index) => {
-    systems[0].children[index].isOpen = !systems[0].children[index].isOpen;
-    systems[0].children.map((item, i) => {
-      if (i !== index) systems[0].children[i].isOpen = false
-    })
-
-    setSystems([...systems])
-  }
-
   const handleOutsideClick = (event) => {
     const { target } = event;
 
@@ -52,9 +32,6 @@ export const Sidebar = (props) => {
     }
   }
 
-  const sectorDetailUrl = '/sektor';
-  const systemDetailUrl = '/sistem';
-
   return (
     <aside className={classNames(styles['sidebar'], { [styles['sidebar--open']]: isShow })} onClick={(event) => handleOutsideClick(event)}>
       <div className={classNames(styles['page'], styles['page-1'])}>
@@ -62,7 +39,7 @@ export const Sidebar = (props) => {
           <ul>
             {
               list?.map((item, index) => {
-                if (item.type === 'sectors' || item.type === 'systems') return false;
+                if (item.type === 'products' || item.type === 'systems') return false;
 
                 if (item.children) {
                   return (
@@ -75,6 +52,7 @@ export const Sidebar = (props) => {
                       <ul>
                         {
                           item.children.map((child, i) => {
+                            if (item.type == 'products') return false
                             return (
                               <li key={i}><Link href={`/${item.folder}/${slug(child.title)}-${child.id}`}>{child.title}</Link></li>
                             )
@@ -95,63 +73,23 @@ export const Sidebar = (props) => {
       </div>
       <div className={classNames(styles['page'], styles['page-2'])}>
         <nav>
-          <h3>Ürün grupları</h3>
-          {sectors && <ul>
+          <h3>Ürün Grupları</h3>
+          {products && <ul>
             {
-              sectors.map((item, index) => {
+              products?.map(item => item?.children.map((child, i) => {
                 return (
-                  <li
-                    className={classNames({ [styles['nav--active']]: item.isActive, [styles['nav--open']]: item.isOpen })}
-                    onClick={() => onClickSector(index)}
-                    key={index}
-                  >
-                    <span>{item.title}</span>
-                    <Image src={item.src} width={164} height={110} alt={item.title} fetchpriority="high" />
-                    {/* <ul>
-                      {
-                        item?.children?.map((child, i) => {
-                          return (
-                            <li key={i}><Link href={`${sectorDetailUrl}/${slug(child.title)}-${child.id}-${item.id}`}>{child.title}</Link></li>
-                          )
-                        })
-                      }
-                    </ul> */}
+                  <li key={i}>
+                    <Link href={`${item.folder}/${slug(child.title)}-${child.id}-${item.id}`}>
+                      <span>{child.title}</span>
+                      <Image src={child.src} width={164} height={110} alt={child.title} fetchpriority="high" />
+                    </Link>
                   </li>
                 )
-              })
+              }))
             }
           </ul>}
         </nav>
       </div>
-      {/* <div className={classNames(styles['page'], styles['page-3'])}>
-        <nav>
-          <h3>Sistemler</h3>
-          {systems && <ul>
-            {
-              systems[0]?.children?.map((item, index) => {
-                return (
-                  <li
-                    className={classNames({[styles['nav--active']] : item.isActive, [styles['nav--open']] : item.isOpen })} 
-                    onClick={() => onClickSystem(index)}
-                    key = {index}
-                  >
-                    <span>{item.title}</span>
-                    <ul>
-                      {
-                        item?.children?.map((child, i) => {
-                          return (
-                            <li key={i}><Link href={`${systemDetailUrl}/${slug(child.title)}-${child.id}-${item.id}`}>{child.title}</Link></li>
-                          )
-                        })
-                      }
-                    </ul>
-                  </li>
-                )
-              })
-            }
-          </ul>}
-        </nav>
-      </div> */}
     </aside>
   )
 }
