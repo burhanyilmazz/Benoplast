@@ -5,9 +5,9 @@ import Link from 'next/link'
 
 import styles from './CardBlog.module.scss';
 
-export const CardBlog = (props) => { 
+export const CardBlog = (props) => {
   const { className, data, path } = props;
-  
+
   return (
     <Link href={path} className={classNames(styles['card-blog'], className)}>
       <figure>
@@ -15,20 +15,24 @@ export const CardBlog = (props) => {
           <Image src={data?.image} width={'501'} height={'247'} alt={data?.title} fetchpriority="high" />
         </picture>
         <figcaption>
-          <span>{new Intl.DateTimeFormat('tr', { year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(data.created_at))}</span>
+          {/* <span>{new Intl.DateTimeFormat('tr', { year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(data.created_at))}</span> */}
           <h3>{data?.title}</h3>
-          <div className={styles['arrow']} />
         </figcaption>
+
+        <div className={styles['footer']}>
+            Haberin Devamı...
+            <div className={styles['arrow']} />
+          </div>
       </figure>
     </Link>
   )
 }
 
 CardBlog.propTypes = {
-	className: PropTypes.string,
-	path: PropTypes.string,
+  className: PropTypes.string,
+  path: PropTypes.string,
 };
 
 CardBlog.defaultProps = {
-	path: '#',
+  path: '#',
 };

@@ -111,4 +111,23 @@
       }
     }
   }
+
+  &--icon-start {
+    a,
+    button {
+      width: 232px;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        .text {
+          padding-left: 50px !important;
+        }
+
+        .icon {
+          left: 25px !important;
+        }
+      }
+    }
+  }
 }

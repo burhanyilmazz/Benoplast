@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 import styles from './Basket.module.scss';
-import { Button, CardProduct, ContactForm } from '../';
+import { Button, CardProduct, ContactForm, Icon } from '../';
 
 
 export const Basket = (props) => {
@@ -28,6 +28,7 @@ export const Basket = (props) => {
 
   return (
     <aside className={classNames(styles['basket'], { [styles['basket--open']]: isShow })} onClick={(event) => handleOutsideClick(event)}>
+      <div className={styles['basket__close']} onClick={() => outsideClick && outsideClick()}><Icon icon={'close'} /></div>
       <div className={styles['basket__wrap']}>
         <div className={styles['basket__head']}>
           <h2>Teklif Al</h2>

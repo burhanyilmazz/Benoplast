@@ -217,7 +217,7 @@ ul {
       }
 
       &-bullet {
-        background: #F7F7F7 !important;
+        background: #f7f7f7 !important;
         width: auto !important;
         height: 60px !important;
         display: flex !important;
@@ -229,7 +229,7 @@ ul {
         opacity: 1 !important;
 
         &-active {
-          background: #D9222A !important;
+          background: #d9222a !important;
           color: #fff;
         }
       }
@@ -330,5 +330,41 @@ ul {
 
   @media screen and (max-width: 768px) {
     height: 166px;
+  }
+}
+
+p {
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.blog {
+  &__carousel {
+    .swiper {
+      &-slide {
+        width: 500px;
+        padding: 40px 20px;
+
+        @media screen and (max-width: 1024px) {
+          width: 368px;
+        }
+
+        @media screen and (max-width: 768px) {
+          width: 100%;
+        }
+      }
+
+      &-pagination {
+        display: none;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+        bottom: 0 !important;
+
+        @media screen and (max-width: 1024px) {
+          display: flex;
+        }
+      }
+    }
   }
 }

@@ -37,7 +37,7 @@
 
   &__content {
     padding: 70px 81px 30px 81px;
-    border-top: 1px solid #EFF1F2;
+    border-top: 1px solid #eff1f2;
 
     > div {
       margin-bottom: 30px;
@@ -47,7 +47,6 @@
       }
     }
   }
-
 
   &__head {
     display: flex;
@@ -59,6 +58,24 @@
     display: flex;
     justify-content: flex-end;
     padding: 0 81px;
+  }
+
+  &__close {
+    background: #000;
+    width: 132px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    color: #fff;
+
+    i:before {
+      font-size: 30px;
+    }
   }
 
   &--open {

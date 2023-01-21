@@ -38,7 +38,7 @@ export const Carousel = (props) => {
             <div className={styles['slide-content__wrap']}>
               <div className={styles['slide-content__title']}>{item.title}</div>
               <div className={styles['slide-content__text']}>{item.desc}</div>
-              <Button text="Detaylı Bilgi"/>
+              <Button text={'Detaylı Bilgi'}/>
             </div>
             <div className={styles['slide-content__hand']}>
               <picture>

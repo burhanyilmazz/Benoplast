@@ -34,3 +34,5 @@ export * from './Cookie';
 export * from './Basket';
 export * from './CardProduct';
 export * from './Counter';
+export * from './Boxes';
+export * from './Button2';
