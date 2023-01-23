@@ -1,0 +1,52 @@
+.industries {
+  padding-bottom: clamp(50px, 8.5vw, 113px);
+  z-index: 2;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 112px;
+
+  @media screen and (max-width: 1024px) {
+    height: auto;
+  }
+
+  h2 {
+    font-size: clamp(18px, 2.5vw, 24px);
+    line-height: 28px;
+    color: #000;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    margin-right: 112px;
+
+    @media screen and (max-width: 1024px) {
+      display: none;
+    }
+  }
+}
+
+.group-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.prev,
+.next {
+  display: inline-flex;
+
+  i {
+    transform: rotate(180deg);
+  }
+}
+
+.next {
+  transform: rotate(180deg);
+}

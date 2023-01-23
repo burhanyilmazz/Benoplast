@@ -1,27 +1,20 @@
 .library {
-  background: #e8e8e8;
+  background: #7e8a95;
   position: relative;
-  padding: 50px 170px 50px 50px;
-
-  @media screen and (max-width: 1366px) {
-    padding-right: 100px;
-  }
-
-  @media screen and (max-width: 1280px) {
-    padding: 36px;
-  }
-
-  @media screen and (max-width: 1024px) {
-    background: #4A4F54;
-  }
+  padding: 50px 50px;
+  border-radius: 10px;
+  height: 350px;
+  box-sizing: border-box;
+  width: 863px;
 }
 
 .container {
-  width: calc(100% - 200px);
+  width: calc(100% - 280px);
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  color: #fff;
 
   @media screen and (max-width: 1024px) {
     color: #fff;
@@ -36,13 +29,13 @@
   }
 
   span {
-    font-size: clamp(24px, 1.9vw, 30px);
-    line-height: 32px;
-    font-weight: 500;
+    font-size: clamp(24px, 1.9vw, 33px);
+    font-weight: 300;
+    line-height: 33px;
   }
 
   p {
-    font-weight: 200;
+    font-weight: 300;
     font-size: clamp(14px, 2vw, 18px);
     line-height: 24px;
 
@@ -55,9 +48,9 @@
 
 .image {
   position: absolute;
-  right: 50px;
+  right: 0px;
   transform: translateY(-50%);
-  top: 200px;
+  top: 175px;
   display: flex;
   justify-content: flex-end;
 
@@ -74,13 +67,32 @@
     }
 
     @media screen and (max-width: 1024px) {
-      width: 102px
+      width: 102px;
     }
   }
 }
 
 .button {
   width: 170px;
+
+  button,
+  a {
+    span {
+      background: #d9d9d9 !important;
+    }
+
+    > div {
+      color: #7e8a95 !important;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        span {
+          background: #d9d9d9 !important;
+        }
+      }
+    }
+  }
 
   @media screen and (max-width: 1024px) {
     margin-top: 80px;

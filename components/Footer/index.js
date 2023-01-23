@@ -8,50 +8,52 @@ import { SocialMedia, Logo, Newsletter, Library, Modal, Icon } from '../';
 
 import styles from './Footer.module.scss';
 
-export const Footer = ({navlist}) => {
+export const Footer = ({ navlist }) => {
   const [modalOpen, setModalOpen] = useState(false);
   return (
     <>
       <section className={styles['foot']}>
-        <Newsletter handleSubmit={() => setModalOpen(true)} />
-        <Library />
-      </section>
-      <footer className={styles['footer']}>
-        <div className={classNames('container-fluid', styles['container'])}>
-          <nav className={styles['nav']}>
-            {
-              navlist.map((item, index) => {
-                return (
-                  <div key={index}>
-                    <h6>{item.title}</h6>
-                    <ul>
-                      {
-                        item?.children?.map((child, i) => {
-                          return (
-                            <li key={i}><Link href={`/${item.folder}/${slug(child.title)}-${child.id}`}>{child.title}</Link></li>
-                          )
-                        })
-                      }
-                    </ul>
-                  </div>
-                )
-              })
-            }
-            <div>
-              <ul>
-                <li><Link href='/blog'>Blog</Link></li>
-                <li><Link href='/iletisim'>İletişim</Link></li>
-              </ul>
-            </div>
-          </nav>
+        <div className={styles['foot--content']}>
+          <Newsletter handleSubmit={() => setModalOpen(true)} />
+          <Library />
           <div className={styles['social-media']}>
             <SocialMedia />
           </div>
-          <div className={styles['logo']}>
-            <Logo />
-          </div>
-          <div className={styles['copyright']}>
-            2023 &copy; Benoplast, Bu sitede kullanılan tüm görseller kendi imalatlarımız olup tüm hakları saklıdır.
+        </div>
+      </section>
+      <footer className={styles['footer']}>
+        <div className={classNames('container-fluid', styles['container'])}>
+          <div className={styles['footer--mid']}>
+            <div className={styles['logo']}>
+              <Logo />
+            </div>
+            <nav className={styles['nav']}>
+              {
+                navlist.map((item, index) => {
+                  return (
+                    <div key={index}>
+                      <h6>{item.title}</h6>
+                      <ul>
+                        {
+                          item?.children?.map((child, i) => {
+                            return (
+                              <li key={i}><Link href={`/${item.folder}/${slug(child.title)}-${child.id}`}>{child.title}</Link></li>
+                            )
+                          })
+                        }
+                      </ul>
+                    </div>
+                  )
+                })
+              }
+              <div>
+                <ul>
+                  <li><Link href='/kariyer'>Kariyer</Link></li>
+                  <li><Link href='/blog'>Blog / Haberler</Link></li>
+                  <li><Link href='/iletisim'>İletişim</Link></li>
+                </ul>
+              </div>
+            </nav>
           </div>
           <div className={styles['policy']}>
             <ul>
@@ -60,8 +62,13 @@ export const Footer = ({navlist}) => {
               <li><Link href='/cerez-politikasi'>Çerez Politikası</Link></li>
             </ul>
           </div>
-          <div className={styles['fikirmod']}>
-            <a href='https://www.fikirmod.com.tr' target='_blank' title='Fikirmod' rel="noreferrer"><Image src={'/images/fikirmod.svg'} width={20} height={23} alt='Fikirmod' fetchpriority="high" /></a>
+          <div className={styles['footer--bottom']}>
+            <div className={styles['copyright']}>
+              Copyright &copy; 2022 BENOPLAST Tüm hakları saklıdır.
+            </div>
+            <div className={styles['fikirmod']}>
+              <a href='https://www.fikirmod.com.tr' target='_blank' title='Fikirmod' rel="noreferrer"><Image src={'/images/fikirmod.svg'} width={20} height={23} alt='Fikirmod' fetchpriority="high" /></a>
+            </div>
           </div>
         </div>
       </footer>
@@ -73,7 +80,7 @@ export const Footer = ({navlist}) => {
           <div className='success-modal__text'>E-Bülten kaydınız gerçekleşti.</div>
           <div className='success-modal__desc'>E-Posta kaydınız veritabanımıza başarıyla tanımlanmıştır. Teşekkürler.</div>
         </div>
-      </Modal> }
+      </Modal>}
     </>
   )
 }

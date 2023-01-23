@@ -130,4 +130,33 @@
       }
     }
   }
+
+  &--left-animation {
+    a,
+    button {
+      min-width: 150px;
+      justify-content: flex-end;
+
+      span {
+        right: 0;
+        background: #7e8a95 !important;
+      }
+    }
+
+    .icon {
+      left: 75%;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        .text {
+          padding-right: 30px !important;
+        }
+
+        .icon {
+          left: 25px !important;
+        }
+      }
+    }
+  }
 }

@@ -80,10 +80,10 @@ export default function Home() {
   ]
 
   const blogData = [
-    { title: 'SAHİBİNDEN.COM’da satışa sunduğumuz kalıplar', image: '/images/content/blog.png', created_at: '26 Kasım 2022' },
-    { title: 'WIN AUTOMATİON EURASİA’da sektörün liderleri ile buluşuyor.', image: '/images/content/blog-2.png', created_at: '26 Kasım 2022' },
-    { title: 'BENOPLAST’ın yeni ürünü ALC kendinden kapaklı kasalar.', image: '/images/content/blog-3.png', created_at: '26 Kasım 2022' },
-    { title: 'SAHİBİNDEN.COM’da satışa sunduğumuz kalıplar', image: '/images/content/blog.png', created_at: '26 Kasım 2022' },
+    { title: 'SAHİBİNDEN.COM’da satışa sunduğumuz kalıplar', image: '/images/content/blog-4.jpg', created_at: '11-26-2022' },
+    { title: 'WIN AUTOMATİON EURASİA’da sektörün liderleri ile buluşuyor.', image: '/images/content/blog-2.png', created_at: '11-26-2022' },
+    { title: 'BENOPLAST’ın yeni ürünü ALC kendinden kapaklı kasalar.', image: '/images/content/blog-3.png', created_at: '11-26-2022' },
+    { title: 'SAHİBİNDEN.COM’da satışa sunduğumuz kalıplar', image: '/images/content/blog.png', created_at: '11-26-2022' },
   ]
 
   const cardsList = [
@@ -176,11 +176,6 @@ export default function Home() {
               modules={[Navigation, Pagination]}
               slidesPerView={'auto'}
               spaceBetween={0}
-              navigation={{
-                nextEl: `.${styles['next']}`,
-                prevEl: `.${styles['prev']}`
-              }}
-              pagination
               className={'blog__carousel'}
             >
               {blogData.map((item, index) => <SwiperSlide key={index}><CardBlog data={item} path={`${'#'}`} /></SwiperSlide>)}

@@ -49,7 +49,7 @@ export const navlist = [{
   },
   {
     title: 'Kariyer',
-    type: 'industries',
+    type: 'career',
     folder: 'kariyer',
     children: [{
       id: '1',

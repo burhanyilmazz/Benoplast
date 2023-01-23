@@ -6,26 +6,29 @@ import { Icon } from '../../components'
 import styles from './Card.module.scss';
 
 export const Card = (props) => { 
-  const { className, title, image, path } = props;
+  const { className, title, image, path, subTitle } = props;
   
   return (
-    <Link href={path} className={classNames(styles['card'], className)}>
+    <div className={classNames(styles['card'], className)}>
       <figure>
         <picture>
-          <Image src={image} width={'330'} height={'320'} alt={title} fetchpriority="high" />
+          <Image src={image} width={'200'} height={'200'} alt={title} fetchpriority="high" />
         </picture>
         <figcaption>
           <h3>{title}</h3>
-          <div className={styles['button']}><div className={styles['text']}>Ürünleri Listele</div><Icon className={styles['icon']} icon={'arrow'}/><span /></div>
+          <span>{subTitle}</span>
+          <div className={styles['button']}><div className={styles['text']}>Teklif Listesine Ekle</div><Icon className={styles['icon']} icon={'plus-circle'}/><span /></div>
+          <Link href={path} className={styles['button-2']}><div className={styles['text']}>Ürünleri İncele</div><Icon className={styles['icon']} icon={'arrow'}/><span /></Link>
         </figcaption>
       </figure>
-    </Link>
+    </div>
   )
 }
 
 Card.propTypes = {
 	className: PropTypes.string,
 	title: PropTypes.string,
+	subTitle: PropTypes.string,
 	image: PropTypes.string,
 	path: PropTypes.string,
 };

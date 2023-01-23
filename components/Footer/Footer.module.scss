@@ -1,8 +1,8 @@
 .footer {
   position: relative;
-  background: url("/images/line.svg") 10px bottom no-repeat #f2f2f2;
-  background-size: calc(100% - 170px);
+  background: #D8DCDF;
   z-index: 999;
+
   @media screen and (max-width: 1366px) {
     background-size: calc(100% - 100px);
   }
@@ -15,12 +15,28 @@
   @media screen and (max-width: 768px) {
     background-size: 1000px;
   }
+
+  &--bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 48px;
+    border-top: 1px solid #cacfd4;
+    width: 100%;
+    margin-top: 80px;
+  }
+
+  &--mid {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
 }
 
 .container {
   display: flex;
   flex-wrap: wrap;
-  padding-top: clamp(40px, 8vw, 134px);
+  // padding-top: clamp(40px, 8vw, 134px);
   padding-bottom: 47px;
 
   @media screen and (max-width: 1024px) {
@@ -31,90 +47,83 @@
 
 .nav {
   display: flex;
-  width: calc(100% - 20px);
+  width: calc(100% - 500px);
+  justify-content: space-between;
+
   @media screen and (max-width: 1024px) {
     display: none;
   }
 
   h6 {
-    font-size: 14px;
     font-weight: 500;
-    line-height: 33px;
-    color: #000;
+    font-size: 16px;
+    line-height: 19px;
+    margin-bottom: 20px;
   }
 
   ul {
-    font-size: 12px;
     font-weight: 300;
-    line-height: 30px;
+    font-size: 16px;
+    line-height: 19px;
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+
     a {
       color: #000;
       transition: all 0.5s ease;
-
-      &:hover {
-        color: #E1251B;
-      }
     }
   }
 
   > div {
-    width: 20%;
+    width: 24%;
     @media screen and (max-width: 1280px) {
       width: 22.5%;
     }
 
     &:last-child {
-      @media screen and (max-width: 1280px) {
-        width: 10%;
-      }
+      width: 20%;
       ul {
         font-weight: 500;
       }
+    }
+
+    &:nth-child(3) {
+      display: none;
     }
   }
 }
 
 .social-media {
-  margin-top: 6px;
+  background: #cacfd4;
+  border-radius: 10px;
+  display: flex;
+  padding: 45px 55px;
+  box-sizing: border-box;
 
   @media screen and (max-width: 1024px) {
     display: flex;
     order: 2;
     width: 100%;
   }
+
   ul {
     flex-direction: column;
     align-items: center;
-    @media screen and (max-width: 1024px) {
-      flex-direction: row;
 
-      i {
-        &:before {
-          font-size: 20px;
-        }
+    i {
+      &:before {
+        font-size: 24px;
       }
     }
   }
 }
 
 .logo {
-  margin-top: 200px;
-  width: 140px;
+  width: 180px;
 
-  @media screen and (max-width: 1680px) {
-    margin-top: 170px;
-  }
-
-  @media screen and (max-width: 1440px) {
-    margin-top: 140px;
-  }
-
-  @media screen and (max-width: 1280px) {
-    margin-top: 110px;
-  }
-
-  @media screen and (max-width: 1024px) {
-    display: none;
+  img {
+    width: 100%;
   }
 }
 
@@ -123,96 +132,32 @@
   font-size: 12px;
   font-weight: 300;
   line-height: 16px;
-  margin-top: 220px;
-  width: 50%;
-
-  @media screen and (max-width: 1680px) {
-    margin-top: 190px;
-    font-size: 11px;
-    width: 45%;
-  }
-
-  @media screen and (max-width: 1440px) {
-    margin-top: 160px;
-    font-size: 10px;
-  }
-
-  @media screen and (max-width: 1280px) {
-    margin-top: 130px;
-  }
-
-  @media screen and (max-width: 1080px) {
-    width: 48%;
-  }
-
-  @media screen and (max-width: 1024px) {
-    display: flex;
-    order: 3;
-    margin-top: 80px;
-    width: calc(100% - 40px);
-    font-size: 12px;
-  }
 }
 
 .policy {
-  margin-top: 220px;
+  position: absolute;
+  left: 163px;
+  bottom: 195px;
 
-  @media screen and (max-width: 1680px) {
-    margin-top: 190px;
-  }
-
-  @media screen and (max-width: 1440px) {
-    margin-top: 160px;
-  }
-
-  @media screen and (max-width: 1280px) {
-    margin-top: 130px;
-  }
-
-  @media screen and (max-width: 1024px) {
-    display: flex;
-    order: 1;
-    margin-top: 0;
-    width: 100%;
-    margin-bottom: 40px;
-  }
   ul {
     display: flex;
-    align-items: center;
-    font-size: 12px;
+    flex-direction: column;
     font-weight: 300;
-    line-height: 16px;
-    gap: 53px;
-
-    @media screen and (max-width: 1480px) {
-      gap: 25px;
-    }
-
-    @media screen and (max-width: 1080px) {
-      gap: 20px;
-      font-size: 11px;
-    }
-
-    @media screen and (max-width: 1024px) {
-      flex-direction: column;
-      align-items: flex-start;
-    }
+    font-size: 12px;
+    line-height: 14px;
+    gap: 16px;
   }
 
   a {
     color: #000000;
     transition: all 0.5s ease;
-
-    &:hover {
-      color: #E1251B;
-    }
   }
 }
 
 .fikirmod {
   position: absolute;
-  right: 170px;
-  bottom: 50px;
+  right: 163px;
+  bottom: 47px;
 
   @media screen and (max-width: 1366px) {
     right: 100px;
@@ -229,8 +174,8 @@
 
 .foot {
   display: flex;
-  background: #f2f2f2;
-  gap: 5px;
+  background: #d8dcdf;
+  gap: 31px;
   position: relative;
   z-index: 9999;
 
@@ -239,11 +184,15 @@
     gap: 0;
   }
 
-  > div {
-    width: 50%;
-
-    @media screen and (max-width: 1024px) {
-      width: 100%;
-    }
+  &--content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1366px;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    gap: 31px;
+    padding: 202px 0 80px 0;
   }
 }

@@ -1,32 +1,8 @@
-.button {
-  display: inline-flex;
-  align-items: center;
-  transition: all 0.5s ease;
-  color: #000;
-  z-index: 1;
-  position: absolute;
-  min-width: 200px;
-  bottom: 50px;
-
-  span {
-    display: flex;
-    background: rgba($color: #000000, $alpha: 7%);
-    height: 60px;
-    width: 60px;
-    z-index: 1;
-    left: 0;
-    border-radius: 6px;
-    position: absolute;
-    backface-visibility: hidden;
-    transition: all 0.3s ease;
-  }
-}
-
 .icon {
   z-index: 2;
   position: absolute;
-  left: 25px;
-  transition: all 0.4s ease;
+  left: 90%;
+  transition: all 0.3s ease;
 
   i {
     &:before {
@@ -38,9 +14,50 @@
 .text {
   font-size: 16px;
   line-height: 19px;
-  opacity: 0;
+  opacity: 1;
   position: relative;
+  padding-left: 25px;
+  z-index: 2;
   transition: all 0.3s ease;
+}
+
+.button,
+.button-2 {
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.5s ease;
+  color: #7e8a95;
+  z-index: 1;
+  position: absolute;
+  min-width: 100%;
+  bottom: 20px;
+
+  span {
+    display: flex;
+    background: rgba($color: #000000, $alpha: 7%);
+    height: 60px;
+    width: 100%;
+    z-index: 1;
+    left: 0;
+    border-radius: 10px;
+    border-top: 1px solid #e4e6e7;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: all 0.3s ease;
+  }
+}
+
+.button {
+  bottom: 80px;
+
+  span {
+    border-radius: 0;
+    border-top: 1px solid #e4e6e7;
+    background: transparent;
+    color: #000;
+  }
 }
 
 .card {
@@ -50,14 +67,16 @@
   display: block;
   overflow: hidden;
   width: 100%;
-  border-left: 1px solid #F7F7F7;
-  border-bottom: 1px solid #F7F7F7;
+  border: 1px solid #e4e6e7;
+  background: #fff;
+  border-radius: 10px;
 
   h3 {
     color: #000;
-    font-weight: 400;
-    font-size: clamp(14px, 1.4vw, 23px);
-    line-height: clamp(18px, 1.5vw, 23px);
+    font-weight: 500;
+    padding: 20px 0 0 20px;
+    font-size: clamp(14px, 1.4vw, 20px);
+    line-height: clamp(18px, 1.5vw, 18px);
     width: 70%;
     margin-top: 0;
     display: -webkit-box;
@@ -69,6 +88,15 @@
     @media screen and (max-width: 768px) {
       width: 100%;
     }
+  }
+
+  span {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    color: #7e8a95;
+    padding: 10px 0 0 20px;
+    position: absolute;
   }
 
   figure {
@@ -83,17 +111,17 @@
     width: calc(100% - 1px);
     height: 100%;
     display: flex;
+    overflow: hidden;
   }
 
   img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover;
+    object-fit: contain;
     transition: all 0.5s ease;
   }
 
   figcaption {
-    padding: 50px;
     height: 100%;
     width: 100%;
     bottom: 0;
@@ -114,19 +142,17 @@
       img {
         transform: scale(1.1);
       }
+    }
 
-      span {
-        transition: all 0.5s ease;
-        width: 100%;
-      }
+    .button,
+    .button-2 {
+      &:hover {
+        color: #ffffff;
 
-      .text {
-        opacity: 1;
-        padding-left: 25px;
-      }
-
-      .icon {
-        left: 80%;
+        span {
+          transition: all 0.5s ease;
+          background: #7e8a95;
+        }
       }
     }
   }

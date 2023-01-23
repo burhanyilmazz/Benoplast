@@ -1,39 +1,24 @@
 .newsletter {
-  background: #e8e8e8;
+  background: #7e8a95;
+  border-radius: 10px;
   position: relative;
-  padding: 50px 170px;
-  //padding-left: clamp(36px, 6vw, 170px);
-
-  @media screen and (max-width: 1366px) {
-    padding-right: 100px;
-    padding-left: 100px;
-  }
-
-  @media screen and (max-width: 1280px) {
-    padding-right: 36px;
-    padding-left: 36px;
-  }
-
-  @media screen and (max-width: 1024px) {
-    height: 400px;
-  }
+  padding: 41px 51px;
+  height: 350px;
+  width: 538px;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  width: calc(100% - 200px);
-
-  @media screen and (max-width: 1024px) {
-    width: 100%;
-  }
 }
 
 .title {
-  margin-bottom: 30px;
-  font-size: clamp(24px, 1.9vw, 30px);
-  line-height: 32px;
-  font-weight: 200;
+  margin-bottom: 50px;
+  font-size: clamp(24px, 1.9vw, 28px);
+  font-weight: 300;
+  line-height: 33px;
+  color: #fff;
+
   span {
     font-weight: 500;
     display: block;
@@ -47,10 +32,14 @@
 .input {
   label {
     transform: translate(40px, 30px) scale(1);
+    color: #aab8c5;
+    font-size: 18px;
+    line-height: 21px;
+    font-weight: 300;
   }
+
   input {
     padding-left: 40px;
-
     &[data-dirty="true"],
     &[data-dirty-important="true"],
     &:focus {
@@ -63,37 +52,31 @@
 
 .icon {
   position: absolute;
-  color: #1f242b;
-  bottom: 13px;
-  &:before {
-    font-size: 30px;
-  }
-}
-
-.image {
-  position: absolute;
-  right: 10px;
-  bottom: 0;
-  display: flex;
-  justify-content: flex-end;
-
-  @media screen and (max-width: 1024px) {
-    bottom: auto;
-    top: 30px;
-  }
-
-  img {
-    @media screen and (max-width: 1440px) {
-      width: 80%;
-      height: auto;
-    }
-
-    @media screen and (max-width: 1024px) {
-      width: 108px;
-    }
-  }
+  color: #aab8c5;
+  bottom: 24px;
+  left: 10px;
+  z-index: 1;
 }
 
 .button {
-  margin-top: 80px;
+  margin-top: 50px;
+
+  button,
+  a {
+    span {
+      background: #d9d9d9 !important;
+    }
+    
+    > div {
+      color: #7e8a95 !important;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        span {
+          background: #d9d9d9 !important;
+        }
+      }
+    }
+  }
 }

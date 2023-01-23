@@ -164,16 +164,19 @@ export const ContactForm = (props) => {
               className={classNames({ 'is-invalid': formik.touched.permission && formik.errors.permission })}
             />
           </div>
-          <div className='form-group'>
+          <div className={classNames('form-group-buttons', { 'form-group-buttons--column': !hr })}>
             <div className={classNames('captcha', { 'is-invalid': formik.touched.recaptcha && formik.errors.recaptcha })}>
               <div id="captcha"></div>
               <pre>{formik.errors.recaptcha}</pre>
             </div>
+            {hr && <Button variant={'left-animation'} text={'Gönder'} button className={styles['button']} />}
           </div>
-          <div className={classNames('form-group-buttons')}>
-            <Button variant={'small'} className={styles['button']} />
-            <Button variant={'middle'} text={'Formu Gönder'} button className={styles['button']} />
-          </div>
+          {!hr &&
+            <div className={classNames('form-group-buttons')}>
+              <Button variant={'small'} className={styles['button']} />
+              <Button variant={'middle'} text={'Formu Gönder'} button className={styles['button']} />
+            </div>
+          }
 
         </form>
       </div>
