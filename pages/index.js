@@ -2,7 +2,7 @@
 import { Layout } from '../layout'
 import Image from 'next/image'
 import classNames from 'classnames';
-import { Carousel, Boxes, Card, Button, CardBlog, Button2 } from '../components';
+import { Carousel, Boxes, CardLink, Button, CardBlog, Button2 } from '../components';
 import { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -116,7 +116,7 @@ export default function Home() {
         </section>
 
         <section className={styles['cards']}>
-          {cardsList?.map((item, index) => <Card key={index} title={item.title} image={item.image} /> )}
+          {cardsList?.map((item, index) => <CardLink key={index} title={item.title} image={item.image} /> )}
         </section>
 
         <section className={styles['video']}>
