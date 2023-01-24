@@ -39,4 +39,5 @@ export * from './Button2';
 export * from './CardPrize';
 export * from './CardLink';
 export * from './PageTap';
-export * from './OfferBox'
+export * from './OfferBox';
+export * from './CardContact';

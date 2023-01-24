@@ -9,7 +9,7 @@ import { FormInput, FormTextarea, Button, FormCheckbox, FileInput, Modal, Icon, 
 import styles from './ContactForm.module.scss';
 
 export const ContactForm = (props) => {
-  const { className, hr, title, text } = props;
+  const { className, hr, title, text, contacts } = props;
   const [checkboxAllow, setCheckboxAllow] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [agreementModal, setAgreementModal] = useState(false);
@@ -144,6 +144,26 @@ export const ContactForm = (props) => {
             />
           </div>}
 
+          {contacts &&
+            <div className='form-group'>
+              <div className={'select'}>
+                <select defaultValue={'default'}>
+                  <option disabled value={'default'}>Bulunduğunuz ili seçiniz</option>
+                  <option value={'İstanbul'}>İstanbul</option>
+                  <option value={'Sinop'}>Sinop</option>
+                </select>
+              </div>
+
+              <div className={'select'}>
+                <select defaultValue={'default'}>
+                  <option disabled value={'default'}>Bulunduğunuz ülkeyi seçiniz</option>
+                  <option value={'1'}>Türkiye</option>
+                  <option value={'2'}>İngiltere</option>
+                </select>
+              </div>
+            </div>
+          }
+
           <div className='form-group'>
             <FormTextarea
               field='Mesajınız'
@@ -170,14 +190,15 @@ export const ContactForm = (props) => {
               <pre>{formik.errors.recaptcha}</pre>
             </div>
             {hr && <Button variant={'left-animation'} text={'Gönder'} button className={styles['button']} />}
+            {contacts && <Button variant={'left-animation'} text={'Gönder'} button className={styles['button']} />}
+
           </div>
-          {!hr &&
+          {!hr && !contacts &&
             <div className={classNames('form-group-buttons')}>
               <Button variant={'small'} className={styles['button']} />
               <Button variant={'middle'} text={'Formu Gönder'} button className={styles['button']} />
             </div>
           }
-
         </form>
       </div>
 
@@ -212,5 +233,6 @@ ContactForm.propTypes = {
   title: PropTypes.string,
   text: PropTypes.string,
   hr: PropTypes.bool,
-  titles: PropTypes.bool
+  titles: PropTypes.bool,
+  contacts: PropTypes.bool
 };

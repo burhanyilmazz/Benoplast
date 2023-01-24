@@ -1,8 +1,10 @@
-import Image from "next/image";
 import { Layout } from "../layout";
-import { Breadcrumb } from "../components";
+import { Breadcrumb, CardLibrary } from "../components";
+
+import styles from '../assets/styles/Library.module.scss'
 
 import { navlist } from '../utils/Nav';
+import classNames from "classnames";
 
 export default function Cookie() {
   const breadcrumbList = [
@@ -19,12 +21,24 @@ export default function Cookie() {
     }
   ]
 
+  const library = [
+    { year: "2020", title: "Lorem Ipsum Sıt Amet", path: "" },
+    { year: "2020", title: "Lorem Ipsum Sıt Amet", path: "" },
+    { year: "2020", title: "Lorem Ipsum Sıt Amet", path: "" },
+    { year: "2020", title: "Lorem Ipsum Sıt Amet", path: "" },
+    { year: "2020", title: "Lorem Ipsum Sıt Amet", path: "" },
+    { year: "2020", title: "Lorem Ipsum Sıt Amet", path: "" }
+  ]
+
   return (
     <>
       <Layout navlist={navlist}>
-        <Breadcrumb data={breadcrumbList} unmobile />
-        <section className={"block"}>
-
+        <section className={classNames("container-fluid", styles['library'])}>
+          <Breadcrumb data={breadcrumbList} unmobile />
+          <h2>Dijital kütüphane</h2>
+          <div className={styles['library__list']}>
+            {library?.map((item, index) => <CardLibrary key={index} title={item.title} years={item.year} path={item.path} />)}
+          </div>
         </section>
       </Layout>
     </>
