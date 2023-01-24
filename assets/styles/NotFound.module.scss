@@ -1,0 +1,59 @@
+.notfound {
+  background: #f8f7f7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 35px;
+
+  h1 {
+    color: #1a1818;
+    font-weight: 300;
+    font-size: clamp(28px, 4vw, 38px);
+    line-height: 16px;
+  }
+}
+
+.button {
+  margin-top: clamp(30px, 8vw, 72px);
+  width: 195px;
+
+  i {
+    display: none;
+  }
+
+  a {
+    &:first-child div {
+      opacity: 1;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      color: #000 !important;
+    }
+  }
+
+  span {
+    background: #d9d9d9 !important;
+    width: 100% !important;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      a {
+        &:first-child div {
+          padding-left: 0;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.image {
+  img {
+    max-width: 100%;
+    object-fit: cover;
+  }
+}

@@ -1,0 +1,14 @@
+.product-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  gap: 30px;
+
+  > div {
+    width: calc(33.333% - 27px);
+  }
+}
+
+.Breadcrumb {
+  margin-bottom: 30px;
+}

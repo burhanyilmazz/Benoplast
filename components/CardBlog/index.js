@@ -6,7 +6,7 @@ import Link from 'next/link'
 import styles from './CardBlog.module.scss';
 
 export const CardBlog = (props) => {
-  const { className, data, path } = props;
+  const { className, data, path, footer } = props;
 
   return (
     <Link href={path} className={classNames(styles['card-blog'], className)}>
@@ -19,10 +19,10 @@ export const CardBlog = (props) => {
           <h3>{data?.title}</h3>
         </figcaption>
 
-        <div className={styles['footer']}>
+        {footer && <div className={styles['footer']}>
             Haberin Devamı...
             <div className={styles['arrow']} />
-          </div>
+          </div>}
       </figure>
     </Link>
   )
@@ -31,6 +31,7 @@ export const CardBlog = (props) => {
 CardBlog.propTypes = {
   className: PropTypes.string,
   path: PropTypes.string,
+  footer: PropTypes.bool
 };
 
 CardBlog.defaultProps = {

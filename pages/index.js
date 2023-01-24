@@ -178,7 +178,7 @@ export default function Home() {
               spaceBetween={0}
               className={'blog__carousel'}
             >
-              {blogData.map((item, index) => <SwiperSlide key={index}><CardBlog data={item} path={`${'#'}`} /></SwiperSlide>)}
+              {blogData.map((item, index) => <SwiperSlide key={index}><CardBlog footer data={item} path={`${'#'}`} /></SwiperSlide>)}
             </Swiper>
           </div>
         </section>

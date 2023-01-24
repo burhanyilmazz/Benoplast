@@ -9,7 +9,7 @@ import styles from './Search.module.scss';
 import { FormInput, Icon } from '../';
 
 export const Search = (props) => {
-  const {onFocus, onBlur, sidebar, id} = props;
+  const {onFocus, onBlur, sidebar, id, className} = props;
   const router = useRouter()
 
   const searchSchema = Yup.object().shape({
@@ -37,7 +37,7 @@ export const Search = (props) => {
   const handleFocus = () => onFocus && onFocus()
 
   return (
-    <div className={classNames(styles['search'], {[styles['search--sidebar']]: sidebar})}>
+    <div className={classNames(styles['search'], {[styles['search--sidebar']]: sidebar}, className)}>
       <form onSubmit={formik.handleSubmit} noValidate>
         <div className={styles['input']}>
           <FormInput 
@@ -63,4 +63,5 @@ Search.propTypes = {
 	onFocus: PropTypes.func,
 	onBlur: PropTypes.func,
 	sidebar: PropTypes.bool,
+  className: PropTypes.string
 };

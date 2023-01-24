@@ -1,17 +1,12 @@
 .share {
-  @media screen and (max-width: 1024px) {
-    display: flex;
-    border-top: solid 1px rgba($color: #a7a8a9, $alpha: 0.3);
-    padding-top: 30px;
-    align-items: center;
-    justify-content: space-between;
-  }
+  display: flex;
+  align-items: center;
+
   h2 {
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 600;
-    color: #4a4f54;
-    padding-bottom: 25px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000;
 
     @media screen and (max-width: 1024px) {
       padding: 0;
@@ -21,9 +16,8 @@
   ul {
     display: inline-flex;
     gap: 30px;
-    border-top: solid 1px rgba($color: #a7a8a9, $alpha: 0.3);
-    padding: 25px 0;
     align-items: center;
+    margin-left: 57px;
 
     @media screen and (max-width: 1024px) {
       border: 0;
@@ -33,12 +27,22 @@
 
     li {
       a {
-        color: #4a4f54;
+        background: #F7F7F7;
+        color: #000;
         display: flex;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 28px;
+        border: 1px solid #D9D9D9;
+        border-radius: 6px;
+        align-items: center;
+        justify-content: center;
+        padding: 6px;
 
         i {
+          margin-right: 9px;
           &:before {
-            font-size: 22px;
+            font-size: 16px;
           }
         }
       }

@@ -57,7 +57,7 @@ export default function Blog() {
           </div>
 
           <div className={styles['blog__list']}>
-            {blogData.map((item, index) => <CardBlog key={index} data={item} path={`${'#'}`} />)}
+            {blogData.map((item, index) => <CardBlog footer key={index} data={item} path={`${'#'}`} />)}
           </div>
         </section>
 
