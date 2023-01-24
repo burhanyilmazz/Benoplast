@@ -38,3 +38,4 @@ export * from './Boxes';
 export * from './Button2';
 export * from './CardPrize';
 export * from './CardLink';
+export * from './PageTap'

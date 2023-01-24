@@ -1,37 +1,25 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import Image from 'next/image'
-import { Navigation, Pagination } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
 
 import styles from './CardPrize.module.scss';
 
 export const CardPrize = (props) => {
-  const { className, title, image, desc, data } = props;
+  const { className, title, image, desc, rightImage, titleDate } = props;
 
   return (
     <div className={classNames(styles['card-prize'], className)}>
       <figure>
         <figcaption>
-          <h3>{title}</h3>
+          <h3><span>{titleDate}</span>{title}</h3>
           <span>{desc}</span>
         </figcaption>
         <picture>
-          <Image src={image} width={'70'} height={'170'} alt={title} fetchpriority="high" />
+          <Image src={image} width={'100'} height={'150'} alt={title} fetchpriority="high" />
         </picture>
       </figure>
       <figure>
-        <div className={styles['blog__slider']}>
-          <Swiper
-            modules={[Navigation, Pagination]}
-            slidesPerView={'auto'}
-            spaceBetween={0}
-            className={'prize__carousel'}
-            pagination
-          >
-            {data?.map((item, index) => <SwiperSlide key={index}><Image src={item?.children} width={'70'} height={'170'} alt={title} fetchpriority="high" /></SwiperSlide>)}
-          </Swiper>
-        </div>
+        <Image src={rightImage} width={'250'} height={'150'} alt={title} fetchpriority="high" />
       </figure>
     </div>
   )
@@ -43,6 +31,8 @@ CardPrize.propTypes = {
   desc: PropTypes.string,
   image: PropTypes.string,
   path: PropTypes.string,
+  rightImage: PropTypes.string,
+  titleDate: PropTypes.string
 };
 
 CardPrize.defaultProps = {

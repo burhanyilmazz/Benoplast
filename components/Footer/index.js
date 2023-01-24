@@ -13,7 +13,7 @@ export const Footer = ({ navlist }) => {
   return (
     <>
       <section className={styles['foot']}>
-        <div className={styles['foot--content']}>
+        <div className={classNames('container-fluid',styles['foot--content'])}>
           <Newsletter handleSubmit={() => setModalOpen(true)} />
           <Library />
           <div className={styles['social-media']}>

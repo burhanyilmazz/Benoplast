@@ -2,7 +2,7 @@
 import { Layout } from '../../layout'
 import Image from 'next/image'
 import classNames from 'classnames';
-import { LeftNav, ScrollIcon } from '../../components';
+import { LeftNav, PageTab } from '../../components';
 
 import { navlist } from '../../utils/Nav';
 
@@ -15,25 +15,11 @@ export default function Corporate() {
         <section className={'content'}>
           <div className={'content--left'}><LeftNav data={navlist.find(item => item.type === 'corporate')} /></div>
           <div className={'content--right'}>
-            <div className={'content__header'}>
-              <picture>
-                <Image
-                  src={"/images/pages/degerlerimiz.jpg"}
-                  width={"1544"}
-                  height={"1080"}
-                  alt={"Degerlerimiz"}
-                />
-              </picture>
-
-              <div className={'content__desc'}>
-                <h2>Degerlerimiz</h2>
-                <p>
-                  İş arkadaşlarımız en büyük değerimizdir. Sürdürülebilirlik faaliyetlerimizin en büyük halkası onlardır. Biliyoruz ki her bir çalışanın ortak çaba ve özverisi ile başarılara imza atıyor ve hedeflerimize ulaşıyoruz. Bu bağlamda çalışan bağlılığını artıracak kaynaklarımızı maksimum seviyede kullanarak aynı zamanda kişisel gelişimi destekleyen, sağlıklı ve güvenli hissettiren, insan haklarına saygılı, fırsat eşitliği ve çeşitliliği destekleyen bir çalışma ortamı sunuyoruz.
-                </p>
-              </div>
-
-              <ScrollIcon />
-            </div>
+            <PageTab
+              image={'/images/pages/degerlerimiz.jpg'}
+              title={'Degerlerimiz'}
+              text={'İş arkadaşlarımız en büyük değerimizdir. Sürdürülebilirlik faaliyetlerimizin en büyük halkası onlardır. Biliyoruz ki her bir çalışanın ortak çaba ve özverisi ile başarılara imza atıyor ve hedeflerimize ulaşıyoruz. Bu bağlamda çalışan bağlılığını artıracak kaynaklarımızı maksimum seviyede kullanarak aynı zamanda kişisel gelişimi destekleyen, sağlıklı ve güvenli hissettiren, insan haklarına saygılı, fırsat eşitliği ve çeşitliliği destekleyen bir çalışma ortamı sunuyoruz.'}
+            />
             <div className={'content__wrap'}>
               <h3>Benoplast = Önce çalışan</h3>
 

@@ -2,7 +2,7 @@
 import { Layout } from '../../layout'
 import Image from 'next/image'
 import classNames from 'classnames';
-import { LeftNav, ScrollIcon, Button2, Card } from '../../components';
+import { LeftNav, PageTab, Button2, Card } from '../../components';
 import { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -25,25 +25,12 @@ export default function Industries() {
         <section className={'content'}>
           <div className={'content--left'}><LeftNav data={navlist.find(item => item.type === 'industries')} /></div>
           <div className={'content--right'}>
-            <div className={'content__header'}>
-              <picture>
-                <Image
-                  src={"/images/pages/sektorler.jpg"}
-                  width={"1544"}
-                  height={"1080"}
-                  alt={"Otomotiv"}
-                />
-              </picture>
+            <PageTab
+              image={'/images/pages/sektorler.jpg'}
+              title={'Otomotiv'}
+              text={'İş arkadaşlarımız en büyük değerimizdir. Sürdürülebilirlik faaliyetlerimizin en büyük halkası onlardır. Biliyoruz ki her bir çalışanın ortak çaba ve özverisi ile başarılara imza atıyor ve hedeflerimize ulaşıyoruz. Bu bağlamda çalışan bağlılığını artıracak kaynaklarımızı maksimum seviyede kullanarak aynı zamanda kişisel gelişimi destekleyen, sağlıklı ve güvenli hissettiren, insan haklarına saygılı, fırsat eşitliği ve çeşitliliği destekleyen bir çalışma ortamı sunuyoruz.              '}
+            />
 
-              <div className={'content__desc'}>
-                <h2>Otomotiv</h2>
-                <p>
-                  İş arkadaşlarımız en büyük değerimizdir. Sürdürülebilirlik faaliyetlerimizin en büyük halkası onlardır. Biliyoruz ki her bir çalışanın ortak çaba ve özverisi ile başarılara imza atıyor ve hedeflerimize ulaşıyoruz. Bu bağlamda çalışan bağlılığını artıracak kaynaklarımızı maksimum seviyede kullanarak aynı zamanda kişisel gelişimi destekleyen, sağlıklı ve güvenli hissettiren, insan haklarına saygılı, fırsat eşitliği ve çeşitliliği destekleyen bir çalışma ortamı sunuyoruz.
-                </p>
-              </div>
-
-              <ScrollIcon />
-            </div>
             <div className={'content__wrap'}>
               <h3>Quisque a purus ac tellus maximus accumsan.</h3>
 
@@ -65,8 +52,8 @@ export default function Industries() {
               <div className={styles['industries__slider']}>
                 <Swiper
                   modules={[Navigation, Pagination]}
-                  slidesPerView={'auto'}
-                  spaceBetween={30}
+                  slidesPerView={3}
+                  spaceBetween={16}
                   navigation={{
                     nextEl: `.${styles['next']}`,
                     prevEl: `.${styles['prev']}`
