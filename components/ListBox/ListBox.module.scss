@@ -1,0 +1,25 @@
+.list-box {
+  background: linear-gradient(250.38deg, #d9dcde 2.94%, #f7f7f7 100%);
+  backdrop-filter: blur(17px);
+  border-radius: 20px 20px 80px 20px;
+  height: 220px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #000;
+  padding: 49px 50px;
+  box-sizing: border-box;
+
+  i {
+    &:before {
+      font-size: 60px;
+    }
+  }
+
+  span {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 30px;
+  }
+}

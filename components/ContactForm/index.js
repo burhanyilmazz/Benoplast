@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
 
-import { FormInput, FormTextarea, Button, FormCheckbox, FileInput, Modal, Icon, titles } from "../"
+import { FormInput, FormTextarea, Button, FormCheckbox, FileInput, Modal, Icon } from "../"
 import styles from './ContactForm.module.scss';
 
 export const ContactForm = (props) => {
-  const { className, hr, title, text, contacts } = props;
+  const { className, hr, title, titles, text, contacts } = props;
   const [checkboxAllow, setCheckboxAllow] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [agreementModal, setAgreementModal] = useState(false);

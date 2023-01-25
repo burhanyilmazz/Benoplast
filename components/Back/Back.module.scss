@@ -1,0 +1,54 @@
+.back {
+  display: inline-flex;
+  position: relative;
+  transition: all 0.5s ease;
+  align-items: center;
+
+  a {
+    color: #000;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 28px;
+    padding-left: 24px;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    border: solid #000;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 4px;
+    transform: rotate(130deg);
+    position: absolute;
+    left: -1px;
+    transition: all 0.5s ease;
+  }
+
+  &:before {
+    content: "";
+    display: block;
+    position: relative;
+    width: 20px;
+    height: 1px;
+    background: #000;
+    transition: all 0.5s ease;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      a {
+        color: #d9222a;
+      }
+
+      &:before {
+        width: 50px;
+        background: #d9222a;
+      }
+
+      &:after {
+        border-color: #d9222a;
+      }
+    }
+  }
+}

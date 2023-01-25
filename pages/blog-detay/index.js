@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Layout } from '../../layout'
 import Image from 'next/image'
 import Link from 'next/link';
-import { Breadcrumb, ShareMedia, GalleryImage, Modal, CardBlog, Icon } from '../../components';
+import { Breadcrumb, ShareMedia, GalleryImage, Modal, CardBlog, Back } from '../../components';
 
 import styles from "../../assets/styles/BlogDetail.module.scss";
 
@@ -33,7 +33,6 @@ export default function BlogDetail() {
     { title: "Fuarlar" },
     { title: "Genel" }
   ]
-
 
   const gallery = [
     { image: "/images/content/blog-big-1.jpg" },
@@ -91,7 +90,7 @@ export default function BlogDetail() {
 
             <div className={styles['blog-detail__right-nav']}>
               <div className={styles['blog-detail__back']}>
-                <Link href={'#'}>  Geri </Link>
+                <Back />
               </div>
               <h4>Kategoriler</h4>
               <div className={styles["right-nav__categories"]}>

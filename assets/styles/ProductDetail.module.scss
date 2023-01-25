@@ -1,0 +1,17 @@
+.product-detail {
+  &__head {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 90px;
+
+    > div {
+      width: calc(33.333% - 27px);
+    }
+  }
+}

@@ -124,7 +124,7 @@ export default function Contact() {
             </div>
           </div>
           <div className={styles['contact__body']}>
-            <div className='container'>
+            <div className='container-fluid'>
               <h3>Fabrikalarımız</h3>
 
               {cards?.map((item, index) => <CardContact key={index} data={item} className={styles['card-contact']} />)}
@@ -136,8 +136,7 @@ export default function Contact() {
 
             </div>
 
-            <ContactForm contacts className={styles['contacts']} />
-
+            <ContactForm contacts className={styles['contacts']} titles title={'İletişim Formu'} />
 
             <div className={styles["ccontact__maps"]}>
               <div id="map" ref={googlemap} />

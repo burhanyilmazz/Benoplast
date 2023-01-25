@@ -1,3 +1,5 @@
+@import "../../assets/styles/icons.scss";
+
 .content {
   position: fixed;
   left: 0;
@@ -8,12 +10,13 @@
   flex-direction: column;
   justify-content: center;
   z-index: 8;
+
   @media screen and (max-width: 1366px) {
     padding-left: 100px;
   }
 
   h3 {
-    color: #7E8A95;
+    color: #7e8a95;
     font-weight: 300;
     font-size: 20px;
     line-height: 28px;
@@ -38,17 +41,106 @@
     line-height: 21px;
     margin: 48px 51px 0 51px;
 
-    a {
-      display: flex;
-      align-items: center;
-      color: #4a4f54;
-      padding: 15px 0;
-      transition: all 0.3s ease;
-      position: relative;
+    li {
+      a {
+        display: flex;
+        align-items: center;
+        color: #4a4f54;
+        padding: 15px 0;
+        transition: all 0.3s ease;
+        position: relative;
 
-      &:hover,
+        &:hover {
+          color: #d60812;
+        }
+      }
+
+      &:has(ul) {
+        position: relative;
+        font-weight: 500;
+
+        &:before {
+          position: absolute;
+          font-family: benoplast !important;
+          @extend .icon-plus;
+          left: -30px;
+          top: 15px;
+          color: #000;
+          transition: all 0.3s ease;
+        }
+
+        ul {
+          display: none;
+          font-weight: 300;
+          font-size: 16px;
+          line-height: 26px;
+          margin: 0;
+          padding-left: 20px;
+          height: 250px;
+          overflow-y: scroll;
+          scroll-behavior: smooth;
+
+          &::-webkit-scrollbar-track {
+            background-color: rgba(126, 138, 149, 0.13);
+            border-radius: 6px;
+          }
+
+          &::-webkit-scrollbar {
+            width: 5px;
+            border-radius: 6px;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background-color: #7e8a95;
+            border-radius: 6px;
+          }
+
+          li {
+            a {
+              color: #000;
+              padding: 0 0 20px;
+
+              &:hover,
+              &.active {
+                color: #d60812;
+              }
+            }
+
+            &:before {
+              display: none;
+            }
+          }
+        }
+      }
+
       &.active {
-        color: #d60812;
+        > a {
+          color: #d60812;
+        }
+
+        &:has(ul) {
+          > a {
+            color: #000;
+          }
+
+          ul {
+            display: flex;
+            flex-direction: column;
+
+            li {
+              &:before {
+                @extend .icon-minus;
+              }
+
+              a {
+                &.sub-active,
+                &:hover {
+                  color: #d60812 !important;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -71,8 +163,6 @@
   }
 
   &--open {
-    .left-nav {
-    }
     .content {
       transform: translateX(0);
       z-index: 8;

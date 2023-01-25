@@ -31,7 +31,7 @@
 
 .input {
   label {
-    transform: translate(40px, 23px) scale(1);
+    transform: translate(69px, 24px) scale(1);
     color: #aab8c5;
     font-size: 18px;
     line-height: 21px;
@@ -39,12 +39,12 @@
   }
 
   input {
-    padding-left: 40px;
+    padding-left: 69px;
     &[data-dirty="true"],
     &[data-dirty-important="true"],
     &:focus {
       & ~ label {
-        transform: translate(40px, 20px) scale(0.75);
+        transform: translate(69px, 15px) scale(0.75);
       }
     }
   }
@@ -54,7 +54,7 @@
   position: absolute;
   color: #aab8c5;
   top: 23px;
-  left: 10px;
+  left: 30px;
   z-index: 1;
 }
 

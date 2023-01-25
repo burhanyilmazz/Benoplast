@@ -41,3 +41,7 @@ export * from './CardLink';
 export * from './PageTap';
 export * from './OfferBox';
 export * from './CardContact';
+export * from './Back';
+export * from './ListBox';
+export * from './GallerySlide';
+export * from './InfoList';

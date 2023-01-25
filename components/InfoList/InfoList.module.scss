@@ -1,0 +1,33 @@
+.info-list {
+  background: #464f56;
+  border-radius: 10px;
+  padding: 37px 50px;
+  box-sizing: border-box;
+  margin-bottom: 100px;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 28px;
+    gap: 30px;
+    color: #fff;
+
+    li {
+      width: calc(33.33% - 27px);
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+
+      i {
+        color: #A1AAB2;
+        margin-right: 20px;
+
+        &:before {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+}

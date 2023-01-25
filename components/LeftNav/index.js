@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import {useRouter} from 'next/router'
+import { useRouter } from 'next/router'
 import classNames from 'classnames';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
@@ -7,7 +7,7 @@ import slug from 'slug'
 
 import styles from './LeftNav.module.scss';
 
-export const LeftNav = (props) => { 
+export const LeftNav = (props) => {
   const { data, title, folder } = props;
   const router = useRouter()
   const reg = /^\d+$/;
@@ -23,9 +23,18 @@ export const LeftNav = (props) => {
       <div className={styles['content']}>
         <h3>{title || data?.title}</h3>
         <ul>
-          { data?.children?.map((item, index) => {
+          {data?.children?.map((item, index) => {
             const url = folder ? `${folder}/${slug(item.title)}-${item.id}-${data.id}` : `/${data.folder}/${slug(item.title)}-${item.id}`
-            return <li key={index}><Link href={url} className={classNames({[styles['active']]: 1 == item.id})}>{item.title}</Link></li>
+            return <li key={index} className={classNames({ [styles['active']]: 1 == item.id })}><Link href={url}>{item.title}</Link>
+              {item?.children &&
+                <ul>
+                  {item?.children?.map((i, k) => {
+                    return <li key={index}><Link href={'#'} className={classNames({ [styles['sub-active']]: 1 == i.id })}>{i.title}</Link></li>
+                  })
+                  }
+                </ul>
+              }
+            </li>
           })}
         </ul>
       </div>
@@ -34,7 +43,7 @@ export const LeftNav = (props) => {
 }
 
 LeftNav.propTypes = {
-	data: PropTypes.object,
-	title: PropTypes.object,
-	folder: PropTypes.string,
+  data: PropTypes.object,
+  title: PropTypes.object,
+  folder: PropTypes.string,
 };

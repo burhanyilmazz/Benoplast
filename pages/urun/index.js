@@ -21,6 +21,7 @@ export default function Product() {
     { title: 'B-400', subTitle: "Katlanır Kasa", image: '/images/cards/card-2.jpg' },
     { title: 'B-400', subTitle: "Katlanır Kasa", image: '/images/cards/card-2.jpg' },
   ]
+  
   const breadcrumbList = [
     {
       title: 'Anasayfa',
