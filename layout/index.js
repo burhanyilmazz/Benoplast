@@ -92,7 +92,7 @@ export const Layout = ({ navlist, children }) => {
       <Sidebar nav={navlist} isShow={sidebarOpen} outsideClick={(event) => handleOnClickNav(event)} />
       <MobileNav nav={navlist} isShow={sidebarOpen} />
       <SearchBar isShow={searchOpen} outsideClick={(event) => handleOnClickSearch(event)} />
-      <Basket isShow={isBasket} outsideClick={(event) => handleOnClickBasket(event)} />
+      <Basket isShow={isBasket} outsideClick={(event) => handleOnClickBasket(event)}/>
       <main>
         {children}
       </main>

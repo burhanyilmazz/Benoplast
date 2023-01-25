@@ -33,11 +33,11 @@ export default function ProductDetail() {
   ]
 
   const industries = [
-    { title: 'SANAYİ', icon: 'industry' },
-    { title: 'TARIM', icon: 'agriculture' },
-    { title: 'GIDA', icon: 'food' },
-    { title: 'LOJİSTİK', icon: 'logistics' },
-    { title: 'ZİNCİR MARKETLER', icon: 'market' },
+    { title: 'SANAYİ', icon: 'industry', hover: '/images/content/industry.png'},
+    { title: 'TARIM', icon: 'agriculture', hover: '/images/content/agriculture.png'},
+    { title: 'GIDA', icon: 'food', hover: '/images/content/food.png'},
+    { title: 'LOJİSTİK', icon: 'logistics', hover: '/images/content/logistics.png'},
+    { title: 'ZİNCİR MARKETLER', icon: 'market', hover: '/images/content/market.png' },
   ]
 
   const gallery = [

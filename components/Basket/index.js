@@ -7,7 +7,7 @@ import { Button, CardProduct, ContactForm, Icon } from '../';
 
 
 export const Basket = (props) => {
-  const { isShow, outsideClick } = props;
+  const { isShow, outsideClick, backClick } = props;
   const [offer, setOffer] = useState(false);
 
   const handleOutsideClick = (event) => {
@@ -22,10 +22,6 @@ export const Basket = (props) => {
     setOffer(true)
   }
 
-  const handleButtonClickBack = () => {
-    setOffer(false)
-  }
-
   return (
     <aside className={classNames(styles['basket'], { [styles['basket--open']]: isShow })} onClick={(event) => handleOutsideClick(event)}>
       <div className={styles['basket__close']} onClick={() => outsideClick && outsideClick()}><Icon icon={'close'} /></div>
@@ -36,7 +32,7 @@ export const Basket = (props) => {
         </div>
 
         {offer ? <div className={styles['basket__content']}>
-          <ContactForm />
+          <ContactForm backClick={() => setOffer(false)} />
         </div> : <>
           <div className={styles['basket__content']}>
             <CardProduct title="B-400" desc="Plastik Kilitli Katlanır Kasa" image="/images/cards/card-1.png" />

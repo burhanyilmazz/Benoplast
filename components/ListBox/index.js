@@ -9,7 +9,7 @@ export const ListBox = (props) => {
   const { data } = props;
 
   return (
-    <div className={classNames(styles['list-box'])}>
+    <div className={classNames(styles['list-box'])} style={{"background-image": `${data?.hover} `}}>
       <Icon icon={data?.icon}/>
       <span>{data?.title}</span>
     </div>

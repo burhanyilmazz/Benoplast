@@ -9,7 +9,7 @@ import { FormInput, FormTextarea, Button, FormCheckbox, FileInput, Modal, Icon }
 import styles from './ContactForm.module.scss';
 
 export const ContactForm = (props) => {
-  const { className, hr, title, titles, text, contacts } = props;
+  const { className, hr, title, titles, contacts, backClick } = props;
   const [checkboxAllow, setCheckboxAllow] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [agreementModal, setAgreementModal] = useState(false);
@@ -81,6 +81,10 @@ export const ContactForm = (props) => {
     formik.setFieldValue('permission', !checkboxAllow)
   };
 
+  const handleButtonClick = () => {
+    backClick && backClick()
+  }
+
   return (
     <>
       <Head>
@@ -88,7 +92,6 @@ export const ContactForm = (props) => {
       </Head>
       <div className={classNames(styles['contact-form'], { [styles["contact-form--hr"]]: hr }, className)}>
         {titles ? <h3>{title}</h3> : null}
-        {/* <p>{text}</p> */}
         <form onSubmit={formik.handleSubmit} noValidate>
           <div className='form-group'>
             <div>
@@ -172,6 +175,7 @@ export const ContactForm = (props) => {
               {...formik.getFieldProps('message')}
             />
           </div>
+
           <div className='form-group'>
             <FormCheckbox
               label='<b>BENOPLAST</b> tarafından yukarıda belirtmiş olduğum bilgiler üzerinden benimle iletişim kurulmasını ve <u>izinli iletişim formu</u>‘nu onaylıyorum.'
@@ -184,6 +188,7 @@ export const ContactForm = (props) => {
               className={classNames({ 'is-invalid': formik.touched.permission && formik.errors.permission })}
             />
           </div>
+
           <div className={classNames('form-group-buttons', { 'form-group-buttons--column': !hr })}>
             <div className={classNames('captcha', { 'is-invalid': formik.touched.recaptcha && formik.errors.recaptcha })}>
               <div id="captcha"></div>
@@ -193,9 +198,10 @@ export const ContactForm = (props) => {
             {contacts && <Button variant={'left-animation'} text={'Gönder'} button className={styles['button']} />}
 
           </div>
+
           {!hr && !contacts &&
             <div className={classNames('form-group-buttons')}>
-              <Button variant={'small'} className={styles['button']} />
+              <Button variant={'small'} className={styles['button']} onClick={() => handleButtonClick()} />
               <Button variant={'middle'} text={'Formu Gönder'} button className={styles['button']} />
             </div>
           }
@@ -231,7 +237,6 @@ export const ContactForm = (props) => {
 ContactForm.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
-  text: PropTypes.string,
   hr: PropTypes.bool,
   titles: PropTypes.bool,
   contacts: PropTypes.bool

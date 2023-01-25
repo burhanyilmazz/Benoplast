@@ -2,7 +2,7 @@ import { useState } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-import { Icon, Basket } from "../"
+import { Icon, Basket, ShareMedia } from "../"
 
 import styles from './OfferBox.module.scss';
 
@@ -12,6 +12,7 @@ export const OfferBox = (props) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [isBasket, setIsBasket] = useState(false);
+  const [isShare, setIsShare] = useState(false);
 
   const handleOnClickBasket = (event) => {
     event
@@ -22,13 +23,17 @@ export const OfferBox = (props) => {
     setIsBasket(event)
   }
 
+  const handleShare = () => {
+    setIsShare(!isShare)
+  }
+
   return (
     <>
       <div className={classNames(styles['offer-box'], className)}>
         {buttons && <ul>
           {data?.map((item, index) => {
             return (
-              <li className={styles['offer-box__button']} key={index}>
+              <li className={styles['offer-box__button']} key={index} onClick={() => item?.title == 'Sayfayı Paylaş' ? handleShare(!isShare) : null}>
                 <Icon icon={item?.icon} />
                 <span>{item?.title}</span>
               </li>
@@ -42,6 +47,7 @@ export const OfferBox = (props) => {
         </div>
       </div>
       <Basket isShow={isBasket} outsideClick={(event) => handleOnClickBasket(event)} />
+      {isShare && <ShareMedia className={styles['share']} />}
     </>
 
   )
