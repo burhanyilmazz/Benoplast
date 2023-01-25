@@ -49,9 +49,9 @@ export default function BlogDetail() {
     <>
       <Layout navlist={navlist}>
         <section className={styles['blog-detail']}>
-          <Breadcrumb data={breadcrumbList} />
           <div className={styles['blog-detail__content']}>
             <div className={styles['blog-detail__left']}>
+              <Breadcrumb data={breadcrumbList} />
               <div className={styles['blog-detail__head']}>
                 <h2>SAHİBİNDEN.COM’da satışa sunduğumuz kalıplar</h2>
 

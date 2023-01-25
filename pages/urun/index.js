@@ -43,7 +43,7 @@ export default function Product() {
           <div className={'content--left'}><LeftNav data={navlist.find(item => item.type === 'products')} /></div>
           <div className={'content--right'}>
             <div className={'content__wrap'}>
-              <Breadcrumb data={breadcrumbList} className={styles['Breadcrumb']} />
+              <Breadcrumb data={breadcrumbList} className={'breadcrumb'} />
               <h3>Pasif Kilitli Katlanır Kasalar</h3>
 
               <div className={styles['product-wrap']}>

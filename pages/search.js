@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
 import { Layout } from "../layout";
 import styles from "../assets/styles/Search.module.scss";
-import { Search, Icon, Card } from "../components";
+import { Search, Icon, Card, Breadcrumb } from "../components";
 import slug from 'slug'
 
 import { navlist } from '../utils/Nav';
@@ -46,10 +46,26 @@ export default function SearchPage() {
     { title: 'B-400', subTitle: "Katlanır Kasa", image: '/images/cards/card-2.jpg' },
   ]
 
+  const breadcrumbList = [
+    {
+      title: 'Anasayfa',
+      href: '/'
+    },
+    {
+      title: 'Kurumsal',
+      href: '/'
+    },
+    {
+      title: 'Search'
+    }
+  ]
+
   return (
     <>
       <Layout navlist={navlist}>
         <section className={styles["search"]}>
+        <Breadcrumb data={breadcrumbList} className={'breadcrumb'} />
+
           <h2>Arama Sonuçları</h2>
           <h4><b>“KASA” </b>ile ilgili 22 sonuç bulundu.</h4>
           <Search className={styles['search-input']} />
