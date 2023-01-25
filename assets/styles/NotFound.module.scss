@@ -32,6 +32,12 @@
       width: 100%;
       color: #000 !important;
     }
+
+    &:hover {
+      &:first-child div {
+        color: #fff !important
+      }
+    }
   }
 
   span {

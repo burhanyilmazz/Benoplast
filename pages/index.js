@@ -174,7 +174,7 @@ export default function Home() {
           <div className={styles['blog__slider']}>
             <Swiper
               modules={[Navigation, Pagination]}
-              slidesPerView={'auto'}
+              slidesPerView={3}
               spaceBetween={0}
               className={'blog__carousel'}
             >
