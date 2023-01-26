@@ -3,15 +3,13 @@ import { useState } from "react";
 import { Layout } from '../../layout'
 import Image from 'next/image'
 import classNames from 'classnames';
-import { LeftNav, Breadcrumb, Card, Back, ListBox, GallerySlide, Modal, InfoList, OfferBox } from '../../components';
+import { LeftNav, Breadcrumb, Card, Back, ListBox, GallerySlide, InfoList, OfferBox } from '../../components';
 
 import styles from '../../assets/styles/ProductDetail.module.scss'
 
 import { navlist } from '../../utils/Nav';
 
 export default function ProductDetail() {
-  const [modalImage, setModalImage] = useState();
-
   const cards = [
     { title: 'B-400', subTitle: "Katlanır Kasa", image: '/images/cards/card-2.jpg' },
     { title: 'B-400', subTitle: "Katlanır Kasa", image: '/images/cards/card-2.jpg' },
@@ -42,14 +40,29 @@ export default function ProductDetail() {
 
   const gallery = [
     {
+      thumbnail: "/images/products/product-big.jpg",
       image: "/images/products/product-big.jpg",
-      child: [
-        { path: "/images/products/product-big.jpg" },
-        { path: "/images/products/product-big.jpg" },
-        { path: "/images/products/product-big.jpg" },
-        { path: "/images/products/product-big.jpg" },
-        { path: "/images/products/product-big.jpg" }
-      ]
+      big: "/images/products/product-big.jpg",
+    },
+    {
+      thumbnail: "/images/products/otomotiv.png",
+      image: "/images/products/otomotiv.png",
+      big: "/images/products/otomotiv.png",
+    },
+    {
+      thumbnail: "/images/products/product-big.jpg",
+      image: "/images/products/product-big.jpg",
+      big: "/images/products/product-big.jpg",
+    },
+    {
+      thumbnail: "/images/products/product-big.jpg",
+      image: "/images/products/product-big.jpg",
+      big: "/images/products/product-big.jpg",
+    },
+    {
+      thumbnail: "/images/products/product-big.jpg",
+      image: "/images/products/product-big.jpg",
+      big: "/images/products/product-big.jpg",
     }
   ]
 
@@ -87,7 +100,7 @@ export default function ProductDetail() {
               </div>
 
               {gallery && <div className={styles["product-detail__gallery"]}>
-                {gallery?.map((item, index) => <GallerySlide key={index} image={item.image} data={item.child} onClick={() => setModalImage(item.image)} />)}
+                <GallerySlide data={gallery} />
               </div>}
 
               <InfoList data={list} />
@@ -118,15 +131,6 @@ export default function ProductDetail() {
           </div>
 
           <OfferBox data={offer} buttons />
-
-          {modalImage && <Modal onClose={() => setModalImage('')}>
-            <Image
-              src={modalImage}
-              width={"700"}
-              height={"486"}
-              alt={'SAHİBİNDEN.COM’da satışa sunduğumuz kalıplar'}
-            />
-          </Modal>}
         </section>
       </Layout>
     </>
