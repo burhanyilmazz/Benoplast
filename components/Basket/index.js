@@ -24,7 +24,7 @@ export const Basket = (props) => {
 
   return (
     <aside className={classNames(styles['basket'], { [styles['basket--open']]: isShow })} onClick={(event) => handleOutsideClick(event)}>
-      <div className={styles['basket__close']} onClick={() => outsideClick && outsideClick()}><Icon icon={'close'} /></div>
+      {isShow && <div className={styles['basket__close']} onClick={() => outsideClick && outsideClick()}><Icon icon={'close'} /></div> }
       <div className={styles['basket__wrap']}>
         <div className={styles['basket__head']}>
           <h2>Teklif Al</h2>

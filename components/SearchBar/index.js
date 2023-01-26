@@ -17,7 +17,7 @@ export const SearchBar = (props) => {
 
   return (
     <aside className={classNames(styles['search'], { [styles['search--open']]: isShow })} onClick={(event) => handleOutsideClick(event)}>
-      <div className={styles['search__close']} onClick={() => outsideClick && outsideClick()}><Icon icon={'close'} /></div>
+      {isShow && <div className={styles['search__close']} onClick={() => outsideClick && outsideClick()}><Icon icon={'close'} /></div>}
       <div className={styles['wrap']}>
         <h2>Ne Aramıştınız ?</h2>
         <p>Ürünler, hizmetler ve daha fazlası için…</p>

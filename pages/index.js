@@ -174,8 +174,9 @@ export default function Home() {
           <div className={styles['blog__slider']}>
             <Swiper
               modules={[Navigation, Pagination]}
-              slidesPerView={3}
+              slidesPerView={'auto'}
               spaceBetween={0}
+              pagination
               className={'blog__carousel'}
             >
               {blogData.map((item, index) => <SwiperSlide key={index}><CardBlog footer data={item} path={`${'#'}`} /></SwiperSlide>)}

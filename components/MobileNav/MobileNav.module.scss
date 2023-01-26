@@ -31,6 +31,10 @@
   transform: translateX(300%);
   right: 0;
 
+  @media screen and (max-width: 768px) {
+    height: calc(100% - 60px);
+  }
+
   h3 {
     font-size: 26px;
     line-height: 31px;

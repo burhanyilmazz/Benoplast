@@ -110,6 +110,8 @@
   position: fixed;
   right: 150px;
   bottom: 450px;
+  z-index: 9;
+  transition: all 0.3s ease;
 
   &:before {
     content: "";
@@ -145,6 +147,7 @@
         border-bottom: 1px solid #d9d9d9 !important;
         position: relative;
         z-index: 2;
+        justify-content: flex-start;
 
         i {
           color: #464f56;

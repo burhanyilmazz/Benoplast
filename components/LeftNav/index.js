@@ -29,7 +29,7 @@ export const LeftNav = (props) => {
               {item?.children &&
                 <ul>
                   {item?.children?.map((i, k) => {
-                    return <li key={index}><Link href={'#'} className={classNames({ [styles['sub-active']]: 1 == i.id })}>{i.title}</Link></li>
+                    return <li key={k}><Link href={'#'} className={classNames({ [styles['sub-active']]: 1 == i.id })}>{i.title}</Link></li>
                   })
                   }
                 </ul>

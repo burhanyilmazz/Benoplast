@@ -39,7 +39,26 @@
   ul {
     font-size: 18px;
     line-height: 21px;
-    margin: 48px 51px 0 51px;
+    margin: 48px 51px 0 0;
+    padding-left: 51px;
+    height: 400px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar-track {
+      background-color: rgba(126, 138, 149, 0.13);
+      border-radius: 6px;
+    }
+
+    &::-webkit-scrollbar {
+      width: 5px;
+      border-radius: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #7e8a95;
+      border-radius: 6px;
+    }
 
     li {
       a {
@@ -76,24 +95,8 @@
           line-height: 26px;
           margin: 0;
           padding-left: 20px;
-          height: 250px;
-          overflow-y: scroll;
-          scroll-behavior: smooth;
-
-          &::-webkit-scrollbar-track {
-            background-color: rgba(126, 138, 149, 0.13);
-            border-radius: 6px;
-          }
-
-          &::-webkit-scrollbar {
-            width: 5px;
-            border-radius: 6px;
-          }
-
-          &::-webkit-scrollbar-thumb {
-            background-color: #7e8a95;
-            border-radius: 6px;
-          }
+          overflow: initial !important;
+          margin-bottom: 20px;
 
           li {
             a {
@@ -123,7 +126,7 @@
             color: #000;
           }
 
-          ul {
+          ul.sub-active {
             display: flex;
             flex-direction: column;
 

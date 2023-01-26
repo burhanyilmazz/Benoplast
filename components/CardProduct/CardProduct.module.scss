@@ -5,7 +5,11 @@
   padding: 42px 34px 44px 81px;
   position: relative;
   display: flex;
-  color: #7E8A95;
+  color: #7e8a95;
+
+  @media screen and (max-width: 768px) {
+    padding: 20px 21px 32px 21px;
+  }
 
   &__icon {
     position: absolute;
@@ -16,6 +20,13 @@
     &:hover {
       color: #d9222a;
     }
+
+    @media screen and (max-width: 768px) {
+      left: initial;
+      right: 30px;
+      top: 30px;
+      margin-top: 0;
+    }
   }
 
   figure {
@@ -23,12 +34,34 @@
     display: flex;
     width: 100%;
 
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
+
     picture {
       padding-right: 29px;
+
+      @media screen and (max-width: 768px) {
+        position: absolute;
+        left: 21px;
+        padding-right: 0;
+        width: 78px;
+        height: 47px;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
     }
 
     figcaption {
       margin-right: 102px;
+
+      @media screen and (max-width: 768px) {
+        margin-right: 0;
+        margin-bottom: 8px;
+      }
     }
 
     h3 {
@@ -37,6 +70,11 @@
       margin-bottom: 8px;
       line-height: 30px;
       color: #000;
+
+      @media screen and (max-width: 768px) {
+        font-size: 20px;
+        line-height: 23px;
+      }
     }
 
     span {

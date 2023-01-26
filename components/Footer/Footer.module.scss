@@ -1,20 +1,7 @@
 .footer {
   position: relative;
-  background: #D8DCDF;
+  background: #d8dcdf;
   z-index: 999;
-
-  @media screen and (max-width: 1366px) {
-    background-size: calc(100% - 100px);
-  }
-
-  @media screen and (max-width: 1280px) {
-    background-position: 0px bottom;
-    background-size: calc(100% - 36px);
-  }
-
-  @media screen and (max-width: 768px) {
-    background-size: 1000px;
-  }
 
   &--bottom {
     display: flex;
@@ -36,7 +23,6 @@
 .container {
   display: flex;
   flex-wrap: wrap;
-  // padding-top: clamp(40px, 8vw, 134px);
   padding-bottom: 47px;
 
   @media screen and (max-width: 1024px) {
@@ -77,6 +63,7 @@
 
   > div {
     width: 24%;
+
     @media screen and (max-width: 1280px) {
       width: 22.5%;
     }
@@ -102,14 +89,28 @@
   box-sizing: border-box;
 
   @media screen and (max-width: 1024px) {
-    display: flex;
-    order: 2;
+    justify-content: space-between;
     width: 100%;
+    padding: 30px 38px;
+
+    > div {
+      width: 100%;
+    }
   }
 
   ul {
     flex-direction: column;
     align-items: center;
+
+    @media screen and (max-width: 1024px) {
+      flex-direction: row;
+      width: 100%;
+      justify-content: center;
+    }
+
+    @media screen and (max-width: 768px) {
+      justify-content: space-between;
+    }
 
     i {
       &:before {
@@ -125,6 +126,10 @@
   img {
     width: 100%;
   }
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
 }
 
 .copyright {
@@ -138,6 +143,19 @@
   position: absolute;
   left: 163px;
   bottom: 195px;
+
+  @media screen and (max-width: 1366px) {
+    left: 100px;
+  }
+
+  @media screen and (max-width: 1280px) {
+    left: 36px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    left: 30px;
+    bottom: 100px;
+  }
 
   ul {
     display: flex;
@@ -191,5 +209,10 @@
     gap: 31px;
     padding-top: 202px;
     padding-bottom: 80px;
+
+    @media screen and (max-width: 1024px) {
+      padding: 40px 30px 50px 30px;
+      flex-direction: column;
+    }
   }
 }

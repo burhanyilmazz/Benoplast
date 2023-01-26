@@ -16,8 +16,8 @@ export const GallerySlide = (props) => {
     <>
       <div className={styles["gallery-slide"]}>
         <div className={styles['gallery-slide__big']} onClick={handleClick}>
-          <div className={styles['icon']} onClick={() => setModalImage(image?.image)}><Icon icon='zoom' /></div>
-          <Image src={image?.image} width={'271'} height={'184'} alt={'Benoplast Galeri'} />
+          <div className={styles['icon']}><Icon icon='zoom' /></div>
+          <Image src={image?.image} width={'271'} height={'184'} alt={'Benoplast Galeri'} onClick={() => setModalImage(image?.image)} />
           <Icon icon={'foodly'} />
         </div>
         <div className={styles["gallery-slide__layer"]}>
@@ -26,12 +26,14 @@ export const GallerySlide = (props) => {
       </div>
 
       {modalImage && <Modal onClose={() => setModalImage('')}>
-        <Image
-          src={modalImage}
-          width={"700"}
-          height={"486"}
-          alt={'SAHİBİNDEN.COM’da satışa sunduğumuz kalıplar'}
-        />
+        <div className={'modal-gallery'} >
+          <Image
+            src={modalImage}
+            width={"700"}
+            height={"486"}
+            alt={'SAHİBİNDEN.COM’da satışa sunduğumuz kalıplar'}
+          />
+        </div>
       </Modal>}
     </>
   )

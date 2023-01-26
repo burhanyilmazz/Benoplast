@@ -5,6 +5,12 @@
   padding: 41px 51px;
   height: 350px;
   width: 538px;
+
+  @media screen and (max-width: 1024px) {
+    height: auto;
+    width: 100%;
+    padding: 33px 30px;
+  }
 }
 
 .container {
@@ -66,7 +72,7 @@
     span {
       background: #d9d9d9 !important;
     }
-    
+
     > div {
       color: #7e8a95 !important;
     }
@@ -76,6 +82,21 @@
         span {
           background: #d9d9d9 !important;
         }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    margin-top: 20px;
+
+    button,
+    a {
+      span {
+        background: #000 !important;
+      }
+
+      > div {
+        color: #fff !important;
       }
     }
   }

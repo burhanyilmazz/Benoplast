@@ -23,11 +23,22 @@
     position: absolute;
     right: 0;
 
+
+    @media screen and (max-width: 1366px) {
+      width: 55%;
+    }
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      padding: 0 30px;
+    }
+
     h2 {
       font-size: 46px;
       line-height: 53px;
       font-weight: 300;
-      margin-bottom: 144px;
+      margin-bottom: clamp(30px, 4.2vw, 144px);
+
     }
 
     p {
@@ -50,8 +61,17 @@
     z-index: 1;
     color: #fff;
 
+    @media screen and (max-width: 768px) {
+      width: 60px;
+      height: 60px;
+    }
+
     i:before {
       font-size: 30px;
+
+      @media screen and (max-width: 768px) {
+        font-size: 22px;
+      }
     }
   }
 

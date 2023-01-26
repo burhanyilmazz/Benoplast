@@ -62,6 +62,24 @@
         }
       }
     }
+
+    @media screen and (max-width: 768px) {
+      min-width: 150px;
+
+      span {
+        width: 100%;
+      }
+
+      .text {
+        opacity: 1;
+        color: #fff;
+        padding-left: 22px;
+      }
+
+      .icon {
+        left: 80%;
+      }
+    }
   }
 
   &--download {
@@ -71,11 +89,14 @@
   }
 
   &--middle {
-    width: 213px;
+    a,
+    button {
+      width: 213px;
 
-    span {
-      width: 100% !important;
-      background: #7e8a95 !important;
+      span {
+        width: 100% !important;
+        background: #7e8a95 !important;
+      }
     }
 
     .text {
@@ -89,14 +110,29 @@
   }
 
   &--small {
-    width: 60px;
+    a,
+    button {
+      width: 60px;
 
-    span {
-      background: #7e8a95 !important;
+      span {
+        background: #7e8a95 !important;
+      }
     }
 
     .icon {
       transform: rotate(180deg);
+    }
+
+    @media screen and (max-width: 768px) {
+      width: 60px;
+
+      span {
+        width: 60px !important;
+      }
+
+      .icon {
+        left: 25px !important;
+      }
     }
 
     @media (hover: hover) {
@@ -127,6 +163,16 @@
         .icon {
           left: 25px !important;
         }
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .text {
+        padding-left: 50px !important;
+      }
+
+      .icon {
+        left: 25px !important;
       }
     }
   }
