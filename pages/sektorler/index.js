@@ -1,7 +1,5 @@
 
 import { Layout } from '../../layout'
-import Image from 'next/image'
-import classNames from 'classnames';
 import { LeftNav, PageTab, Button2, Card } from '../../components';
 import { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -52,7 +50,7 @@ export default function Industries() {
               <div className={styles['industries__slider']}>
                 <Swiper
                   modules={[Navigation, Pagination]}
-                  slidesPerView={3}
+                  slidesPerView={'auto'}
                   spaceBetween={16}
                   navigation={{
                     nextEl: `.${styles['next']}`,

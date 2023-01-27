@@ -52,6 +52,13 @@ export default function BlogDetail() {
           <div className={styles['blog-detail__content']}>
             <div className={styles['blog-detail__left']}>
               <Breadcrumb data={breadcrumbList} />
+              <div className={'select select-mobile'}>
+                <select defaultValue={'default'}>
+                  <option disabled value={'default'}>Kategoriler</option>
+                  <option value={'Genel'}>Genel</option>
+                  <option value={'Fuar'}>Fuar</option>
+                </select>
+              </div>
               <div className={styles['blog-detail__head']}>
                 <h2>SAHİBİNDEN.COM’da satışa sunduğumuz kalıplar</h2>
 

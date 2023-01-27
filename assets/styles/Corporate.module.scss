@@ -2,9 +2,13 @@
 .card--wrap {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 30px;
 
   >div {
-    flex: 1 1 46%;
+    width: calc(50% - 30px);
+
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+    }
   }
 }

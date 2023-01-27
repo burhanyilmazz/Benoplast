@@ -214,7 +214,7 @@ ul {
       justify-content: center;
       bottom: 0 !important;
 
-      @media screen and (max-width: 1366px) {
+      @media screen and (max-width: 1024px) {
         display: none;
       }
 
@@ -345,6 +345,7 @@ ul {
 .select {
   position: relative;
   width: 100%;
+  border-radius: 10px;
 
   select {
     width: 100%;
@@ -367,6 +368,27 @@ ul {
     top: 50%;
     margin-top: -8px;
     transform: rotate(45deg);
+  }
+
+  &-mobile {
+    display: none;
+    margin-bottom: 60px;
+    box-shadow: 0px 40px 60px -20px rgba(0, 0, 0, 0.2);
+
+    &:before {
+      position: absolute;
+      content: "";
+      left: 0;
+      right: 0;
+      bottom: -30px;
+      width: 100%;
+      height: 1px;
+      background: #e3e3e3;
+    }
+
+    @media screen and (max-width: 768px) {
+      display: flex;
+    }
   }
 }
 
@@ -431,22 +453,22 @@ p {
   }
 
   &--right {
-    width: calc(100% - 376px);   
-    
+    width: calc(100% - 376px);
+
     @media screen and (max-width: 1280px) {
       width: 100%;
     }
   }
 
   &__wrap {
-    margin: 110px 140px 107px 112px; 
-    
+    margin: 110px 140px 107px 112px;
+
     @media screen and (max-width: 1280px) {
-      margin: 100px 90px 50px; 
+      margin: 100px 90px 50px;
     }
-    
+
     @media screen and (max-width: 768px) {
-      margin: 100px 30px 50px; 
+      margin: 100px 30px 50px;
     }
 
     h3 {
@@ -467,7 +489,15 @@ p {
   &__carousel {
     .swiper {
       &-slide {
-        width: 360px !important;
+        width: 335px !important;
+
+        @media screen and (max-width: 1024px) {
+          width: 300px;
+        }
+
+        @media screen and (max-width: 768px) {
+          width: 100%;
+        }
       }
     }
   }

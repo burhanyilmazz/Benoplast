@@ -193,10 +193,31 @@
       left: 75%;
     }
 
+    @media screen and (max-width: 768px) {
+      a,
+      button {
+        min-width: 130px;
+
+        span {
+          width: 60px;
+        }
+      }
+
+      .text {
+        padding-left: 0 !important;
+        opacity: 0 !important;
+      }
+
+      .icon {
+        left: 75% !important;
+      }
+    }
+
     @media (hover: hover) {
       &:hover {
         .text {
           padding-right: 30px !important;
+          opacity: 1 !important;
         }
 
         .icon {

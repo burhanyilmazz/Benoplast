@@ -43,17 +43,23 @@ export default function Blog() {
       <Layout navlist={navlist}>
         <section className={styles['blog']}>
           <Breadcrumb data={breadcrumbList} />
-
-          <div className={styles['blog__top']}>
-            <h2>Blog / Haber <span>Güncel haberler ve gelişmelerden haberdar olun!</span></h2>
-
-            <div className={classNames('select', styles['blog__select'])}>
+          <div className={'select select-mobile'}>
             <select defaultValue={'default'}>
-              <option disabled value={'default'}>Kategori Seçiniz</option>
+              <option disabled value={'default'}>Kategoriler</option>
               <option value={'Genel'}>Genel</option>
               <option value={'Fuar'}>Fuar</option>
             </select>
           </div>
+          <div className={styles['blog__top']}>
+            <h2>Blog / Haber <span>Güncel haberler ve gelişmelerden haberdar olun!</span></h2>
+
+            <div className={classNames('select', styles['blog__select'])}>
+              <select defaultValue={'default'}>
+                <option disabled value={'default'}>Kategori Seçiniz</option>
+                <option value={'Genel'}>Genel</option>
+                <option value={'Fuar'}>Fuar</option>
+              </select>
+            </div>
           </div>
 
           <div className={styles['blog__list']}>

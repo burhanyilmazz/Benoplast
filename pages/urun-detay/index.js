@@ -1,9 +1,8 @@
 
-import { useState } from "react";
 import { Layout } from '../../layout'
-import Image from 'next/image'
-import classNames from 'classnames';
 import { LeftNav, Breadcrumb, Card, Back, ListBox, GallerySlide, InfoList, OfferBox } from '../../components';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import styles from '../../assets/styles/ProductDetail.module.scss'
 
@@ -11,6 +10,7 @@ import { navlist } from '../../utils/Nav';
 
 export default function ProductDetail() {
   const cards = [
+    { title: 'B-400', subTitle: "Katlanır Kasa", image: '/images/cards/card-2.jpg' },
     { title: 'B-400', subTitle: "Katlanır Kasa", image: '/images/cards/card-2.jpg' },
     { title: 'B-400', subTitle: "Katlanır Kasa", image: '/images/cards/card-2.jpg' },
     { title: 'B-400', subTitle: "Katlanır Kasa", image: '/images/cards/card-2.jpg' },
@@ -31,10 +31,10 @@ export default function ProductDetail() {
   ]
 
   const industries = [
-    { title: 'SANAYİ', icon: 'industry', hover: '/images/content/industry.png'},
-    { title: 'TARIM', icon: 'agriculture', hover: '/images/content/agriculture.png'},
-    { title: 'GIDA', icon: 'food', hover: '/images/content/food.png'},
-    { title: 'LOJİSTİK', icon: 'logistics', hover: '/images/content/logistics.png'},
+    { title: 'SANAYİ', icon: 'industry', hover: '/images/content/industry.png' },
+    { title: 'TARIM', icon: 'agriculture', hover: '/images/content/agriculture.png' },
+    { title: 'GIDA', icon: 'food', hover: '/images/content/food.png' },
+    { title: 'LOJİSTİK', icon: 'logistics', hover: '/images/content/logistics.png' },
     { title: 'ZİNCİR MARKETLER', icon: 'market', hover: '/images/content/market.png' },
   ]
 
@@ -94,6 +94,14 @@ export default function ProductDetail() {
             <div className={'content__wrap'}>
               <Breadcrumb data={breadcrumbList} className={'breadcrumb'} />
 
+              <div className={'select select-mobile'}>
+                <select defaultValue={'default'}>
+                  <option disabled value={'default'}>Kategoriler</option>
+                  <option value={'Genel'}>Genel</option>
+                  <option value={'Fuar'}>Fuar</option>
+                </select>
+              </div>
+
               <div className={styles['product-detail__head']}>
                 <h3>Pasif Kilitli Katlanır Kasalar</h3>
                 <Back />
@@ -115,12 +123,23 @@ export default function ProductDetail() {
 
               <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ‘Content here, content here’, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for ‘lorem ipsum’ will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose.</p>
 
-              <h3>Uyumlu Ürünler</h3>
-
-              <div className={styles['product-detail__wrap']}>
-                {cards.map((item, index) => <Card key={index} title={item.title} subTitle={item.subTitle} image={item.image} path={`${'#'}`} />)}
+              <div className={styles['product-detail__slider']}>
+                <h3>Uyumlu Ürünler</h3>
+                <div>
+                  <Swiper
+                    modules={[Navigation, Pagination]}
+                    slidesPerView={'auto'}
+                    spaceBetween={16}
+                    navigation={{
+                      nextEl: `.${styles['next']}`,
+                      prevEl: `.${styles['prev']}`
+                    }}
+                    className={'industries__carousel'}
+                  >
+                    {cards.map((item, index) => <SwiperSlide key={index}><Card title={item.title} subTitle={item.subTitle} image={item.image} path={`${'#'}`} /></SwiperSlide>)}
+                  </Swiper>
+                </div>
               </div>
-
 
               <h3>Kullanıldığı Sektörler</h3>
 

@@ -21,7 +21,7 @@ export default function Product() {
     { title: 'B-400', subTitle: "Katlanır Kasa", image: '/images/cards/card-2.jpg' },
     { title: 'B-400', subTitle: "Katlanır Kasa", image: '/images/cards/card-2.jpg' },
   ]
-  
+
   const breadcrumbList = [
     {
       title: 'Anasayfa',
@@ -43,6 +43,13 @@ export default function Product() {
           <div className={'content--left'}><LeftNav data={navlist.find(item => item.type === 'products')} /></div>
           <div className={'content--right'}>
             <div className={'content__wrap'}>
+              <div className={'select select-mobile'}>
+                <select defaultValue={'default'}>
+                  <option disabled value={'default'}>Kategoriler</option>
+                  <option value={'Genel'}>Genel</option>
+                  <option value={'Fuar'}>Fuar</option>
+                </select>
+              </div>
               <Breadcrumb data={breadcrumbList} className={'breadcrumb'} />
               <h3>Pasif Kilitli Katlanır Kasalar</h3>
 

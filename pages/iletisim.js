@@ -1,5 +1,5 @@
 
-import {useEffect, useRef} from 'react'
+import { useEffect, useRef } from 'react'
 import { Layout } from '../layout'
 import Image from 'next/image'
 import { Breadcrumb, CardContact, ContactForm, Icon } from '../components';
@@ -12,6 +12,7 @@ import { navlist } from '../utils/Nav';
 import { mapOptions } from '../utils/Map';
 
 import Link from 'next/link';
+import classNames from 'classnames';
 
 export default function Contact() {
   const googlemap = useRef(null);
@@ -124,7 +125,7 @@ export default function Contact() {
             </div>
           </div>
           <div className={styles['contact__body']}>
-            <div className='container-fluid'>
+            <div className={classNames('container-fluid', styles['container-fluid'])}>
               <h3>Fabrikalarımız</h3>
 
               {cards?.map((item, index) => <CardContact key={index} data={item} className={styles['card-contact']} />)}
