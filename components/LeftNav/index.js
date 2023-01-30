@@ -15,6 +15,7 @@ export const LeftNav = (props) => {
   // const id2 = router.query.slug.split('-').slice(-2)[0];
   // const pageId = reg.test(id2) && id2 ? id2 : id;
 
+
   useEffect(() => {
   }, [router.asPath])
 
@@ -25,16 +26,23 @@ export const LeftNav = (props) => {
         <ul>
           {data?.children?.map((item, index) => {
             const url = folder ? `${folder}/${slug(item.title)}-${item.id}-${data.id}` : `/${data.folder}/${slug(item.title)}-${item.id}`
-            return <li key={index} className={classNames({ [styles['active']]: 1 == item.id })}><Link href={url}>{item.title}</Link>
-              {item?.children &&
-                <ul>
-                  {item?.children?.map((i, k) => {
-                    return <li key={k}><Link href={'#'} className={classNames({ [styles['sub-active']]: 1 == i.id })}>{i.title}</Link></li>
-                  })
-                  }
-                </ul>
-              }
-            </li>
+            if (item.children) {
+              return (
+                <li key={index}
+                  className={classNames({ [styles['active']]: 1 == item.id })}
+                >
+                  {item.title}
+                  <ul>
+                    {item?.children?.map((i, k) => {
+                      return <li key={k}><Link href={'#'}>{i.title}</Link></li>
+                    })
+                    }
+                  </ul>
+                </li>
+              )
+            }
+            return <li key={index} className={classNames({ [styles['active']]: 1 == item.id })} onClick={() => onClickNav(index)}
+            ><Link href={url}>{item.title}</Link></li>
           })}
         </ul>
       </div>

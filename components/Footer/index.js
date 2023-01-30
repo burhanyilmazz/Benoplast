@@ -4,7 +4,7 @@ import Link from 'next/link'
 import classNames from 'classnames';
 import slug from 'slug'
 
-import { SocialMedia, Logo, Newsletter, Library, Modal, Icon } from '../';
+import { SocialMedia, Logo, Newsletter, Library, Modal, Icon, MobileFooter } from '../';
 
 import styles from './Footer.module.scss';
 
@@ -54,6 +54,7 @@ export const Footer = ({ navlist }) => {
                 </ul>
               </div>
             </nav>
+            <MobileFooter nav={navlist} />
           </div>
           <div className={styles['policy']}>
             <ul>

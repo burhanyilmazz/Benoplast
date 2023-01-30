@@ -1,0 +1,67 @@
+@import "../../assets/styles/icons.scss";
+
+.mobile-footer {
+  width: 100%;
+  margin-bottom: 50px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #cacfd4;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000;
+  display: none;
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+
+      a {
+        color: #000;
+      }
+
+      &:has(ul) {
+        position: relative;
+
+        &:before {
+          position: absolute;
+          font-family: benoplast !important;
+          @extend .icon-arrow-down;
+          right: 0;
+          color: #000;
+          transition: all 0.3s ease;
+          font-size: 26px;
+        }
+
+        ul {
+          display: none;
+          font-weight: 300;
+          width: 100%;
+          margin-top: 20px;
+        }
+      }
+
+      &.nav--active {
+        &:has(ul) {
+          &:before {
+            transform: rotate(180deg);
+          }
+
+          ul {
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+}

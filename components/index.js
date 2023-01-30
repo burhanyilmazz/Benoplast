@@ -45,3 +45,4 @@ export * from './Back';
 export * from './ListBox';
 export * from './GallerySlide';
 export * from './InfoList';
+export * from './MobileFooter';
