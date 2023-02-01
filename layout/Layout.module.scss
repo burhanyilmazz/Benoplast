@@ -32,13 +32,18 @@
   height: 100px;
   position: fixed;
   top: 0;
-  right: 340px;
-  z-index: 99;
+  right: 396px;
+  z-index: 9999;
   align-items: center;
   justify-content: center;
   color: #000;
   display: flex;
   cursor: pointer;
+  transition: 0.5s ease-in-out;
+
+  @media screen and (max-width: 1366px) {
+    right: 374px;
+  }
 
   @media screen and (max-width: 768px) {
     width: 60px;
@@ -62,7 +67,7 @@
   right: 264px !important;
 
   @media screen and (max-width: 1366px) {
-    right: 220px !important;
+    right: 242px !important;
   }
 
   @media screen and (max-width: 768px) {
@@ -119,8 +124,9 @@
   line-height: 30px;
   position: fixed;
   top: 0;
-  z-index: 97;
+  z-index: 9999;
   right: 133px;
+  transition: 0.5s ease-in-out;
 
   @media screen and (max-width: 1366px) {
     right: 110px;

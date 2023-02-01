@@ -6,7 +6,7 @@ import { Icon } from '../../components'
 import styles from './Card.module.scss';
 
 export const Card = (props) => { 
-  const { className, title, image, path, subTitle } = props;
+  const { className, title, image, path, subTitle, buttonText, buttonText2 } = props;
   
   return (
     <div className={classNames(styles['card'], className)}>
@@ -17,8 +17,8 @@ export const Card = (props) => {
         <figcaption>
           <h3>{title}</h3>
           <span>{subTitle}</span>
-          <div className={styles['button']}><div className={styles['text']}>Teklif Listesine Ekle</div><Icon className={styles['icon']} icon={'plus-circle'}/><span /></div>
-          <Link href={path} className={styles['button-2']}><div className={styles['text']}>Ürünleri İncele</div><Icon className={styles['icon']} icon={'arrow'}/><span /></Link>
+          <div className={styles['button']}><div className={styles['text']}>{buttonText}</div><Icon className={styles['icon']} icon={'plus-circle'}/><span /></div>
+          <Link href={path} className={styles['button-2']}><div className={styles['text']}>{buttonText2}</div><Icon className={styles['icon']} icon={'arrow'}/><span /></Link>
         </figcaption>
       </figure>
     </div>
@@ -31,8 +31,12 @@ Card.propTypes = {
 	subTitle: PropTypes.string,
 	image: PropTypes.string,
 	path: PropTypes.string,
+  buttonText: PropTypes.string,
+  buttonText2: PropTypes.string
 };
 
 Card.defaultProps = {
 	path: '#',
+  buttonText: "Teklif Listesine Ekle",
+  buttonText2: "Ürünleri İncele"
 };

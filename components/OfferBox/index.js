@@ -7,7 +7,7 @@ import { Icon, Basket, ShareMedia } from "../"
 import styles from './OfferBox.module.scss';
 
 export const OfferBox = (props) => {
-  const { className, data, buttons } = props;
+  const { className, data, buttons, counts, text } = props;
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -42,8 +42,8 @@ export const OfferBox = (props) => {
         </ul>}
         <div className={styles['basket']} onClick={() => handleOnClickBasket(!isBasket)}>
           <Icon icon={'basket'} />
-          <span>2</span>
-          Teklif Al
+          <span>{counts}</span>
+          {text}
         </div>
       </div>
       <Basket isShow={isBasket} outsideClick={(event) => handleOnClickBasket(event)} />
@@ -56,5 +56,12 @@ export const OfferBox = (props) => {
 OfferBox.propTypes = {
   className: PropTypes.string,
   buttons: PropTypes.bool,
-  data: PropTypes.any
+  data: PropTypes.any,
+  text: PropTypes.string,
+  counts: PropTypes.number
 };
+
+OfferBox.defaultProps = {
+  text: 'Teklif Al',
+  counts: 2
+}

@@ -6,7 +6,7 @@ import { Icon } from '../../components'
 import styles from './CardLink.module.scss';
 
 export const CardLink = (props) => { 
-  const { className, title, image, path } = props;
+  const { className, title, image, path, buttoonText } = props;
   
   return (
     <Link href={path} className={classNames(styles['card'], className)}>
@@ -16,7 +16,7 @@ export const CardLink = (props) => {
         </picture>
         <figcaption>
           <h3>{title}</h3>
-          <div className={styles['button']}><div className={styles['text']}>Ürünleri Listele</div><Icon className={styles['icon']} icon={'arrow'}/><span /></div>
+          <div className={styles['button']}><div className={styles['text']}>{buttoonText}</div><Icon className={styles['icon']} icon={'arrow'}/><span /></div>
         </figcaption>
       </figure>
     </Link>
@@ -28,8 +28,10 @@ CardLink.propTypes = {
 	title: PropTypes.string,
 	image: PropTypes.string,
 	path: PropTypes.string,
+  buttoonText: PropTypes.string
 };
 
 CardLink.defaultProps = {
 	path: '#',
+  buttoonText: 'Ürünleri Listele'
 };

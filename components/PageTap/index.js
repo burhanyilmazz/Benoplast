@@ -17,7 +17,7 @@ export const PageTab = (props) => {
             src={image}
             width={"1544"}
             height={"1080"}
-            alt={"Başarılarımız"}
+            alt={title}
           />
         </picture>
 

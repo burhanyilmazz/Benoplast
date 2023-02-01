@@ -5,7 +5,7 @@ import { Search, Icon } from '../';
 import styles from './SearchBar.module.scss';
 
 export const SearchBar = (props) => {
-  const { isShow, outsideClick } = props;
+  const { isShow, outsideClick, title, text } = props;
 
   const handleOutsideClick = (event) => {
     const { target } = event;
@@ -19,8 +19,8 @@ export const SearchBar = (props) => {
     <aside className={classNames(styles['search'], { [styles['search--open']]: isShow })} onClick={(event) => handleOutsideClick(event)}>
       {isShow && <div className={styles['search__close']} onClick={() => outsideClick && outsideClick()}><Icon icon={'close'} /></div>}
       <div className={styles['wrap']}>
-        <h2>Ne Aramıştınız ?</h2>
-        <p>Ürünler, hizmetler ve daha fazlası için…</p>
+        <h2>{title}</h2>
+        <p>{text}</p>
         <Search id={'layout'} />
       </div>
     </aside>
@@ -29,8 +29,12 @@ export const SearchBar = (props) => {
 
 SearchBar.propTypes = {
   isShow: PropTypes.bool,
+  title: PropTypes.string,
+  text: PropTypes.string
 };
 
 SearchBar.defaultProps = {
   isShow: false,
+  title: 'Ne Aramıştınız ?',
+  text: 'Ürünler, hizmetler ve daha fazlası için…'
 }

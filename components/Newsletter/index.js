@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 import { useFormik } from 'formik'
 import Image from 'next/image'
 
-import { Icon, FormInput, Button } from "../"
+import { Icon, FormInput, Button, title } from "../"
 import styles from './Newsletter.module.scss';
 
 export const Newsletter = (props) => {
@@ -41,7 +41,7 @@ export const Newsletter = (props) => {
     <div className={classNames(styles['newsletter'], className)}>
       <div className={styles['container']}>
         <div className={styles['title']}>
-          E-Bülten Kayıt
+          {title}
         </div>
         <form onSubmit={formik.handleSubmit} noValidate>
           <div className={styles['form-input']}>
@@ -66,4 +66,8 @@ Newsletter.propTypes = {
   className: PropTypes.string,
   title: PropTypes.bool,
   handleSubmit: PropTypes.func
+};
+
+Newsletter.defaultProps = {
+  title: 'E-Bülten Kayıt'
 };

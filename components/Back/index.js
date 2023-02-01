@@ -7,17 +7,19 @@ import { Icon } from '../';
 
 
 export const Back = (props) => {
-  const { } = props;
+  const { text } = props;
 
   return (
     <div className={classNames(styles['back'])}>
-      <Link href={'#'}>  Geri </Link>
+      <Link href={'#'}> {text} </Link>
     </div>
   )
 }
 
 Back.propTypes = {
+  text: PropTypes.string
 };
 
 Back.defaultProps = {
+  text: "Geri"
 }
