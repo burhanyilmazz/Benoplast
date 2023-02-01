@@ -10,12 +10,18 @@
     }
 
     @media screen and (max-width: 1280px) {
-      padding: 150px 36px 50px;
+      padding: 50px 36px 50px;
     }
 
     @media screen and (max-width: 1024px) {
       padding: 100px 36px;
       padding-bottom: 0;
+    }
+  }
+
+  .breadcrumb {
+    @media screen and (max-width: 1024px) {
+      padding-left: 36px !important;
     }
   }
 
@@ -65,7 +71,6 @@
       font-weight: 400;
       text-align: right;
       line-height: clamp(9px, 3vw, 16px);
-   
     }
   }
 

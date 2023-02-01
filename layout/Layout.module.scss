@@ -19,7 +19,7 @@
     }
 
     @media screen and (max-width: 768px) {
-      height: 60px;
+      height: 60px !important;
       backdrop-filter: initial !important;
       background: #f7f7f7;
     }
@@ -32,7 +32,7 @@
   height: 100px;
   position: fixed;
   top: 0;
-  right: 396px;
+  right: 340px;
   z-index: 99;
   align-items: center;
   justify-content: center;
@@ -45,9 +45,6 @@
     height: 60px;
     right: 120px;
     background: #e4e4e4;
-  }
-
-  @media screen and (max-width: 320px) {
   }
 
   i {
@@ -63,6 +60,10 @@
 
 .basket {
   right: 264px !important;
+
+  @media screen and (max-width: 1366px) {
+    right: 220px !important;
+  }
 
   @media screen and (max-width: 768px) {
     right: 60px !important;
@@ -120,6 +121,10 @@
   top: 0;
   z-index: 97;
   right: 133px;
+
+  @media screen and (max-width: 1366px) {
+    right: 110px;
+  }
 
   @media screen and (max-width: 768px) {
     display: none;

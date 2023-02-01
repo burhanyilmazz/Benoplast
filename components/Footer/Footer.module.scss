@@ -103,10 +103,13 @@
   padding: 45px 55px;
   box-sizing: border-box;
 
+  @media screen and (max-width: 1280px) {
+    padding: 30px 38px;
+  }
+
   @media screen and (max-width: 1024px) {
     justify-content: space-between;
     width: 100%;
-    padding: 30px 38px;
 
     > div {
       width: 100%;

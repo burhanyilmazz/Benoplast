@@ -51,7 +51,7 @@ export default function BlogDetail() {
         <section className={styles['blog-detail']}>
           <div className={styles['blog-detail__content']}>
             <div className={styles['blog-detail__left']}>
-              <Breadcrumb data={breadcrumbList} />
+              <Breadcrumb className={styles['breadcrumb']} data={breadcrumbList} />
               <div className={'select select-mobile'}>
                 <select defaultValue={'default'}>
                   <option disabled value={'default'}>Kategoriler</option>

@@ -386,7 +386,7 @@ ul {
       background: #e3e3e3;
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1024px) {
       display: flex;
     }
   }
@@ -409,12 +409,12 @@ p {
         padding: 40px 20px;
         width: 420px;
 
-        @media screen and (max-width: 1366px) {
-          width: 368px;
+        @media screen and (max-width: 1440px) {
+          width: 350px;
         }
 
-        @media screen and (max-width: 1024px) {
-          width: 368px;
+        @media screen and (max-width: 1280px) {
+          width: 335px;
         }
 
         @media screen and (max-width: 768px) {
@@ -491,12 +491,12 @@ p {
       &-slide {
         width: 335px !important;
 
-        @media screen and (max-width: 1024px) {
-          width: 300px;
+        @media screen and (max-width: 1336px) {
+          width: 300px !important;
         }
 
         @media screen and (max-width: 768px) {
-          width: 100%;
+          width: 100% !important;
         }
       }
     }

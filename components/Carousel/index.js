@@ -42,7 +42,7 @@ export const Carousel = (props) => {
             </div>
             <div className={styles['slide-content__hand']}>
               <picture>
-                <source media="(max-width: 1024px)" srcSet={item.first_image_mobile} />
+                <source media="(max-width: 768px)" srcSet={item.first_image_mobile} />
                 <Image src={item.first_image} width={850} height={593} alt={item.title} priority={index === 0 ? true : false} fetchpriority="high" />
               </picture>
             </div>

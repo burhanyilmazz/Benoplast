@@ -22,11 +22,11 @@
   justify-content: space-between;
   color: #fff;
 
-  @media screen and (max-width: 1366px) {
+  @media screen and (max-width: 1440px) {
     width: calc(100% - 100px);
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1280px) {
     color: #fff;
     justify-content: flex-start;
     width: 100%;
@@ -43,8 +43,7 @@
     font-size: clamp(14px, 2vw, 18px);
     line-height: 24px;
 
-    @media screen and (max-width: 1024px) {
-      font-weight: 300;
+    @media screen and (max-width: 1280px) {
       margin-top: 20px;
     }
   }
@@ -58,7 +57,7 @@
   display: flex;
   justify-content: flex-end;
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1280px) {
     bottom: 0px;
     top: initial;
     right: 0;
@@ -67,8 +66,12 @@
 
   img {
     @media screen and (max-width: 1440px) {
-      width: 100%;
+      width: 55%;
       height: auto;
+    }
+
+    @media screen and (max-width: 1024px) {
+      width: 100%;
     }
   }
 }
@@ -95,9 +98,11 @@
     }
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1280px) {
     margin-top: 20px;
+  }
 
+  @media screen and (max-width: 1024px) {
     button,
     a {
       span {

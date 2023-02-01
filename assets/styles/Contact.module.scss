@@ -63,8 +63,17 @@
     left: 163px;
     color: #fff;
 
-    @media screen and (max-width: 1024px) {
-      left: 0;
+    @media screen and (max-width: 1440px) {
+      left: 0px;
+      padding: 0 164px;
+    }
+
+    @media screen and (max-width: 1366px) {
+      left: 0px;
+      padding: 0 100px;
+    }
+
+    @media screen and (max-width: 1280px) {
       padding: 0 30px;
     }
 

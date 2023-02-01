@@ -39,7 +39,7 @@
     }
 
     @media screen and (max-width: 1366px) {
-      padding: 92px 0;
+      padding: 100px 0;
 
       > div {
         flex: initial;
@@ -49,6 +49,13 @@
           flex: initial;
           width: 100%;
         }
+      }
+    }
+
+    @media screen and (max-width: 1070px) {
+      > div {
+        flex: initial;
+        width: calc(30% - 10px);
       }
     }
 
@@ -66,14 +73,9 @@
   &__text {
     h2 {
       font-weight: 300;
-      font-size: 36px;
-      line-height: 70px;
+      font-size: clamp(26px, 4vw, 36px);
+      line-height: clamp(40px, 4vw, 70px);
       position: relative;
-
-      @media screen and (max-width: 768px) {
-        font-size: 26px;
-        line-height: 40px;
-      }
 
       &:before {
         content: "";
@@ -273,7 +275,7 @@
     }
 
     @media screen and (max-width: 1280px) {
-      margin-left: 16px;
+      margin: 0 36px 0 16px;
     }
 
     @media screen and (max-width: 768px) {

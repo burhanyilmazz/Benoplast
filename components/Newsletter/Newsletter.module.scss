@@ -6,10 +6,13 @@
   height: 350px;
   width: 538px;
 
+  @media screen and (max-width: 1280px) {
+    padding: 33px 30px;
+  }
+
   @media screen and (max-width: 1024px) {
     height: auto;
     width: 100%;
-    padding: 33px 30px;
   }
 }
 
