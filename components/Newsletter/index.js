@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
-import Image from 'next/image'
 
 import { Icon, FormInput, Button, title } from "../"
 import styles from './Newsletter.module.scss';
@@ -64,7 +63,7 @@ export const Newsletter = (props) => {
 
 Newsletter.propTypes = {
   className: PropTypes.string,
-  title: PropTypes.bool,
+  title: PropTypes.string,
   handleSubmit: PropTypes.func
 };
 

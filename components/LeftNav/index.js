@@ -9,12 +9,22 @@ import styles from './LeftNav.module.scss';
 
 export const LeftNav = (props) => {
   const { data, title, folder } = props;
+  const [list, setList] = useState(data?.children)
+
   const router = useRouter()
   const reg = /^\d+$/;
   // const id = router.query.slug.split('-').slice(-1)[0];
   // const id2 = router.query.slug.split('-').slice(-2)[0];
   // const pageId = reg.test(id2) && id2 ? id2 : id;
 
+  const onClickNav = (index) => {
+    list[index].isOpen = !list[index].isOpen;
+    list.map((item, i) => {
+      if (i !== index) list[i].isOpen = false
+    })
+
+    setList([...list])
+  }
 
   useEffect(() => {
   }, [router.asPath])
@@ -24,12 +34,13 @@ export const LeftNav = (props) => {
       <div className={styles['content']}>
         <h3>{title || data?.title}</h3>
         <ul>
-          {data?.children?.map((item, index) => {
+          {list?.map((item, index) => {
             const url = folder ? `${folder}/${slug(item.title)}-${item.id}-${data.id}` : `/${data.folder}/${slug(item.title)}-${item.id}`
             if (item.children) {
               return (
                 <li key={index}
-                  className={classNames({ [styles['active']]: 1 == item.id })}
+                  className={classNames({ [styles['active']]: item.isActive, [styles['open']]: item.isOpen })}
+                  onClick={() => onClickNav(index)}
                 >
                   {item.title}
                   <ul>
@@ -41,8 +52,7 @@ export const LeftNav = (props) => {
                 </li>
               )
             }
-            return <li key={index} className={classNames({ [styles['active']]: 1 == item.id })} onClick={() => onClickNav(index)}
-            ><Link href={url}>{item.title}</Link></li>
+            return <li key={index} className={classNames({ [styles['active']]: 1 == item.id })}><Link href={url}>{item.title}</Link></li>
           })}
         </ul>
       </div>

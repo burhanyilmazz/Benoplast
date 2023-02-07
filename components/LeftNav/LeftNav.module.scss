@@ -3,7 +3,7 @@
 .content {
   position: fixed;
   left: 0;
-  top: 0;
+  top: 40px;
   width: 376px;
   height: 100%;
   display: flex;
@@ -42,7 +42,7 @@
     margin: 48px 51px 0 0;
     padding-left: 51px;
     height: 400px;
-    overflow-y: scroll;
+    overflow-y: auto;
     scroll-behavior: smooth;
 
     &::-webkit-scrollbar-track {
@@ -65,16 +65,15 @@
       display: flex;
       flex-direction: column;
       padding: 15px 0;
+      cursor: pointer;
 
       a {
         color: #4a4f54;
         display: flex;
         align-items: center;
         transition: all 0.3s ease;
-      }
 
-      &:hover {
-        a {
+        &:hover {
           color: #d60812;
         }
       }
@@ -91,6 +90,14 @@
           top: 15px;
           color: #000;
           transition: all 0.3s ease;
+        }
+
+        &:hover {
+          color: #d60812;
+
+          &:before {
+            color: #d60812;
+          }
         }
 
         ul {
@@ -123,7 +130,8 @@
         }
       }
 
-      &.active {
+      &.open {
+        color: #d60812;
         > a {
           color: #d60812;
         }
@@ -133,22 +141,21 @@
             color: #000;
           }
 
-          ul{
+          ul {
             display: flex;
             flex-direction: column;
-
-            li {
-              &:before {
-                @extend .icon-minus;
-              }
-
-              &:hover {
-                a {
-                  color: #d60812 !important;
-                }
-              }
-            }
           }
+
+          &:before {
+            @extend .icon-minus;
+            color: #d60812;
+          }
+        }
+      }
+
+      &.active {
+        > a {
+          color: #d60812;
         }
       }
     }

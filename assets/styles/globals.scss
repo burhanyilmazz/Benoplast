@@ -134,7 +134,7 @@ ul {
 
 .form-group {
   display: flex;
-  align-items: center;
+  //align-items: center;
   justify-content: space-between;
   gap: 16px;
   margin-bottom: 16px;
@@ -418,7 +418,12 @@ p {
         }
 
         @media screen and (max-width: 768px) {
-          width: 100%;
+          width: 80%;
+          padding: 30px 10px;
+
+          &:first-child {
+            margin-left: 20px;
+          }
         }
       }
 

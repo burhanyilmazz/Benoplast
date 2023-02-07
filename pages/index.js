@@ -1,4 +1,4 @@
-
+import { useState } from 'react';
 import { Layout } from '../layout'
 import Image from 'next/image'
 import classNames from 'classnames';
@@ -11,6 +11,8 @@ import styles from '../assets/styles/Home.module.scss'
 import { navlist } from '../utils/Nav';
 
 export default function Home() {
+  const [bg, setBg] = useState("/images/content/bg-1.png")
+
   const sliders = [
     {
       "id": 3,
@@ -102,7 +104,7 @@ export default function Home() {
           <Carousel data={sliders} />
         </section>
 
-        <section className={styles['innovator']}>
+        <section className={styles['innovator']} style={{backgroundImage: `url(${bg})`}}>
           <div className='container'>
             <div className={styles['innovator__content']}>
               <div className={styles['innovator__text']}>
@@ -110,7 +112,7 @@ export default function Home() {
                 <p>Yenilikçi çözümleri ilk sunan firma olmanın gururuyla kaliteli, teknolojik, özgün ve işlevsel tasarım hedefiyle üretim gerçekleştiriyoruz. Türkiye ve dünyada, birçok global markaya yenilikçi çözümler sunuyoruz.</p>
               </div>
 
-              {innovator?.map((item, index) => <Boxes key={index} title={item.title} number={item.number} />)}
+              {innovator?.map((item, index) => <Boxes onMouseEnter={() => setBg("/images/content/blog-big-1.jpg")} onMouseLeave={() => setBg("/images/content/bg-1.png")} key={index} title={item.title} number={item.number} />)}
             </div>
           </div>
         </section>
@@ -167,20 +169,28 @@ export default function Home() {
           <div className='container-fluid'>
             <div className={styles['blog__top']}>
               <h2>Blog / Haberler <span>Güncel haberler ve gelişmelerden haberdar olun!</span></h2>
-
               <Button2 locale href={'/blog'} text={'Tümü'} />
             </div>
-          </div>
-          <div className={styles['blog__slider']}>
-            <Swiper
-              modules={[Navigation, Pagination]}
-              slidesPerView={'auto'}
-              spaceBetween={0}
-              pagination
-              className={'blog__carousel'}
-            >
-              {blogData.map((item, index) => <SwiperSlide key={index}><CardBlog footer data={item} path={`${'#'}`} /></SwiperSlide>)}
-            </Swiper>
+          
+            <div className={styles['blog__slider']}>
+              <Swiper
+                modules={[Navigation, Pagination]}
+                slidesPerView={'auto'}
+                spaceBetween={0}
+                pagination
+                className={'blog__carousel'}
+                breakpoints={{
+                  768: {
+                    slidesPerView: 2
+                  },
+                  1280 : {
+                    slidesPerView: 3
+                  }
+                }}
+              >
+                {blogData.map((item, index) => <SwiperSlide key={index}><CardBlog footer data={item} path={`${'#'}`} /></SwiperSlide>)}
+              </Swiper>
+            </div>
           </div>
         </section>
 

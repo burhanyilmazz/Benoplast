@@ -147,7 +147,7 @@ export const ContactForm = (props) => {
             />
           </div>}
 
-          {contacts &&
+          {/* {contacts &&
             <div className='form-group'>
               <div className={'select'}>
                 <select defaultValue={'default'}>
@@ -165,7 +165,7 @@ export const ContactForm = (props) => {
                 </select>
               </div>
             </div>
-          }
+          } */}
 
           <div className='form-group'>
             <FormTextarea
