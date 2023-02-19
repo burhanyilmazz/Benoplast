@@ -28,22 +28,22 @@ export const Carousel = (props) => {
           renderBullet: (index, className) => {
             const slides = document.querySelectorAll('.carousel .swiper-slide');
 
-            return `<span class=${className}>${slides[index].dataset.thumb}</span>`;
+            return `<span class=${className}>${slides[index].dataset.title}</span>`;
           },
         }}
         className={classNames('carousel', className)}
       >
-        {data.map((item, index) => <SwiperSlide key={index} className={styles['carousel__slide']} data-thumb={item.title}>
+        {data?.map((item, index) => <SwiperSlide key={index} className={styles['carousel__slide']} data-title={item?.title}>
           <div className={styles['slide-content']}>
             <div className={styles['slide-content__wrap']}>
-              <div className={styles['slide-content__title']}>{item.title}</div>
-              <div className={styles['slide-content__text']}>{item.desc}</div>
-              <Button text={'Detaylı Bilgi'}/>
+              {item?.title && <div className={styles['slide-content__title']}>{item?.title}</div>}
+              {item?.content && <div className={styles['slide-content__text']}>{item?.content}</div>}
+              {item?.url && <Button text={'Detaylı Bilgi'} href={item?.url} />}
             </div>
             <div className={styles['slide-content__hand']}>
               <picture>
-                <source media="(max-width: 768px)" srcSet={item.first_image_mobile} />
-                <Image src={item.first_image} width={850} height={593} alt={item.title} priority={index === 0 ? true : false} fetchpriority="high" />
+                {item.mobile_image && <source media="(max-width: 768px)" srcSet={item.mobile_image} />}
+                {item.image && <Image src={item.image} width={850} height={593} alt={item.title} priority={index === 0 ? true : false} fetchpriority="high" />}
               </picture>
             </div>
           </div>

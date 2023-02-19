@@ -8,20 +8,15 @@ import { Loader } from '@googlemaps/js-api-loader';
 
 import styles from '../assets/styles/Contact.module.scss'
 
-import { navlist } from '../utils/Nav';
 import { mapOptions } from '../utils/Map';
 
 import Link from 'next/link';
 import classNames from 'classnames';
 
-export default function Contact() {
+export default function Contact({navlist, statics, offices}) {
   const googlemap = useRef(null);
-  const contact = [
-    {
-      id: 1,
-      coordinate: { lat: 41.0062198, lng: 29.1620945 }
-    },
-  ]
+  const general = offices?.find(item => item.id == '1');
+  const generalOffice = general?.offices[0];
 
   useEffect(() => {
     const loader = new Loader({
@@ -38,19 +33,18 @@ export default function Contact() {
 
       map = new google.maps.Map(googlemap.current, mapOptions);
 
-      contact.map((item, index) => {
+      general?.offices?.map((item, index) => {
         const marker = new google.maps.Marker({
-          position: { lat: item.coordinate.lat, lng: item.coordinate.lng },
+          position: { lat: Number(item.lat), lng: Number(item.long) },
           map,
           icon
         });
 
         bounds.extend(marker.position);
 
-        marker.addListener("click", () => window.open(`https://goo.gl/maps/ZHwoxLAn4msx5rS18`, '_blank'));
+        marker.addListener("click", () => window.open(`https://goo.gl/maps/ybru5GxxSF3Zt8nS9`, '_blank'));
       })
 
-      //map.fitBounds(bounds);
 
       map.setCenter(bounds.getCenter());
       map.setZoom(14);
@@ -63,77 +57,48 @@ export default function Contact() {
       href: '/'
     },
     {
-      title: 'Kurumsal',
-      href: '/'
-    },
-    {
       title: 'İletişim',
-    }
-  ]
-
-  const cards = [
-    {
-      title: 'Ege Bölge Müdürlüğü',
-      address: 'Soğanlık Yeni Mah. Pegagaz Sk. No:4 Aura Residence A Blok D. 1-2-3-4 34880 Kartal -İSTANBUL / TURKEY',
-      fax: '+90 242 338 28 34 (pbx)',
-      phone: '+90 242 338 28 82',
-      email: 'akdeniz@benoplast.com',
-      website: 'benoplast.com'
-    },
-    {
-      title: 'Akdeniz Bölge Müdürlüğü',
-      address: 'Yeni Toptancı Hal Kompleksi No: 437 07260 ANTALYA / TURKEY',
-      fax: '+90 242 338 28 34 (pbx)',
-      phone: '+90 242 338 28 82',
-      email: 'ege@benoplast.com',
-      website: 'benoplast.com'
-    },
-    {
-      title: 'Güney Doğu Anadolu Bölge Müdürlüğü',
-      address: 'Zeytinli Mah. İpekyolu Cad. İpekyol Konutları No:66 / B 27500 Şehitkamil - GAZİANTEP / TURKEY',
-      fax: '+90 242 338 28 34 (pbx)',
-      phone: '+90 242 338 28 82',
-      email: 'guneydogu@benoplast.com',
-      website: 'benoplast.com'
     }
   ]
 
 
   return (
     <>
-      <Layout navlist={navlist}>
+      <Layout navlist={navlist} statics={statics}>
         <section className={styles['contact']}>
           <div className={styles['contact__head']}>
             <Breadcrumb data={breadcrumbList} className={styles['breadcrumb']} />
             <picture>
+              {generalOffice?.header_image_mobile && <source media="(max-width: 768px)" srcSet={generalOffice?.header_image_mobile} />}
               <Image
-                src={'/images/pages/contact.jpg'}
+                src={generalOffice?.header_image}
                 width={"1920"}
                 height={"1080"}
-                alt={"Başarılarımız"}
+                alt={generalOffice?.title}
               />
             </picture>
 
-            <div className={styles['contact__headquarters']} >
-              <h2>Genel Müdürlük</h2>
+            {generalOffice && <div className={styles['contact__headquarters']} >
+              <h2>{generalOffice?.title}</h2>
               <ul>
-                <li><Icon icon={'location'} />  <span>Soğanlık Yeni Mah. Pegagaz Sk. No:4 Aura Residence A Blok D. 1-2-3-4 34880 Kartal -İSTANBUL </span></li>
-                <li><Icon icon={'location'} />  <Link href='#'>+90 232 441 28 28 (pbx)</Link><Link href={'phone:+902324413334'}>+90 232 441 33 34</Link> </li>
-                <li><Icon icon={'location'} />  <Link href={'mailto:info@benoplast.com'}>info@benoplast.com</Link> </li>
+                {generalOffice?.address && <li><Icon icon={'location'} />  <span>{generalOffice?.address}</span></li>}
+                {(generalOffice?.tel1 || generalOffice?.tel2) &&<li><Icon icon={'location'} />  {generalOffice?.tel1 && <Link href={`tel:${generalOffice?.tel1}`}>{generalOffice?.tel1}</Link>} {generalOffice?.tel2 && <Link href={`tel:${generalOffice?.tel2}`}>{generalOffice?.tel2}</Link>}</li>}
+                {generalOffice?.email && <li><Icon icon={'location'} />  <Link href={`mailto:${generalOffice?.email}`}>{generalOffice?.email}</Link> </li>}
               </ul>
-
-            </div>
+            </div>}
           </div>
           <div className={styles['contact__body']}>
             <div className={classNames('container-fluid', styles['container-fluid'])}>
-              <h3>Fabrikalarımız</h3>
-
-              {cards?.map((item, index) => <CardContact key={index} data={item} className={styles['card-contact']} />)}
-
-
-              <h3>Bölge Müdürlüklerimiz</h3>
-
-              {cards?.map((item, index) => <CardContact key={index} data={item} className={styles['card-contact']} />)}
+              {
+                offices?.map((item, i) => {
+                  if (item.id != '1') {
+                    return <div key={i}>
+                      <h3>{item?.title}</h3>
+                      {item?.offices?.map((office, index) => <CardContact key={index} data={office} className={styles['card-contact']} />)}
+                    </div>
+                  }
+                })
+              }
 
             </div>
 
@@ -144,9 +109,30 @@ export default function Contact() {
             </div>
           </div>
         </section>
-
-
       </Layout>
     </>
   )
+}
+
+export async function getStaticProps() {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ language: 'tr' })
+  }
+
+  const navlist = await fetch(`${process.env.API_URL}/navi`, options).then(r => r.json()).then(data => data.Result);
+  const statics = await fetch(`${process.env.API_URL}/statics`, options).then(r => r.json()).then(data => data.Result);
+  const offices = await fetch(`${process.env.API_URL}/offices`, options).then(r => r.json()).then(data => data.Result);
+
+  return {
+    props: {
+      navlist,
+      statics,
+      offices,
+    },
+    revalidate: 10,
+  }
 }

@@ -7,23 +7,24 @@ import { ScrollIcon } from "../"
 import styles from './PageTab.module.scss';
 
 export const PageTab = (props) => {
-  const { image, title, text } = props;
+  const { image, mobileImage, title, text } = props;
 
   return (
     <div className={styles['page-tab']}>
       <div className={styles['page-tab__content']}>
-        <picture>
+        {image && <picture>
+          {mobileImage && <source media="(max-width: 768px)" srcSet={mobileImage} />}
           <Image
             src={image}
             width={"1544"}
             height={"1080"}
             alt={title}
           />
-        </picture>
+        </picture>}
 
         <div className={styles['page-tab__desc']}>
-          <h2>{title}</h2>
-          <p>{text} </p>
+          {title && <h2>{title}</h2>}
+          {text && <p>{text} </p>}
         </div>
 
         <ScrollIcon />
@@ -34,6 +35,7 @@ export const PageTab = (props) => {
 
 PageTab.propTypes = {
   image: PropTypes.string,
+  mobileImage: PropTypes.string,
   title: PropTypes.string,
   text: PropTypes.string
 };

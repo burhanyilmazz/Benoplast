@@ -33,7 +33,7 @@ export const MobileFooter = (props) => {
                 <span>{item.title}</span>
                 <ul>
                   {
-                    item?.children.map((child, k) => {
+                    item?.children?.map((child, k) => {
                       return <li key={k}><Link href={`/${item.folder}/${slug(child.title)}-${child.id}`}>{child.title}</Link></li>
                     })
                   }

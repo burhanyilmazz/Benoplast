@@ -11,18 +11,17 @@ export const CardBlog = (props) => {
   return (
     <Link href={path} className={classNames(styles['card-blog'], className)}>
       <figure>
-        <picture>
-          <Image src={data?.image} width={'501'} height={'247'} alt={data?.title} fetchpriority="high" />
-        </picture>
+        {data?.listing_image && <picture>
+          <Image src={data?.listing_image} width={'501'} height={'247'} alt={data?.title} fetchpriority="high" />
+        </picture>}
         <figcaption>
-          <span>{new Intl.DateTimeFormat('tr', { year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(data.created_at))}</span>
-          <h3>{data?.title}</h3>
+          {data?.created_at && <span>{new Intl.DateTimeFormat('tr', { year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(data?.created_at))}</span>}
+          {data?.title && <h3>{data?.title}</h3>}
         </figcaption>
 
         {footer && <div className={styles['footer']}>
-            {footerText}
-            <div className={styles['arrow']} />
-          </div>}
+          {footerText} <div className={styles['arrow']} />
+        </div>}
       </figure>
     </Link>
   )

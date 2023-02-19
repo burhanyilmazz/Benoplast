@@ -9,10 +9,10 @@ const nextConfig = {
       styledComponents: true
    },
    images: {
-      domains: ['panel.benoplast.com', 'www.benoplast.com', 'benoplast.com', 'volde.ozanuzer.com']
+      domains: ['benoplast.ozanuzer.com']
    },
    env: {
-      API_URL: 'https://panel.benoplast.com/api',
+      API_URL: 'https://benoplast.ozanuzer.com/api',
       HOST_URL: 'https://www.benoplast.com'
    },
 }

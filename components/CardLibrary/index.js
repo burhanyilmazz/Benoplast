@@ -11,8 +11,8 @@ export const CardLibrary = (props) => {
   
   return (
     <Link href={path} target={'_blank'} className={classNames(styles['card'], className)}>
-      <span>{years}</span>
-      <h4>{title}</h4>
+      {years && <span>{years}</span>}
+      {title && <h4>{title}</h4>}
       <Icon icon={'pdf'} />
       <div className={styles['download']}>
         İndir <Icon icon={'download'} />

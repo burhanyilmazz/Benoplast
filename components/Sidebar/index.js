@@ -13,7 +13,7 @@ export const Sidebar = (props) => {
   const { isShow, nav, outsideClick } = props;
 
   const [list, setList] = useState(nav)
-  const [products] = useState(nav?.filter(item => item.type === 'products'))
+  const [products] = useState(nav?.filter(item => item.type === 'product'))
 
   const onClickNav = (index) => {
     list[index].isOpen = !list[index].isOpen;
@@ -39,7 +39,7 @@ export const Sidebar = (props) => {
           <ul>
             {
               list?.map((item, index) => {
-                if (item.type === 'products' || item.type === 'systems') return false;
+                if (item.type === 'product') return false;
 
                 if (item.children) {
                   return (
@@ -52,7 +52,6 @@ export const Sidebar = (props) => {
                       <ul>
                         {
                           item.children.map((child, i) => {
-                            if (item.type == 'products') return false
                             return (
                               <li key={i}><Link href={`/${item.folder}/${slug(child.title)}-${child.id}`}>{child.title}</Link></li>
                             )
@@ -73,15 +72,15 @@ export const Sidebar = (props) => {
       </div>
       <div className={classNames(styles['page'], styles['page-2'])}>
         <nav>
-          <h3>Ürün Grupları</h3>
+          <h3>{products[0].title}</h3>
           {products && <ul>
             {
               products?.map(item => item?.children.map((child, i) => {
                 return (
                   <li key={i}>
-                    <Link href={`${item.folder}/${slug(child.title)}-${child.id}-${item.id}`}>
+                    <Link href={`/${item.folder}/${slug(child.title)}-${child.id}`}>
                       <span>{child.title}</span>
-                      <Image src={child.src} width={164} height={110} alt={child.title} fetchpriority="high" />
+                      {child.listing_image && <Image src={child.listing_image} width={164} height={110} alt={child.title} fetchpriority="high" />}
                     </Link>
                   </li>
                 )

@@ -8,7 +8,7 @@ import { Header, Footer, Sidebar, MobileNav, Hamburger, SearchBar, Icon, Cookie 
 import styles from './Layout.module.scss';
 import { Basket } from '../components/Basket';
 
-export const Layout = ({ navlist, children }) => {
+export const Layout = ({ navlist, statics, children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [showCookie, setShowCookie] = useState(true);
@@ -20,13 +20,7 @@ export const Layout = ({ navlist, children }) => {
   useEffect(() => {
     document.querySelector('html').classList.remove('disable-scroll')
     setShowCookie(localStorage.getItem("cookie") != null ? localStorage.getItem("cookie") == 'false' ? false : true : true)
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 10) {
-        setIsfixed(true);
-      } else {
-        setIsfixed(false);
-      }
-    });
+    window.addEventListener('scroll', () => setIsfixed(window.scrollY > 10 ? true : false));
   }, [])
 
   const handleOnClickNav = (event) => {
@@ -58,6 +52,7 @@ export const Layout = ({ navlist, children }) => {
     setSidebarOpen(false)
     setSearchOpen(false)
     document.querySelector('html').classList.remove('disable-scroll')
+    window.scrollTo({ top: 0, behavior: 'smooth' })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.asPath])
 
@@ -73,21 +68,12 @@ export const Layout = ({ navlist, children }) => {
         <title>Benoplast</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <meta name="description" content="Benoplast" />
-        <meta name="facebook-domain-verification" content="sepri7zw1103gfagm59b6c3869khyz" />
       </Head>
-      <div className={classNames(styles['header-wrap'], { [styles['header-wrap--fixed']]: isfixed })}>
-        <Header />
-      </div>
-        <div className={styles['search']} onClick={() => handleOnClickSearch(!searchOpen)}>
-          <Icon icon={'search'} />
-        </div>
-        <div className={styles['basket']} onClick={() => handleOnClickBasket(!isBasket)}>
-          <Icon icon={'basket'} />
-          <span>2</span>
-        </div>
-        <div className={styles['language']}>
-          <Link href={'/'} className={styles['language--active']}>EN</Link>
-        </div>
+
+      <div className={classNames(styles['header-wrap'], { [styles['header-wrap--fixed']]: isfixed })}><Header /></div>
+      <div className={styles['search']} onClick={() => handleOnClickSearch(!searchOpen)}><Icon icon={'search'} /></div>
+      <div className={styles['basket']} onClick={() => handleOnClickBasket(!isBasket)}><Icon icon={'basket'} /><span>2</span></div>
+      <div className={styles['language']}><Link href={'/'} className={styles['language--active']}>EN</Link></div>
       <Hamburger isOpen={sidebarOpen} onClick={(event) => handleOnClickNav(event)} />
 
       <Sidebar nav={navlist} isShow={sidebarOpen} outsideClick={(event) => handleOnClickNav(event)} />
@@ -97,7 +83,7 @@ export const Layout = ({ navlist, children }) => {
       <main>
         {children}
       </main>
-      <Footer navlist={navlist} />
+      <Footer navlist={navlist} policylist={statics} />
       {showCookie && <Cookie onClick={() => handleOnClickCookie()} />}
     </>
   )

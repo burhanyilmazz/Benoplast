@@ -42,21 +42,25 @@ export const ContactForm = (props) => {
       setSubmitting(true)
 
       if (hr) {
-        await fetch(`${API_URL}/hr_form`, {
+        const formData = new FormData();
+        for (const property in values) {
+          formData.append(property, values[property]);
+        }
+
+       await fetch(`${process.env.API_URL}/hr_form`, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: values
+          body: formData
         }).then(r => r.json()).then(data => setModalOpen(true));
       } else {
-        await fetch(`${API_URL}/contact_form`, {
-          method: 'POST',
+        await fetch(`${process.env.API_URL}/contact_form`, {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
           },
-          body: JSON.stringify(values)
-        }).then(r => r.json()).then(data => setModalOpen(true));
+          body: JSON.stringify(values),
+        })
+          .then((r) => r.json())
+          .then((data) => setModalOpen(true));
       }
     },
   })
@@ -96,7 +100,7 @@ export const ContactForm = (props) => {
           <div className='form-group'>
             <div>
               <FormInput
-                field='Firma Ünvanı'
+                field='Adınız'
                 required
                 errorMessage={formik.errors.name}
                 {...formik.getFieldProps('name')}
@@ -105,7 +109,7 @@ export const ContactForm = (props) => {
             </div>
             <div>
               <FormInput
-                field='Adınız Soyadınız'
+                field='Soyadınız'
                 required
                 errorMessage={formik.errors.surname}
                 {...formik.getFieldProps('surname')}
@@ -147,26 +151,6 @@ export const ContactForm = (props) => {
             />
           </div>}
 
-          {/* {contacts &&
-            <div className='form-group'>
-              <div className={'select'}>
-                <select defaultValue={'default'}>
-                  <option disabled value={'default'}>Bulunduğunuz ili seçiniz</option>
-                  <option value={'İstanbul'}>İstanbul</option>
-                  <option value={'Sinop'}>Sinop</option>
-                </select>
-              </div>
-
-              <div className={'select'}>
-                <select defaultValue={'default'}>
-                  <option disabled value={'default'}>Bulunduğunuz ülkeyi seçiniz</option>
-                  <option value={'1'}>Türkiye</option>
-                  <option value={'2'}>İngiltere</option>
-                </select>
-              </div>
-            </div>
-          } */}
-
           <div className='form-group'>
             <FormTextarea
               field='Mesajınız'
@@ -189,14 +173,12 @@ export const ContactForm = (props) => {
             />
           </div>
 
-          <div className={classNames('form-group-buttons', { 'form-group-buttons--column': !hr })}>
+          <div className={'form-group-buttons'}>
             <div className={classNames('captcha', { 'is-invalid': formik.touched.recaptcha && formik.errors.recaptcha })}>
               <div id="captcha"></div>
               <pre>{formik.errors.recaptcha}</pre>
             </div>
-            {hr && <Button variant={'left-animation'} text={'Gönder'} button className={styles['button']} />}
-            {contacts && <Button variant={'left-animation'} text={'Gönder'} button className={styles['button']} />}
-
+            {hr || contacts && <Button variant={'left-animation'} text={'Gönder'} button className={styles['button']} />}
           </div>
 
           {!hr && !contacts &&

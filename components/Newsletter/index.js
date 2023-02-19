@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
 
-import { Icon, FormInput, Button, title } from "../"
+import { Icon, FormInput, Button } from "../"
 import styles from './Newsletter.module.scss';
 
 export const Newsletter = (props) => {
-  const { className, handleSubmit } = props;
+  const { className, handleSubmit, title } = props;
 
   const newsletterSchema = Yup.object().shape({
     email: Yup.string()
@@ -39,9 +39,8 @@ export const Newsletter = (props) => {
   return (
     <div className={classNames(styles['newsletter'], className)}>
       <div className={styles['container']}>
-        <div className={styles['title']}>
-          {title}
-        </div>
+        <div className={styles['title']}>{title}</div>
+
         <form onSubmit={formik.handleSubmit} noValidate>
           <div className={styles['form-input']}>
             <Icon icon={'email'} className={styles['icon']} />

@@ -8,8 +8,9 @@ import { SocialMedia, Logo, Newsletter, Library, Modal, Icon, MobileFooter } fro
 
 import styles from './Footer.module.scss';
 
-export const Footer = ({ navlist }) => {
+export const Footer = ({ navlist, policylist }) => {
   const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <>
       <section className={styles['foot']}>
@@ -21,6 +22,7 @@ export const Footer = ({ navlist }) => {
           </div>
         </div>
       </section>
+
       <footer className={styles['footer']}>
         <div className={classNames('container-fluid', styles['container'])}>
           <div className={styles['footer--mid']}>
@@ -34,13 +36,7 @@ export const Footer = ({ navlist }) => {
                     <div key={index}>
                       <h6>{item.title}</h6>
                       <ul>
-                        {
-                          item?.children?.map((child, i) => {
-                            return (
-                              <li key={i}><Link href={`/${item.folder}/${slug(child.title)}-${child.id}`}>{child.title}</Link></li>
-                            )
-                          })
-                        }
+                        { item?.children.map((child, i) =>  <li key={i}><Link href={`/${item.folder}/${slug(child.title)}-${child.id}`}>{child.title}</Link></li>)}
                       </ul>
                     </div>
                   )
@@ -48,7 +44,6 @@ export const Footer = ({ navlist }) => {
               }
               <div>
                 <ul>
-                  <li><Link href='/kariyer'>Kariyer</Link></li>
                   <li><Link href='/blog'>Blog / Haberler</Link></li>
                   <li><Link href='/iletisim'>İletişim</Link></li>
                 </ul>
@@ -58,9 +53,7 @@ export const Footer = ({ navlist }) => {
           </div>
           <div className={styles['policy']}>
             <ul>
-              <li><Link href='/politikalarimiz'>Politikalarımız</Link></li>
-              <li><Link href='/kisisel-verilerin-korunmasi'>Kişisel Verilerin Korunması</Link></li>
-              <li><Link href='/cerez-politikasi'>Çerez Politikası</Link></li>
+              {policylist?.map((item, index) => <li key={index}><Link href={`/politikalarimiz/${slug(item.title)}-${item.id}`}>{item.title}</Link></li>)}
             </ul>
           </div>
           <div className={styles['footer--bottom']}>

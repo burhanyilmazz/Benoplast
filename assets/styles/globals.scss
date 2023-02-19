@@ -250,8 +250,8 @@ ul {
     display: flex !important;
     color: #ff3d71;
     font-size: 12px;
-    font-family: "Satoshi", sans-serif;
-    font-weight: 500;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
     margin-top: 4px;
     position: absolute;
     bottom: -20px;
@@ -442,52 +442,6 @@ p {
   }
 }
 
-// Alt sayfalar
-
-.content {
-  display: flex;
-  background: #f7f7f7;
-
-  &--left {
-    width: 376px;
-    border-right: 1px solid #e4e6e7;
-
-    @media screen and (max-width: 1280px) {
-      display: none;
-    }
-  }
-
-  &--right {
-    width: calc(100% - 376px);
-
-    @media screen and (max-width: 1280px) {
-      width: 100%;
-    }
-  }
-
-  &__wrap {
-    margin: 110px 140px 107px 112px;
-
-    @media screen and (max-width: 1280px) {
-      margin: 100px 90px 50px;
-    }
-
-    @media screen and (max-width: 768px) {
-      margin: 100px 30px 50px;
-    }
-
-    h3 {
-      font-weight: 500;
-      font-size: 24px;
-      line-height: 28px;
-      margin-bottom: 20px;
-    }
-
-    p {
-      margin-bottom: 40px;
-    }
-  }
-}
 
 // Sanayi
 .industries {
@@ -520,8 +474,6 @@ p {
 
 .block {
   display: block;
-  min-height: 100vh;
-  min-height: 100svh;
   position: relative;
   margin: 50px 0;
 
@@ -530,6 +482,12 @@ p {
     line-height: clamp(22px, 2vw, 26px) !important;
     font-weight: 300 !important;
     text-align: left !important;
+    background: transparent !important;
+    font-family: "Roboto", sans-serif !important;
+    border: 0 !important;
+    outline: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
 
     &:empty {
       display: none;
@@ -541,7 +499,7 @@ p {
   }
 
   p {
-    margin-bottom: 20px;
+    margin-bottom: 20px !important;
 
     &:last-child {
       margin-bottom: 0;
@@ -576,5 +534,52 @@ p {
 
   ol {
     list-style: decimal;
+  }
+}
+
+// Alt sayfalar
+
+.content {
+  display: flex;
+  background: #f7f7f7;
+
+  &__left {
+    width: 376px;
+    border-right: 1px solid #e4e6e7;
+
+    @media screen and (max-width: 1280px) {
+      display: none;
+    }
+  }
+
+  &__right {
+    width: calc(100% - 376px);
+
+    @media screen and (max-width: 1280px) {
+      width: 100%;
+    }
+  }
+
+  &__wrap {
+    margin: 110px 140px 107px 112px;
+
+    @media screen and (max-width: 1280px) {
+      margin: 100px 90px 50px;
+    }
+
+    @media screen and (max-width: 768px) {
+      margin: 100px 30px 50px;
+    }
+
+    h3 {
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 28px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 40px;
+    }
   }
 }

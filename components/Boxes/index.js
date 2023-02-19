@@ -13,8 +13,8 @@ export const Boxes = (props) => {
       onMouseEnter={() => onMouseEnter && onMouseEnter()}
       onMouseLeave={() => onMouseLeave && onMouseLeave()}
     >
-      <h3>{title}</h3>
-      <span>{number}<sup>+</sup></span>
+      {title && <h3>{title}</h3>}
+      {number && <span>{number}<sup>+</sup></span>}
     </div>
   )
 }

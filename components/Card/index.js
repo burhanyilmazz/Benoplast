@@ -16,9 +16,15 @@ export const Card = (props) => {
         </picture>
         <figcaption>
           <h3>{title}</h3>
-          <span>{subTitle}</span>
-          <div className={styles['button']}><div className={styles['text']}>{buttonText}</div><Icon className={styles['icon']} icon={'plus-circle'}/><span /></div>
-          <Link href={path} className={styles['button-2']}><div className={styles['text']}>{buttonText2}</div><Icon className={styles['icon']} icon={'arrow'}/><span /></Link>
+          {subTitle && <span>{subTitle}</span>}
+          <div className={styles['button']}>
+            <div className={styles['text']}>{buttonText}</div>
+            <Icon className={styles['icon']} icon={'plus-circle'}/>
+          </div>
+          <Link href={path} className={styles['button-2']}>
+            <div className={styles['text']}>{buttonText2}</div>
+            <Icon className={styles['icon']} icon={'arrow'}/>
+          </Link>
         </figcaption>
       </figure>
     </div>

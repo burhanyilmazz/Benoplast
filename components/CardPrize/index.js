@@ -5,14 +5,13 @@ import Image from 'next/image'
 import styles from './CardPrize.module.scss';
 
 export const CardPrize = (props) => {
-  const { className, title, image, desc, rightImage, titleDate } = props;
+  const { className, title, image, rightImage} = props;
 
   return (
     <div className={classNames(styles['card-prize'], className)}>
       <figure>
         <figcaption>
-          <h3><span>{titleDate}</span>{title}</h3>
-          <span>{desc}</span>
+          <h3>{title}</h3>
         </figcaption>
         <picture>
           <Image src={image} width={'100'} height={'150'} alt={title} fetchpriority="high" />
@@ -28,12 +27,7 @@ export const CardPrize = (props) => {
 CardPrize.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string,
-  desc: PropTypes.string,
   image: PropTypes.string,
   path: PropTypes.string,
-  rightImage: PropTypes.string,
-  titleDate: PropTypes.string
-};
-
-CardPrize.defaultProps = {
+  rightImage: PropTypes.string
 };

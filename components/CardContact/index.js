@@ -13,10 +13,10 @@ export const CardContact = (props) => {
       <h4>{data?.title}</h4>
 
       <ul>
-        <li><span>Adres</span> {data?.address} </li>
-        <li><span>Telefon</span> <Link href={'#'}> {data?.fax} </Link> <Link href={'#'}> {data?.phone} </Link> </li>
-        <li><span>E-Posta</span> <Link href={'#'}>{data?.email}</Link> </li>
-        <li><span>Website</span> <Link href={data?.website}>{data?.website}</Link> </li>
+        {data?.address && <li><span>Adres</span> {data?.address} </li>}
+        {(data?.tel1 ||data?.tel2) &&<li><span>Telefon</span> {data?.tel1 && <Link href={`tel:${data?.tel1}`}>{data?.tel1}</Link>} {data?.tel2 && <Link href={`tel:${data?.tel2}`}>{data?.tel2}</Link>}</li>}
+        {data?.email && <li><span>E-Posta</span> <Link href={`mailto:${data?.email}`}>{data?.email}</Link> </li>}
+        {data?.website && <li><span>Website</span> <Link href={data?.website} target={'_blank'}>{data?.website}</Link> </li>}
       </ul>
    
     </div>
