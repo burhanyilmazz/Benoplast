@@ -5,9 +5,10 @@ import PropTypes from 'prop-types';
 import { Icon, Basket, ShareMedia } from "../"
 
 import styles from './OfferBox.module.scss';
+import Link from 'next/link';
 
 export const OfferBox = (props) => {
-  const { className, data, buttons, counts, text } = props;
+  const { className, buttons, counts, degree, tds } = props;
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -31,25 +32,33 @@ export const OfferBox = (props) => {
     <>
       <div className={classNames(styles['offer-box'], className)}>
         {buttons && <ul>
-          {data?.map((item, index) => {
-            return (
-              <li className={styles['offer-box__button']} key={index} onClick={() => item?.title == 'Sayfayı Paylaş' ? handleShare(!isShare) : null}>
-                <Icon icon={item?.icon} />
-                <span>{item?.title}</span>
-              </li>
-            )
-          })}
+          <li className={styles['offer-box__button']} onClick={() => handleShare(!isShare)}>
+            {isShare && <ShareMedia className={styles['share']} />}
+            <Icon icon='share' />
+            <span>Sayfayı Paylaş</span>
+          </li>
+          {degree && <li className={styles['offer-box__button']}>
+            <Icon icon='360degree' />
+            <span>XR 360</span>
+          </li>}
+          {tds && <li className={styles['offer-box__button']}>
+            <Link href={tds} target='_blank'>
+              <Icon icon='download' />
+              <span>Teknik Broşür (TDS)</span>
+            </Link>
+          </li>}
+          <li className={styles['offer-box__button']} >
+            <Icon icon='plus-circle' />
+            <span>Teklif Listesine Ekle</span>
+          </li>
         </ul>}
         <div className={styles['basket']} onClick={() => handleOnClickBasket(!isBasket)}>
           <Icon icon={'basket'} />
-          <span>{counts}</span>
-          {text}
+          <span>{counts}</span>Teklif Al
         </div>
       </div>
       <Basket isShow={isBasket} outsideClick={(event) => handleOnClickBasket(event)} />
-      {isShare && <ShareMedia className={styles['share']} />}
     </>
-
   )
 }
 
@@ -62,6 +71,5 @@ OfferBox.propTypes = {
 };
 
 OfferBox.defaultProps = {
-  text: 'Teklif Al',
   counts: 2
 }

@@ -47,7 +47,7 @@ export default function Product({navlist, statics, products, category}) {
               <h3>{activeNav[0]?.title}</h3>
 
               <div className={styles['product-wrap']}>
-                {category.map((item, index) => <Card key={index} title={item.title} image={item.listing_image} path={`${productDetailUrl}/${slug(item.title)}-${item.id}-${item.group_id}`} />)}
+                {category.map((item, index) => <Card key={index} title={item.title} image={item.listing_image} subTitle={activeNav[0]?.title} path={`${productDetailUrl}/${slug(item.title)}-${item.id}-${item.group_id}`} />)}
               </div>
             </div>
           </div>

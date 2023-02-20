@@ -12,18 +12,16 @@ export const GallerySlide = (props) => {
 
   const handleClick = () => onClick && onClick()
 
-  console.log(data)
-
   return (
     <>
       <div className={styles["gallery-slide"]}>
         <div className={styles['gallery-slide__big']} onClick={handleClick}>
-          <div className={styles['icon']}><Icon icon='zoom' /></div>
-          <Image src={image?.item_name} width={'271'} height={'184'} alt={'Benoplast Galeri'} onClick={() => setModalImage(image?.item_name)} />
+          <div className={styles['icon']} onClick={() => setModalImage(image?.item_name)}><Icon icon='zoom' /></div>
+          <div className={styles['img']}><Image src={image?.item_name} width={'271'} height={'184'} alt={'Benoplast Galeri'} onClick={() => setModalImage(image?.item_name)} /></div>
           {foodly && <Icon icon={'foodly'} />}
         </div>
         <div className={styles["gallery-slide__layer"]}>
-          {data?.map((item, index) => <picture key={index} onClick={() => setImage(item)}><Image src={item.item_name} width={'214'} height={'138'} alt={'Benoplast Galeri'} /></picture>)}
+          {data?.map((item, index) => <div key={index}><picture onClick={() => setImage(item)}><Image src={item.item_name} width={'214'} height={'138'} alt={'Benoplast Galeri'} /></picture></div>)}
         </div>
       </div>
 

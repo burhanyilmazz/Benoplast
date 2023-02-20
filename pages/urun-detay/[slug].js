@@ -14,17 +14,11 @@ export default function ProductDetail({navlist, statics, product}) {
   const nav = navlist.find(item => item.type === 'product')
   const activeNav = nav?.children?.filter(item => item.id == activeId)
   const productDetailUrl = '/urun-detay';
+  const sectorDetailUrl = '/sektorler';
 
   const handleOnChange = (event) => {
     router.push({ pathname : event.target.value })
   }
-
-  const cards = [
-    { title: 'B-400', subTitle: "Katlanır Kasa", image: '/images/cards/card-2.jpg' },
-    { title: 'B-400', subTitle: "Katlanır Kasa", image: '/images/cards/card-2.jpg' },
-    { title: 'B-400', subTitle: "Katlanır Kasa", image: '/images/cards/card-2.jpg' },
-    { title: 'B-400', subTitle: "Katlanır Kasa", image: '/images/cards/card-2.jpg' },
-  ]
 
   const breadcrumbList = [
     {
@@ -38,61 +32,6 @@ export default function ProductDetail({navlist, statics, product}) {
       title: activeNav[0]?.title,
       href: `/urun/${slug(activeNav[0]?.title)}-${activeNav[0]?.id}`
     }
-  ]
-
-  const industries = [
-    { title: 'SANAYİ', icon: 'industry', hover: '/images/content/industry.png' },
-    { title: 'TARIM', icon: 'agriculture', hover: '/images/content/agriculture.png' },
-    { title: 'GIDA', icon: 'food', hover: '/images/content/food.png' },
-    { title: 'LOJİSTİK', icon: 'logistics', hover: '/images/content/logistics.png' },
-    { title: 'ZİNCİR MARKETLER', icon: 'market', hover: '/images/content/market.png' },
-  ]
-
-  const gallery = [
-    {
-      thumbnail: "/images/products/product-big.jpg",
-      image: "/images/products/product-big.jpg",
-      big: "/images/products/product-big.jpg",
-    },
-    {
-      thumbnail: "/images/products/otomotiv.png",
-      image: "/images/products/otomotiv.png",
-      big: "/images/products/otomotiv.png",
-    },
-    {
-      thumbnail: "/images/products/product-big.jpg",
-      image: "/images/products/product-big.jpg",
-      big: "/images/products/product-big.jpg",
-    },
-    {
-      thumbnail: "/images/products/product-big.jpg",
-      image: "/images/products/product-big.jpg",
-      big: "/images/products/product-big.jpg",
-    },
-    {
-      thumbnail: "/images/products/product-big.jpg",
-      image: "/images/products/product-big.jpg",
-      big: "/images/products/product-big.jpg",
-    }
-  ]
-
-  const list = [
-    { icon: "dimensions", text: "400 x 600 x 300 mm (U x G x Y)" },
-    { icon: "truck", text: "370 x 570 x 283 mm (U x G x Y)" },
-    { icon: "dimensions", text: "370 x 570 x 283 mm (U x G x Y)" },
-    { icon: "union", text: "400 x 600 x 300 mm (U x G x Y)" },
-    { icon: "truck-big", text: "370 x 570 x 283 mm (U x G x Y)" },
-    { icon: "volume", text: "370 x 570 x 283 mm (U x G x Y)" },
-    { icon: "dimensions", text: "59.05 lt" },
-    { icon: "palett", text: "59.05 lt" },
-    { icon: "dimensions", text: "59.05 lt" },
-  ]
-
-  const offer = [
-    { icon: "share", title: "Sayfayı Paylaş" },
-    { icon: "360degree", title: "XR 360" },
-    { icon: "download", title: "Teknik Broşür (TDS)" },
-    { icon: "plus-circle", title: "Teklif Listesine Ekle" },
   ]
 
   console.log(product)
@@ -148,13 +87,13 @@ export default function ProductDetail({navlist, statics, product}) {
               <h3>Kullanıldığı Sektörler</h3>
 
               <div className={styles['product-detail__wrap']}>
-                {product?.selected_sectors?.map((item, index) => <ListBox key={index} data={item} />)}
+                {product?.selected_sectors?.map((item, index) => <ListBox key={index} data={item} path={`${sectorDetailUrl}/${slug(item.title)}-${item.id}`} />)}
               </div>
               </>}
             </div>
           </div>
 
-          <OfferBox data={offer} buttons />
+          <OfferBox buttons tds={product?.tech_file} degree={product?.xr360_src} />
         </section>
       </Layout>
     </>

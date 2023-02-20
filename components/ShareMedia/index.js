@@ -7,11 +7,9 @@ import styles from './ShareMedia.module.scss';
 
 export const ShareMedia = (props) => {
   const { className } = props;
-
   const router = useRouter();
 
   const pageUrl = `${process.env.HOST_URL}${router.asPath}`
-
 
   return (
     <div className={classNames(styles['share'], className)}>

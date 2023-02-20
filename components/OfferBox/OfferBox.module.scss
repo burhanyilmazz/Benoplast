@@ -40,6 +40,14 @@
       height: 75px;
     }
 
+    a {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      height: 100%;
+      color: #464f56;
+    }
+
     span {
       font-weight: 400;
       font-size: clamp(10px, 2vw, 12px);
@@ -61,6 +69,10 @@
     &:hover {
       background: #464f56 !important;
       color: #fff;
+
+      a {
+        color: #fff;
+      }
     }
   }
 }
@@ -130,15 +142,9 @@
   background: #f2f2f3;
   position: fixed;
   right: 150px;
-  bottom: 450px;
   z-index: 9;
   transition: all 0.3s ease;
 
-  @media screen and (max-width: 768px) {
-    bottom: 130px;
-    left: 0;
-    right: initial;
-  }
 
   &:before {
     content: "";
@@ -169,7 +175,6 @@
     margin: 0;
     gap: 0;
     flex-direction: column;
-
 
     @media screen and (max-width: 768px) {
       align-items: flex-start;

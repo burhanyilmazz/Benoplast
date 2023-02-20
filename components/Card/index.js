@@ -12,12 +12,12 @@ export const Card = (props) => {
     <div className={classNames(styles['card'], className)}>
       <figure>
         <figcaption>
-          <h3>{title}</h3>
+          {title && <h3>{title}</h3>}
           {subTitle && <span>{subTitle}</span>}
         </figcaption>
-        <picture>
+        {image && <picture>
           <Image src={image} width={'200'} height={'200'} alt={title} fetchpriority="high" />
-        </picture>
+        </picture>}
         <div className={styles['button']}>
           <div className={styles['text']}>{buttonText}</div>
           <Icon className={styles['icon']} icon={'plus-circle'} />

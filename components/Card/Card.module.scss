@@ -50,7 +50,7 @@
 .card {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 436px;
   display: block;
   overflow: hidden;
   width: 100%;
@@ -62,7 +62,7 @@
     color: #000;
     font-weight: 500;
     font-size: clamp(14px, 1.4vw, 20px);
-    line-height: clamp(18px, 1.5vw, 18px);
+    line-height: clamp(18px, 1.5vw, 24px);
     width: 100%;
     margin-top: 0;
     display: -webkit-box;
@@ -94,9 +94,10 @@
   picture {
     position: relative;
     width: 100%;
-    height: calc(100% - 185px);
+    height: 100%;
     display: flex;
     overflow: hidden;
+    z-index: 1;
   }
 
   img {
@@ -110,6 +111,8 @@
     width: 100%;
     transition: all 0.5s ease;
     padding: 20px 0 0 20px;
+    position: absolute;
+    z-index: 2;
   }
 
   @media (hover: hover) {
