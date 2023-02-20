@@ -11,8 +11,8 @@ export const ListBox = (props) => {
  
   return (
     <div className={classNames(styles['list-box'])}>
-      <Image src={data?.hover} width={'376'} height={'220'} alt={data?.title} fetchpriority="high"  />
-      <Icon icon={data?.icon} />
+      <Image src={data?.bg_image} width={'376'} height={'220'} alt={data?.title} fetchpriority="high"  />
+      <Image src={data?.icon_image} width={'376'} height={'220'} alt={data?.title} fetchpriority="high"  />
       <span>{data?.title}</span>
     </div>
   )

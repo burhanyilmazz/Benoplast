@@ -126,7 +126,7 @@ export default function ProductDetail({navlist, statics, product}) {
 
               <div dangerouslySetInnerHTML={{ __html: product?.content }} />
 
-              <div className={styles['product-detail__slider']}>
+              {product?.relations?.length > 0 && <div className={styles['product-detail__slider']}>
                 <h3>Uyumlu Ürünler</h3>
                 <div>
                   <Swiper
@@ -139,16 +139,18 @@ export default function ProductDetail({navlist, statics, product}) {
                     }}
                     className={'industries__carousel'}
                   >
-                    {cards.map((item, index) => <SwiperSlide key={index}><Card title={item.title} subTitle={item.subTitle} image={item.image} path={`${'#'}`} /></SwiperSlide>)}
+                    {product?.relations?.map((item, index) => <SwiperSlide key={index}><Card title={item.title} subTitle={item.cat_title} image={item.listing_image} path={`${productDetailUrl}/${slug(item.title)}-${item.id}-${item.group_id}`} /></SwiperSlide>)}
                   </Swiper>
                 </div>
-              </div>
+              </div>}
 
+              {product?.selected_sectors.length > 0 && <>
               <h3>Kullanıldığı Sektörler</h3>
 
               <div className={styles['product-detail__wrap']}>
-                {industries.map((item, index) => <ListBox key={index} data={item} />)}
+                {product?.selected_sectors?.map((item, index) => <ListBox key={index} data={item} />)}
               </div>
+              </>}
             </div>
           </div>
 
