@@ -12,7 +12,7 @@ export const ListBox = (props) => {
   return (
     <div className={classNames(styles['list-box'])}>
       <Image src={data?.bg_image} width={'376'} height={'220'} alt={data?.title} fetchpriority="high"  />
-      <Image src={data?.icon_image} width={'376'} height={'220'} alt={data?.title} fetchpriority="high"  />
+      <Image className={classNames(styles['list-box__icon'])} src={data?.icon_image} width={'376'} height={'220'} alt={data?.title} fetchpriority="high"  />
       <span>{data?.title}</span>
     </div>
   )

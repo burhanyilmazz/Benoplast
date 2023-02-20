@@ -36,16 +36,14 @@
       width: calc(25%);
       border-bottom: 0;
       border-right: 1px solid #d9d9d9;
+      padding: 10px 6px;
+      height: 75px;
     }
 
     span {
       font-weight: 400;
       font-size: clamp(10px, 2vw, 12px);
       line-height: clamp(14px, 2vw, 17px);
-    }
-
-    i:before {
-      font-size: 22px;
     }
 
     &:nth-child(2) {
@@ -86,6 +84,9 @@
 
   @media screen and (max-width: 768px) {
     width: 20%;
+    height: 75px;
+    padding: 10px;
+    font-size: 10px;
   }
 
   span {
@@ -107,10 +108,6 @@
 
   i {
     color: #000;
-
-    &:before {
-      font-size: 20px;
-    }
   }
 
   &:hover {
