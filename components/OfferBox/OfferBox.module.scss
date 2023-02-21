@@ -33,7 +33,8 @@
     transition: all 0.3s ease;
 
     @media screen and (max-width: 768px) {
-      width: calc(25%);
+      //width: calc(25%);
+      flex: 1 1 auto;
       border-bottom: 0;
       border-right: 1px solid #d9d9d9;
       padding: 10px 6px;
@@ -150,6 +151,12 @@
   z-index: 9;
   transition: all 0.3s ease;
 
+  @media screen and (max-width: 768px) {
+    left: 10px;
+    bottom: 85px !important;
+    right: initial !important;
+  }
+
   &:before {
     content: "";
     display: block;
@@ -180,8 +187,9 @@
     gap: 0;
     flex-direction: column;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1024px) {
       align-items: flex-start;
+      width: 100%;
     }
 
     li {
