@@ -73,6 +73,10 @@
       a {
         color: #fff;
       }
+
+      > div ul li a {
+        color: #000;
+      }
     }
   }
 }
@@ -139,12 +143,12 @@
 
 .share {
   flex-direction: column !important;
-  background: #f2f2f3;
-  position: fixed;
+  background: #f2f2f3 !important;
+  position: absolute;
+  bottom: 0;
   right: 150px;
   z-index: 9;
   transition: all 0.3s ease;
-
 
   &:before {
     content: "";
@@ -184,16 +188,20 @@
       a {
         border-radius: 0 !important;
         background: transparent !important;
-        width: 100%;
         border: 0 !important;
         width: 133px !important;
         border-bottom: 1px solid #d9d9d9 !important;
         position: relative;
         z-index: 2;
         justify-content: flex-start;
+        flex-direction: row;
 
         i {
           color: #464f56;
+        }
+
+        &:hover {
+          color: #464f56 !important;
         }
       }
 
