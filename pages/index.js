@@ -10,7 +10,7 @@ import slug from 'slug'
 import styles from '../assets/styles/Home.module.scss'
 
 export default function Home({navlist, sliders, statics, blogs, mainpage, productGroup}) {
-  const [bg, setBg] = useState(mainpage?.label[0]?.images)
+  const [bg, setBg] = useState(mainpage?.section2_image || mainpage?.label[0]?.images)
   const router = useRouter()
   useEffect(() => {
     const video = document.getElementById("video");
@@ -31,11 +31,11 @@ export default function Home({navlist, sliders, statics, blogs, mainpage, produc
           <div className='container'>
             <div className={styles['innovator__content']}>
               <div className={styles['innovator__text']}>
-                <h2>Avrupa’da ki ilk 5 üretici firmadan biri!</h2>
-                <p>Yenilikçi çözümleri ilk sunan firma olmanın gururuyla kaliteli, teknolojik, özgün ve işlevsel tasarım hedefiyle üretim gerçekleştiriyoruz. Türkiye ve dünyada, birçok global markaya yenilikçi çözümler sunuyoruz.</p>
+                {mainpage?.section2_title && <h2>{mainpage?.section2_title}</h2>}
+                {mainpage?.section2_desc && <p>{mainpage?.section2_desc}</p>}
               </div>
 
-              {mainpage?.label?.map((item, index) => <Boxes onMouseEnter={() => setBg(item?.images)} onMouseLeave={() => setBg(mainpage?.label[0]?.images)} key={index} title={item?.title} number={item?.counter} />)}
+              {mainpage?.label?.map((item, index) => <Boxes onMouseEnter={() => setBg(item?.images)} onMouseLeave={() => setBg(mainpage?.section2_image || mainpage?.label[0]?.images)} key={index} title={item?.title} number={item?.counter} />)}
             </div>
           </div>
         </section>}

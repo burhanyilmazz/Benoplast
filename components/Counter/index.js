@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -7,12 +7,11 @@ import { Icon } from '../../components';
 import styles from './Counter.module.scss';
 
 export const Counter = (props) => {
-  const { className, maxCount } = props;
-  const [counter, setCounter] = useState(0);
-
+  const { className, maxCount, onChange } = props;
+  const [counter, setCounter] = useState(1);
 
   const handleClickMinus = () => {
-    if (counter > 0) {
+    if (counter > 1) {
       setCounter(count => count - 1);
     }
   }
@@ -21,10 +20,14 @@ export const Counter = (props) => {
     setCounter(count => count + 1);
   }
 
+  useEffect(() => {
+    onChange && onChange(counter)
+  }, [counter])
+  
   return (
     <div className={classNames(styles['counter'], className)}>
       <div onClick={handleClickMinus} ><Icon icon="minus" /></div>
-      <input readOnly value={counter} max-count={maxCount} type="text" />
+      <input value={counter} max-count={maxCount} type="text" onChange={(event) => setCounter(Number(event.target.value))} />
       <div onClick={handleClickPlus} ><Icon icon="plus" /></div>
     </div>
   )
@@ -32,8 +35,6 @@ export const Counter = (props) => {
 
 Counter.propTypes = {
   className: PropTypes.string,
-  maxCount: PropTypes.number
-};
-
-Counter.defaultProps = {
+  maxCount: PropTypes.number,
+  onChange: PropTypes.func
 };

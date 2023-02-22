@@ -45,7 +45,7 @@ export default function Industries({navlist, statics, sector}) {
                   }}
                   className={'industries__carousel'}
                 >
-                  {sector?.selected_products?.map((item, index) => <SwiperSlide key={index}><Card title={item.title} subTitle={item.cat_title} image={item.listing_image} path={`${productDetail}/${slug(item.title)}-${item.id}-${item.group_id}`} /></SwiperSlide>)}
+                  {sector?.selected_products?.map((item, index) => <SwiperSlide key={index}><Card data={item} title={item.title} subTitle={item.cat_title} image={item.listing_image} path={`${productDetail}/${slug(item.title)}-${item.id}-${item.group_id}`} /></SwiperSlide>)}
                 </Swiper>
               </div>
             </div>

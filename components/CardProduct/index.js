@@ -6,11 +6,11 @@ import { Icon, Counter } from '../../components';
 import styles from './CardProduct.module.scss';
 
 export const CardProduct = (props) => { 
-  const { className, title, image, desc } = props;
+  const { className, title, image, desc, onClickDelete } = props;
   
   return (
     <div className={classNames(styles['card-product'], className)}>
-      <Icon className={styles['card-product__icon']} icon='trash'/>
+      <div onClick={onClickDelete}><Icon className={styles['card-product__icon']} icon='trash'/></div>
       <figure>
         <picture>
           <Image src={image} width={'133'} height={'80'} alt={title} fetchpriority="high" />
@@ -19,7 +19,7 @@ export const CardProduct = (props) => {
           <h3>{title}</h3>
           <span>{desc}</span>
         </figcaption>
-        <Counter />
+        <Counter onChange={(val) => console.log(val)} />
       </figure>
     </div>
   )
@@ -31,7 +31,5 @@ CardProduct.propTypes = {
 	desc: PropTypes.string,
 	image: PropTypes.string,
 	path: PropTypes.string,
-};
-
-CardProduct.defaultProps = {
+  onClickDelete: PropTypes.func
 };

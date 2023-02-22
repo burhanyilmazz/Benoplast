@@ -22,4 +22,11 @@
   &__slider {
     margin-bottom: 90px;
   }
+
+  iframe {
+    width: 100%;
+    max-width: 1200px;
+    height: 600px;
+    aspect-ratio: 16 / 9;
+  }
 }

@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   margin-top: 40px;
   gap: 30px;
+  min-height: 70vh;
 
   > div {
     width: calc(33.333% - 27px);

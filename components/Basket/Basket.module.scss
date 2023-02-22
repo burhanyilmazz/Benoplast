@@ -67,6 +67,11 @@
   &__content {
     padding: 70px 81px 30px 81px;
     border-top: 1px solid #eff1f2;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 250px);
+    margin-bottom: 20px;
 
     @media screen and (max-width: 1366px) {
       padding: 20px 81px;

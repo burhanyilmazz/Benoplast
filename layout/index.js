@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { CartContext } from "../context/cartContext"
 import classNames from 'classnames';
 import Head from 'next/head'
 import Link from 'next/link';
@@ -9,6 +10,7 @@ import styles from './Layout.module.scss';
 import { Basket } from '../components/Basket';
 
 export const Layout = ({ navlist, statics, children }) => {
+  const {items} = useContext(CartContext)
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [showCookie, setShowCookie] = useState(true);
@@ -72,7 +74,7 @@ export const Layout = ({ navlist, statics, children }) => {
 
       <div className={classNames(styles['header-wrap'], { [styles['header-wrap--fixed']]: isfixed })}><Header /></div>
       <div className={styles['search']} onClick={() => handleOnClickSearch(!searchOpen)}><Icon icon={'search'} /></div>
-      <div className={styles['basket']} onClick={() => handleOnClickBasket(!isBasket)}><Icon icon={'basket'} /><span>2</span></div>
+      <div className={styles['basket']} onClick={() => handleOnClickBasket(!isBasket)}><Icon icon={'basket'} /><span>{items?.length}</span></div>
       <div className={styles['language']}><Link href={'/'} className={styles['language--active']}>EN</Link></div>
       <Hamburger isOpen={sidebarOpen} onClick={(event) => handleOnClickNav(event)} />
 

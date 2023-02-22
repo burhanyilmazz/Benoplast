@@ -1,4 +1,5 @@
-
+import { useContext } from 'react';
+import { CartContext } from "../../context/cartContext"
 import { Layout } from '../../layout'
 import slug from 'slug'
 import {useRouter} from 'next/router'
@@ -6,7 +7,8 @@ import { LeftNav, Breadcrumb, Card, OfferBox } from '../../components';
 
 import styles from '../../assets/styles/Product.module.scss'
 
-export default function Product({navlist, statics, products, category}) {
+export default function Product({navlist, statics, category}) {
+  const { items } = useContext(CartContext)
   const router = useRouter()
   const activeId = router.asPath.split('-').slice(-1)[0]
   const nav = navlist.find(item => item.type === 'product')
@@ -47,11 +49,11 @@ export default function Product({navlist, statics, products, category}) {
               <h3>{activeNav[0]?.title}</h3>
 
               <div className={styles['product-wrap']}>
-                {category.map((item, index) => <Card key={index} title={item.title} image={item.listing_image} subTitle={activeNav[0]?.title} path={`${productDetailUrl}/${slug(item.title)}-${item.id}-${item.group_id}`} />)}
+                {category.map((item, index) => <Card data={item} key={index} title={item.title} image={item.listing_image} subTitle={activeNav[0]?.title} path={`${productDetailUrl}/${slug(item.title)}-${item.id}-${item.group_id}`} />)}
               </div>
             </div>
           </div>
-          <OfferBox />
+          <OfferBox counts={items?.length} />
         </section>
       </Layout>
     </>
@@ -100,7 +102,6 @@ export async function getStaticProps(ctx) {
     props: {
       navlist,
       statics,
-      products,
       category,
     },
     revalidate: 10,

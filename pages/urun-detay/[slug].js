@@ -1,14 +1,18 @@
-
+import { useState, useContext } from 'react';
+import { CartContext } from "../../context/cartContext"
 import { Layout } from '../../layout'
 import {useRouter} from 'next/router'
 import slug from 'slug'
-import { LeftNav, Breadcrumb, Card, Back, ListBox, GallerySlide, InfoList, OfferBox } from '../../components';
+import { LeftNav, Breadcrumb, Card, Back, ListBox, GallerySlide, InfoList, OfferBox, Modal } from '../../components';
 import { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import styles from '../../assets/styles/ProductDetail.module.scss'
+import classNames from 'classnames';
 
 export default function ProductDetail({navlist, statics, product}) {
+  const { items, addToCart } = useContext(CartContext)
+  const [modalGallery, setModalGallery] = useState();
   const router = useRouter()
   const activeId = router.asPath.split('-').slice(-1)[0]
   const nav = navlist.find(item => item.type === 'product')
@@ -34,12 +38,11 @@ export default function ProductDetail({navlist, statics, product}) {
     }
   ]
 
-  console.log(product)
 
   return (
     <>
       <Layout navlist={navlist} statics={statics}>
-        <section className={'content product'}>
+        <section className={classNames('content', 'product', styles['product-detail'])}>
           <div className={'content__left'}><LeftNav data={navlist.find(item => item.type === 'product')} /></div>
           <div className={'content__right'}>
             <div className={'content__wrap'}>
@@ -78,7 +81,7 @@ export default function ProductDetail({navlist, statics, product}) {
                     }}
                     className={'industries__carousel'}
                   >
-                    {product?.relations?.map((item, index) => <SwiperSlide key={index}><Card title={item.title} subTitle={item.cat_title} image={item.listing_image} path={`${productDetailUrl}/${slug(item.title)}-${item.id}-${item.group_id}`} /></SwiperSlide>)}
+                    {product?.relations?.map((item, index) => <SwiperSlide key={index}><Card data={item} title={item.title} subTitle={item.cat_title} image={item.listing_image} path={`${productDetailUrl}/${slug(item.title)}-${item.id}-${item.group_id}`} /></SwiperSlide>)}
                   </Swiper>
                 </div>
               </div>}
@@ -93,7 +96,18 @@ export default function ProductDetail({navlist, statics, product}) {
             </div>
           </div>
 
-          <OfferBox buttons tds={product?.tech_file} degree={product?.xr360_src} />
+          <OfferBox 
+            buttons 
+            tds={product?.tech_file} 
+            degree={product?.xr360_src}
+            counts={items?.length}
+            onClickXR={() => setModalGallery(true)}
+            onClickAddBasket={() => addToCart(product)}
+          />
+
+        { modalGallery && <Modal onClose={() => setModalGallery(false)}>
+          <iframe src={product?.xr360_src} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowFullScreen></iframe>
+        </Modal>}
         </section>
       </Layout>
     </>

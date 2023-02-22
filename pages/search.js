@@ -80,7 +80,7 @@ export default function SearchPage({navlist, statics}) {
             {data?.prodcuts?.length > 0 && <div className={styles['search__cards']}>
               <h4>Ürünler</h4>
               <div>
-                {data?.prodcuts?.map((item, index) => <Card key={index} title={item.title} image={item.listing_image} path={`${productDetailUrl}/${slug(item.title)}-${item.id}-${item.group_id}`} />)}
+                {data?.prodcuts?.map((item, index) => <Card data={item} key={index} title={item.title} image={item.listing_image} path={`${productDetailUrl}/${slug(item.title)}-${item.id}-${item.group_id}`} />)}
               </div>
             </div>}
 

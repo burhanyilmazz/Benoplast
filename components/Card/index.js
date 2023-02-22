@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { CartContext } from "../../context/cartContext"
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import Image from 'next/image'
@@ -6,7 +8,8 @@ import { Icon } from '../../components'
 import styles from './Card.module.scss';
 
 export const Card = (props) => {
-  const { className, title, image, path, subTitle, buttonText, buttonText2 } = props;
+  const { addToCart } = useContext(CartContext)
+  const { className, title, image, path, subTitle, buttonText, buttonText2, data } = props;
 
   return (
     <div className={classNames(styles['card'], className)}>
@@ -18,7 +21,7 @@ export const Card = (props) => {
         {image && <picture>
           <Image src={image} width={'200'} height={'200'} alt={title} fetchpriority="high" />
         </picture>}
-        <div className={styles['button']}>
+        <div className={styles['button']} onClick={() => addToCart(data)}>
           <div className={styles['text']}>{buttonText}</div>
           <Icon className={styles['icon']} icon={'plus-circle'} />
         </div>
