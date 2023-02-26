@@ -29,6 +29,8 @@ export const LeftNav = (props) => {
   useEffect(() => {
   }, [router.asPath])
 
+
+
   return (
     <div className={classNames(styles['left-nav'])}>
       <div className={styles['content']}>
@@ -36,7 +38,7 @@ export const LeftNav = (props) => {
         <ul>
           {list?.map((item, index) => {
             const url = folder ? `${folder}/${slug(item.title)}-${item.id}-${data.id}` : `/${data.folder}/${slug(item.title)}-${item.id}`
-            if (item.children) {
+            if (item.categories) {
               return (
                 <li key={index}
                   className={classNames({ [styles['active']]: item.isActive, [styles['open']]: item.isOpen })}
@@ -44,7 +46,7 @@ export const LeftNav = (props) => {
                 >
                   {item.title}
                   <ul>
-                    {item?.children?.map((i, k) => {
+                    {item?.categories?.map((i, k) => {
                       return <li key={k}><Link href={'#'}>{i.title}</Link></li>
                     })
                     }
